@@ -13,4 +13,8 @@ class AnimalsScene: SKScene {
     override func didMove(to view: SKView) {
         backgroundColor = .clear
     }
+    
+    func dropSprite() {
+        print("Drop sprite")
+    }
 }

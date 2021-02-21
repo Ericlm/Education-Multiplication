@@ -20,6 +20,12 @@ class AnswerButton: UIButton {
         }
     }
     
+    var numberToDisplay: Int! {
+        didSet {
+            setTitle("\(numberToDisplay!)", for: .normal)
+        }
+    }
+    
     override var isHighlighted: Bool {
         didSet {
             animateHighlight()
@@ -38,12 +44,13 @@ class AnswerButton: UIButton {
             self.backgroundColor = .red
         }
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.1, initialSpringVelocity: 50, options: [.curveEaseInOut]) { [unowned self] in
-            self.transform = CGAffineTransform(rotationAngle: 0.25)
-        } completion: { _ in
-            UIView.animate(withDuration: 0.1, delay: 0, options: []) {
-                self.backgroundColor = .darkGray
-                self.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
-            }
+            self.transform = CGAffineTransform(rotationAngle: 0.10)
+        }
+    }
+    
+    func enableAgain() {
+        UIView.animate(withDuration: 0.2) {
+            self.backgroundColor = UIColor(named: "AccentColor")
         }
     }
 }

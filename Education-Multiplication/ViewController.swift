@@ -14,32 +14,42 @@ class ViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     
     var numberOfAnswers = 4
+    var multiplication: Multiplication!
+    var scene: AnimalsScene!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let scene = AnimalsScene(size: animalsView.frame.size)
+        scene = AnimalsScene(size: animalsView.frame.size)
         animalsView.presentScene(scene)
+        
+        updateMultiplication()
     }
     
     @objc func buttonPressed(button: AnswerButton) {
-        button.playWrongAnswerAnimation()
+        if multiplication.isNumberCorrect(button.numberToDisplay) {
+            scene.dropSprite()
+        } else {
+            button.playWrongAnswerAnimation()
+        }
+    }
+    
+    private func updateMultiplication() {
+        multiplication = Multiplication(factorsRange: 1...12, numberOfAnswers: numberOfAnswers, numberOfFactors: 2)
+        multiplicationLabel.text = multiplication.operationText()
     }
 }
 
 extension ViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return numberOfAnswers / 2
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return numberOfAnswers
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AnswerCell", for: indexPath)
         cell.contentView.layer.cornerRadius = 20
         if let button = cell.contentView.viewWithTag(1) as? AnswerButton {
+            button.numberToDisplay = multiplication.possibleAnswers[indexPath.row]
             button.addTarget(self, action: #selector(buttonPressed(button:)), for: .touchUpInside)
         }
         return cell
@@ -52,12 +62,12 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDelegateFlow
         return CGSize(width: cellWidth, height: 120)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 50
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        var insets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        if section == 0 {
-            #warning("Abritrary inset, ideal for 4 buttons.")
-            insets.top = 200
-        }
+        let insets = UIEdgeInsets(top: 50, left: 10, bottom: 10, right: 10)
         return insets
     }
 }

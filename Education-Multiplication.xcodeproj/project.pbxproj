@@ -17,6 +17,7 @@
 		9064830F25E199AF00646826 /* Education_MultiplicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9064830E25E199AF00646826 /* Education_MultiplicationUITests.swift */; };
 		9064832625E241AE00646826 /* AnimalsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9064832525E241AE00646826 /* AnimalsScene.swift */; };
 		90AB89AA25E2753A006FEB04 /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AB89A925E2753A006FEB04 /* AnswerButton.swift */; };
+		90E4543725E2A16E00A294FA /* Multiplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E4543625E2A16E00A294FA /* Multiplication.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		9064831025E199AF00646826 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9064832525E241AE00646826 /* AnimalsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsScene.swift; sourceTree = "<group>"; };
 		90AB89A925E2753A006FEB04 /* AnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
+		90E4543625E2A16E00A294FA /* Multiplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multiplication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				906482F025E199AB00646826 /* ViewController.swift */,
 				9064832525E241AE00646826 /* AnimalsScene.swift */,
 				90AB89A925E2753A006FEB04 /* AnswerButton.swift */,
+				90E4543625E2A16E00A294FA /* Multiplication.swift */,
 				906482F225E199AB00646826 /* Main.storyboard */,
 				906482F525E199AF00646826 /* Assets.xcassets */,
 				906482F725E199AF00646826 /* LaunchScreen.storyboard */,
@@ -267,6 +270,7 @@
 				90AB89AA25E2753A006FEB04 /* AnswerButton.swift in Sources */,
 				9064832625E241AE00646826 /* AnimalsScene.swift in Sources */,
 				906482F125E199AB00646826 /* ViewController.swift in Sources */,
+				90E4543725E2A16E00A294FA /* Multiplication.swift in Sources */,
 				906482ED25E199AB00646826 /* AppDelegate.swift in Sources */,
 				906482EF25E199AB00646826 /* SceneDelegate.swift in Sources */,
 			);
