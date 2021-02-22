@@ -10,24 +10,61 @@ import XCTest
 
 class Education_MultiplicationTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testMultiplicationGeneratesCorrectNumberOfFactors() {
+        for factorNumber in 1...20 {
+            let multiplication = Multiplication(factorsRange: 0...0, selectedFactors: [], numberOfAnswers: 1, numberOfFactors: factorNumber)
+            let factorsCount = multiplication.operation.count - 1
+            XCTAssertEqual(factorNumber, factorsCount)
         }
     }
 
+    func testMultiplicationResultIsCorrect() {
+        for factor in 1...20 {
+            let multiplication = Multiplication(factorsRange: 1...factor, selectedFactors: [], numberOfAnswers: 1, numberOfFactors: 2)
+            let result = multiplication.operation.last!
+            let manualResult = multiplication.operation[0] * multiplication.operation[1]
+            XCTAssertEqual(result, manualResult)
+        }
+    }
+    
+    func testSelectedFactorIsInMultiplication() {
+        for selectedFactor in 1...20 {
+            let multiplication = Multiplication(factorsRange: 1...20, selectedFactors: [selectedFactor], numberOfAnswers: 1, numberOfFactors: 2)
+            XCTAssertNotNil(multiplication.operation.firstIndex(of: selectedFactor))
+        }
+    }
+    
+    func testOneOfSelectedFactorsIsAlwaysPresentInMultiplication() {
+        for numberOfSelectedFactors in 1...20 {
+            let selectedFactors = Array(1...numberOfSelectedFactors)
+            let multiplication = Multiplication(factorsRange: 1...20, selectedFactors: selectedFactors, numberOfAnswers: 1, numberOfFactors: 2)
+            
+            var isContained = false
+            for (index, factor) in multiplication.operation.enumerated() {
+                if index != multiplication.operation.count - 1 && selectedFactors.contains(factor) {
+                    isContained = true
+                }
+            }
+            
+            XCTAssert(isContained)
+        }
+    }
+    
+    func testOperationTextContainsSelectedFactor() {
+        let multiplication = Multiplication(factorsRange: 1...20, selectedFactors: [5], numberOfAnswers: 2, numberOfFactors: 2)
+        let text = multiplication.operationText()
+        XCTAssertNotNil(text.firstIndex(of: "5"))
+    }
+    
+    func testOperationTextContainsQuestionMark() {
+        let multiplication = Multiplication(factorsRange: 1...20, selectedFactors: [5], numberOfAnswers: 2, numberOfFactors: 2)
+        let text = multiplication.operationText()
+        XCTAssertNotNil(text.firstIndex(of: "?"))
+    }
+    
+    func testOperationTextContainsEqualSign() {
+        let multiplication = Multiplication(factorsRange: 1...9, selectedFactors: [], numberOfAnswers: 2, numberOfFactors: 2)
+        let text = multiplication.operationText()
+        XCTAssertNotNil(text.firstIndex(of: "="))
+    }
 }

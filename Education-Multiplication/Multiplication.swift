@@ -32,7 +32,7 @@ struct Multiplication {
     
     init(factorsRange: ClosedRange<Int> ,selectedFactors: [Int], numberOfAnswers: Int, numberOfFactors: Int) {
         self.factorsRange = factorsRange
-        self.selectedFactors = selectedFactors
+        self.selectedFactors = selectedFactors.isEmpty ? Array(factorsRange) : selectedFactors
         self.numberOfAnswers = numberOfAnswers
         self.numberOfFactors = numberOfFactors
         
