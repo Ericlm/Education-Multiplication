@@ -46,7 +46,7 @@
                                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Y9-dn-Iyq" customClass="AnswerButton" customModule="Education_Multiplication" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                     <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="30"/>
+                                                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="40"/>
                                                     <state key="normal" title="Button">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="thin"/>
@@ -121,7 +121,7 @@
     </scenes>
     <designables>
         <designable name="9Y9-dn-Iyq">
-            <size key="intrinsicContentSize" width="110" height="50"/>
+            <size key="intrinsicContentSize" width="146" height="63"/>
         </designable>
     </designables>
     <resources>

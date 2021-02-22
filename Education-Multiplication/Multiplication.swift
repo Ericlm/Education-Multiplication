@@ -8,19 +8,28 @@
 import Foundation
 
 struct Multiplication {
-    private let factorsRange: ClosedRange<Int>
-    private let numberOfAnswers: Int
+    /// The number of factors used wehn generating the multiplication
     private let numberOfFactors: Int
+    /// The range in which multiplication's factors can be generated
+    private let factorsRange: ClosedRange<Int>
+    /// The number of answers the multiplication must generate
+    private let numberOfAnswers: Int
     
+    /// A tuple describing the operation, separating the factors from the result
     private(set) var operation: (factors: [Int], result: Int)!
+    /// An array of all possible answers generated
     private(set) var possibleAnswers = [Int]()
     
+    /// The index of the answer inside an array representing all the numbers of the operation.
+    /// - Attention: The index is valid for the array where the **result is included**. It is **not valid** for the array representing the factors only.
     private var hiddenIndex: Int!
+    /// Represents the operation tuple, but combines the factors and the result, by appending it at the end of the factors' array.
     private var flatOperation: [Int] {
         var operationArray = operation.factors
         operationArray.append(operation.result)
         return operationArray
     }
+    /// The direct answer to the operation, **not** the index of the correct answer.
     private var correctAnswer: Int {
         return flatOperation[hiddenIndex]
     }
@@ -30,6 +39,11 @@ struct Multiplication {
         self.numberOfAnswers = numberOfAnswers
         self.numberOfFactors = numberOfFactors
         
+        /*
+            We first generate the operation, to later access its factors and result.
+            Once we have an operation, we can populate the hiddenIndex with a random index inside the operation.
+            Then, we can populate the possibleAnswers array.
+         */
         generateOperation()
         createHiddenIndex()
         generatePossibleAnswers()
@@ -57,7 +71,7 @@ struct Multiplication {
         //We always need one more slot to put the correct answer (we generate only 3 answers if 4 are needed)
         for _ in 1..<numberOfAnswers {
             #warning("We need to ensure that the answers are unique")
-            possibleAnswers.append(Int.random(in: 1...300))
+            possibleAnswers.append(Int.random(in: 1...100))
         }
         possibleAnswers.append(correctAnswer)
         
@@ -75,9 +89,11 @@ struct Multiplication {
         operationStringArray[hiddenIndex] = "?"
         
         let factorsStringArray = operationStringArray.prefix(upTo: operationStringArray.count-1)
-        let factorString = factorsStringArray.reduce(into: "") { (currentString, factor) in
+        var factorString = factorsStringArray.reduce(into: "") { (currentString, factor) in
             currentString += "\(factor) x "
         }
+        //Remove the last ' x' from the string
+        factorString.removeLast(2)
         var resultString = operationStringArray.last!
         resultString = "= \(resultString)"
         
