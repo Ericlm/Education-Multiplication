@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MultiplicationViewController.swift
 //  Education-Multiplication
 //
 //  Created by Eric Le Maître on 20/02/2021.
@@ -8,20 +8,23 @@
 import UIKit
 import SpriteKit
 
-class ViewController: UIViewController {
+class MultiplicationViewController: UIViewController {
     @IBOutlet var animalsView: SKView!
     @IBOutlet var multiplicationLabel: UILabel!
     @IBOutlet var collectionView: UICollectionView!
     
-    /// Time for fade-in and fade-out animations for buttons and label
+    /// Time for fade-in and fade-out animations for buttons and label.
     let animationTime = 0.4
     
-    /// The number of factors used to generate the multiplication
+    /// The number of factors used to generate the multiplication.
     let numberOfFactors = 2
-    /// The range of the factors the multiplication can be generated with
-    let factorsRange = 1...12
-    /// The number of answers that are available to the user
-    let numberOfAnswers = 4
+    /// The number of answers that are available to the user.
+    let numberOfAnswers = 6
+    
+    /// The factors the user selected to be questionned abou.t
+    var selectedFactors: [Int]!
+    /// The range of the factors the multiplication can be generated with.
+    var factorsRange: ClosedRange<Int>!
     
     /// The current running multiplication
     var multiplication: Multiplication!
@@ -35,8 +38,12 @@ class ViewController: UIViewController {
         scene = AnimalsScene(size: animalsView.frame.size)
         animalsView.presentScene(scene)
         
+        #warning("The selected factors and factor range are manually set")
+        selectedFactors = Array(1...2)
+        factorsRange = 1...1
+        
         //We generate a multiplication and assign its question to the label
-        multiplication = Multiplication(factorsRange: factorsRange, numberOfAnswers: numberOfAnswers, numberOfFactors: numberOfFactors)
+        multiplication = Multiplication(factorsRange: factorsRange, selectedFactors: selectedFactors, numberOfAnswers: numberOfAnswers, numberOfFactors: numberOfFactors)
         multiplicationLabel.text = multiplication.operationText()
     }
     
@@ -54,7 +61,7 @@ class ViewController: UIViewController {
     
     /// Updates the current multiplication by re-generating it, then animates the label and updates it to have the new multiplication's values. It also aks the button to reload their value.
     private func updateMultiplication() {
-        multiplication = Multiplication(factorsRange: factorsRange, numberOfAnswers: numberOfAnswers, numberOfFactors: numberOfFactors)
+        multiplication = Multiplication(factorsRange: factorsRange, selectedFactors: selectedFactors, numberOfAnswers: numberOfAnswers, numberOfFactors: numberOfFactors)
         
         //Multiplication label fade-out and fade-in
         UIView.animate(withDuration: animationTime) { [unowned self] in
@@ -78,7 +85,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UICollectionViewDataSource {
+extension MultiplicationViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return numberOfAnswers
     }
@@ -94,7 +101,7 @@ extension ViewController: UICollectionViewDataSource {
     }
 }
 
-extension ViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension MultiplicationViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     /// The vertical spacing needed between the cells.
     var verticalSpacing: CGFloat {
         traitCollection.horizontalSizeClass == .compact ? 20 : 20

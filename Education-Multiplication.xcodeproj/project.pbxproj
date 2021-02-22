@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		906482ED25E199AB00646826 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906482EC25E199AB00646826 /* AppDelegate.swift */; };
 		906482EF25E199AB00646826 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906482EE25E199AB00646826 /* SceneDelegate.swift */; };
-		906482F125E199AB00646826 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906482F025E199AB00646826 /* ViewController.swift */; };
+		906482F125E199AB00646826 /* MultiplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906482F025E199AB00646826 /* MultiplicationViewController.swift */; };
 		906482F425E199AB00646826 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 906482F225E199AB00646826 /* Main.storyboard */; };
 		906482F625E199AF00646826 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 906482F525E199AF00646826 /* Assets.xcassets */; };
 		906482F925E199AF00646826 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 906482F725E199AF00646826 /* LaunchScreen.storyboard */; };
@@ -41,7 +41,7 @@
 		906482E925E199AB00646826 /* Education-Multiplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Education-Multiplication.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		906482EC25E199AB00646826 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		906482EE25E199AB00646826 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		906482F025E199AB00646826 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		906482F025E199AB00646826 /* MultiplicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationViewController.swift; sourceTree = "<group>"; };
 		906482F325E199AB00646826 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		906482F525E199AF00646826 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		906482F825E199AF00646826 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 			children = (
 				906482EC25E199AB00646826 /* AppDelegate.swift */,
 				906482EE25E199AB00646826 /* SceneDelegate.swift */,
-				906482F025E199AB00646826 /* ViewController.swift */,
+				906482F025E199AB00646826 /* MultiplicationViewController.swift */,
 				9064832525E241AE00646826 /* AnimalsScene.swift */,
 				90AB89A925E2753A006FEB04 /* AnswerButton.swift */,
 				90E4543625E2A16E00A294FA /* Multiplication.swift */,
@@ -269,7 +269,7 @@
 			files = (
 				90AB89AA25E2753A006FEB04 /* AnswerButton.swift in Sources */,
 				9064832625E241AE00646826 /* AnimalsScene.swift in Sources */,
-				906482F125E199AB00646826 /* ViewController.swift in Sources */,
+				906482F125E199AB00646826 /* MultiplicationViewController.swift in Sources */,
 				90E4543725E2A16E00A294FA /* Multiplication.swift in Sources */,
 				906482ED25E199AB00646826 /* AppDelegate.swift in Sources */,
 				906482EF25E199AB00646826 /* SceneDelegate.swift in Sources */,
