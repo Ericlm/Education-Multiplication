@@ -13,7 +13,12 @@ class ViewController: UIViewController {
     @IBOutlet var multiplicationLabel: UILabel!
     @IBOutlet var collectionView: UICollectionView!
     
-    var numberOfAnswers = 4
+    let animationTime = 0.4
+    
+    let factorsRange = 1...12
+    let numberOfAnswers = 4
+    let numberOfFactors = 2
+    
     var multiplication: Multiplication!
     var scene: AnimalsScene!
     
@@ -23,20 +28,38 @@ class ViewController: UIViewController {
         scene = AnimalsScene(size: animalsView.frame.size)
         animalsView.presentScene(scene)
         
-        updateMultiplication()
+        multiplication = Multiplication(factorsRange: factorsRange, numberOfAnswers: numberOfAnswers, numberOfFactors: numberOfFactors)
+        multiplicationLabel.text = multiplication.operationText()
     }
     
     @objc func buttonPressed(button: AnswerButton) {
         if multiplication.isNumberCorrect(button.numberToDisplay) {
             scene.dropSprite()
+            updateMultiplication()
         } else {
             button.playWrongAnswerAnimation()
         }
     }
     
     private func updateMultiplication() {
-        multiplication = Multiplication(factorsRange: 1...12, numberOfAnswers: numberOfAnswers, numberOfFactors: 2)
-        multiplicationLabel.text = multiplication.operationText()
+        multiplication = Multiplication(factorsRange: factorsRange, numberOfAnswers: numberOfAnswers, numberOfFactors: numberOfFactors)
+        
+        UIView.animate(withDuration: animationTime) { [unowned self] in
+            multiplicationLabel.alpha = 0.0
+        } completion: { [unowned self] _ in
+            multiplicationLabel.text = multiplication.operationText()
+            UIView.animate(withDuration: animationTime) { [unowned self] in
+                multiplicationLabel.alpha = 1.0
+            } completion: { _ in
+            }
+        }
+
+        for (index,answerCell) in collectionView.visibleCells.enumerated() {
+            if let button = answerCell.contentView.viewWithTag(1) as? AnswerButton {
+                button.numberToDisplay = multiplication.possibleAnswers[index]
+                button.reload(animationTime: animationTime)
+            }
+        }
     }
 }
 
@@ -50,6 +73,7 @@ extension ViewController: UICollectionViewDataSource {
         cell.contentView.layer.cornerRadius = 20
         if let button = cell.contentView.viewWithTag(1) as? AnswerButton {
             button.numberToDisplay = multiplication.possibleAnswers[indexPath.row]
+            button.setTitle(String(button.numberToDisplay), for: .normal)
             button.addTarget(self, action: #selector(buttonPressed(button:)), for: .touchUpInside)
         }
         return cell

@@ -20,11 +20,10 @@ class AnswerButton: UIButton {
         }
     }
     
-    var numberToDisplay: Int! {
-        didSet {
-            setTitle("\(numberToDisplay!)", for: .normal)
-        }
-    }
+    var numberToDisplay: Int!
+    
+    var highlightOnAnimator: UIViewPropertyAnimator!
+    var highlightOffAnimator: UIViewPropertyAnimator!
     
     override var isHighlighted: Bool {
         didSet {
@@ -32,9 +31,17 @@ class AnswerButton: UIButton {
         }
     }
     
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
+        
+    }
+    
     private func animateHighlight() {
-        UIView.animate(withDuration: 0.2, delay: 0, options: .allowUserInteraction) { [unowned self] in
+        UIView.animate(withDuration: 0.2) { [unowned self] in
             self.transform = isHighlighted ? CGAffineTransform(scaleX: 0.9, y: 0.9) : .identity
+        } completion: { (isFinished) in
+            
         }
     }
     
@@ -48,9 +55,20 @@ class AnswerButton: UIButton {
         }
     }
     
-    func enableAgain() {
-        UIView.animate(withDuration: 0.2) {
-            self.backgroundColor = UIColor(named: "AccentColor")
+    func reload(animationTime: TimeInterval) {
+        isEnabled = false
+        self.transform = .identity
+        UIView.animate(withDuration: animationTime, delay: 0, options: []) { [unowned self] in
+            self.alpha = 0.0
+        } completion: { [unowned self] _ in
+            setTitle(String(numberToDisplay), for: .normal)
+            self.backgroundColor = .systemBlue
+            UIView.animate(withDuration: animationTime) {
+                self.alpha = 1.0
+            } completion: { [unowned self] _ in
+                isEnabled = true
+            }
+
         }
     }
 }
