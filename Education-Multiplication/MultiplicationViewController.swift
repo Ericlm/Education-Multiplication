@@ -16,15 +16,14 @@ class MultiplicationViewController: UIViewController {
     /// Time for fade-in and fade-out animations for buttons and label.
     let animationTime = 0.4
     
-    /// The number of factors used to generate the multiplication.
-    let numberOfFactors = 2
-    /// The number of answers that are available to the user.
-    let numberOfAnswers = 6
-    
     /// The factors the user selected to be questionned abou.t
     var selectedFactors: [Int]!
     /// The range of the factors the multiplication can be generated with.
     var factorsRange: ClosedRange<Int>!
+    /// The number of factors used to generate the multiplication.
+    var numberOfFactors: Int!
+    /// The number of answers that are available to the user.
+    var numberOfAnswers: Int!
     
     /// The current running multiplication
     var multiplication: Multiplication!
@@ -37,10 +36,6 @@ class MultiplicationViewController: UIViewController {
         //We create the scene with the size of the SKView and present it
         scene = AnimalsScene(size: animalsView.frame.size)
         animalsView.presentScene(scene)
-        
-        #warning("The selected factors and factor range are manually set")
-        selectedFactors = Array(1...2)
-        factorsRange = 1...1
         
         //We generate a multiplication and assign its question to the label
         multiplication = Multiplication(factorsRange: factorsRange, selectedFactors: selectedFactors, numberOfAnswers: numberOfAnswers, numberOfFactors: numberOfFactors)

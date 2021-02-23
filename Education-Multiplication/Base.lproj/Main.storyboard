@@ -9,10 +9,77 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Main Menu View Controller-->
+        <scene sceneID="3ZT-UR-TQL">
+            <objects>
+                <viewController id="wfw-Nt-Dpr" customClass="MainMenuViewController" customModule="Education_Multiplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="U1U-oQ-2RN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIB-TD-YpC">
+                                <rect key="frame" x="160.66666666666666" y="389" width="54" height="34"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="EAx-Uy-k9w" kind="show" identifier="SettingsSegue" id="exP-V1-F1T"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coucou" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ky-cP-qTE">
+                                <rect key="frame" x="130.33333333333334" y="182.66666666666666" width="114.66666666666666" height="40.666666666666657"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="u6y-ft-DER"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oIB-TD-YpC" firstAttribute="centerY" secondItem="U1U-oQ-2RN" secondAttribute="centerY" id="RkD-gJ-4gs"/>
+                            <constraint firstItem="1ky-cP-qTE" firstAttribute="centerY" secondItem="U1U-oQ-2RN" secondAttribute="centerY" multiplier="0.5" id="Yki-05-Hwn"/>
+                            <constraint firstItem="oIB-TD-YpC" firstAttribute="centerX" secondItem="U1U-oQ-2RN" secondAttribute="centerX" id="c0a-FV-Y2E"/>
+                            <constraint firstItem="1ky-cP-qTE" firstAttribute="centerX" secondItem="U1U-oQ-2RN" secondAttribute="centerX" id="r8i-V3-byP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="HHN-Qr-WoG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mou-To-NN9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1090" y="88"/>
+        </scene>
+        <!--Game Settings View Controller-->
+        <scene sceneID="YLm-jU-Cn1">
+            <objects>
+                <viewController storyboardIdentifier="GameSettings" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EAx-Uy-k9w" customClass="GameSettingsViewController" customModule="Education_Multiplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="JLj-Cd-hpo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zmI-Lv-hBe">
+                                <rect key="frame" x="137.66666666666666" y="379.66666666666669" width="100" height="53"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <state key="normal" title="Jouer !"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="MultiplicationSegue" id="Pjd-bU-e9U"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qwT-ye-d9g"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zmI-Lv-hBe" firstAttribute="centerX" secondItem="JLj-Cd-hpo" secondAttribute="centerX" id="cTT-X0-jAp"/>
+                            <constraint firstItem="zmI-Lv-hBe" firstAttribute="centerY" secondItem="JLj-Cd-hpo" secondAttribute="centerY" id="j6K-QI-S6w"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="1cU-u8-hoB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h8Y-IQ-Gh3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1966" y="88"/>
+        </scene>
         <!--Multiplication View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MultiplicationViewController" customModule="Education_Multiplication" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Multiplication" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="MultiplicationViewController" customModule="Education_Multiplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,7 +166,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1079.2" y="87.931034482758619"/>
+            <point key="canvasLocation" x="1966" y="853"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KlH-h4-yCN">
@@ -111,7 +178,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="pMS-5i-hrh"/>
+                        <segue destination="wfw-Nt-Dpr" kind="relationship" relationship="rootViewController" id="ouf-9h-aSZ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YlC-5J-VGB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
