@@ -17,30 +17,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIB-TD-YpC">
-                                <rect key="frame" x="160.66666666666666" y="389" width="54" height="34"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIB-TD-YpC" customClass="BigButton" customModule="Education_Multiplication" customModuleProvider="target">
+                                <rect key="frame" x="14" y="356" width="347" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="VYU-FJ-kIe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="40"/>
+                                <state key="normal" title="Nouvelle partie"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" systemColor="systemBlueColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="EAx-Uy-k9w" kind="show" identifier="SettingsSegue" id="exP-V1-F1T"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coucou" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ky-cP-qTE">
-                                <rect key="frame" x="130.33333333333334" y="182.66666666666666" width="114.66666666666666" height="40.666666666666657"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2zu-7d-c35">
+                                <rect key="frame" x="37.666666666666657" y="153" width="300" height="100"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="NRP-93-0sU"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="u6y-ft-DER"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="2zu-7d-c35" firstAttribute="centerX" secondItem="U1U-oQ-2RN" secondAttribute="centerX" id="2Xe-Dg-bmq"/>
                             <constraint firstItem="oIB-TD-YpC" firstAttribute="centerY" secondItem="U1U-oQ-2RN" secondAttribute="centerY" id="RkD-gJ-4gs"/>
-                            <constraint firstItem="1ky-cP-qTE" firstAttribute="centerY" secondItem="U1U-oQ-2RN" secondAttribute="centerY" multiplier="0.5" id="Yki-05-Hwn"/>
+                            <constraint firstItem="2zu-7d-c35" firstAttribute="centerY" secondItem="U1U-oQ-2RN" secondAttribute="centerY" multiplier="0.5" id="YYx-uf-OJe"/>
                             <constraint firstItem="oIB-TD-YpC" firstAttribute="centerX" secondItem="U1U-oQ-2RN" secondAttribute="centerX" id="c0a-FV-Y2E"/>
-                            <constraint firstItem="1ky-cP-qTE" firstAttribute="centerX" secondItem="U1U-oQ-2RN" secondAttribute="centerX" id="r8i-V3-byP"/>
+                            <constraint firstItem="2zu-7d-c35" firstAttribute="width" secondItem="U1U-oQ-2RN" secondAttribute="width" multiplier="0.8" id="cdE-Hn-njW"/>
+                            <constraint firstItem="oIB-TD-YpC" firstAttribute="width" secondItem="U1U-oQ-2RN" secondAttribute="width" multiplier="0.5" priority="750" id="gNm-xB-byN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HHN-Qr-WoG"/>
+                    <connections>
+                        <outlet property="rangeSliderView" destination="2zu-7d-c35" id="rb3-Sv-zPi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mou-To-NN9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -54,10 +72,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zmI-Lv-hBe">
-                                <rect key="frame" x="137.66666666666666" y="379.66666666666669" width="100" height="53"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zmI-Lv-hBe" customClass="BigButton" customModule="Education_Multiplication" customModuleProvider="target">
+                                <rect key="frame" x="112.66666666666669" y="366" width="150" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Zp4-yp-EPP"/>
+                                </constraints>
                                 <state key="normal" title="Jouer !"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" systemColor="systemBlueColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="MultiplicationSegue" id="Pjd-bU-e9U"/>
                                 </connections>
@@ -67,6 +95,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="zmI-Lv-hBe" firstAttribute="centerX" secondItem="JLj-Cd-hpo" secondAttribute="centerX" id="cTT-X0-jAp"/>
+                            <constraint firstItem="zmI-Lv-hBe" firstAttribute="width" secondItem="JLj-Cd-hpo" secondAttribute="width" multiplier="0.4" id="fAb-EZ-6Nl"/>
                             <constraint firstItem="zmI-Lv-hBe" firstAttribute="centerY" secondItem="JLj-Cd-hpo" secondAttribute="centerY" id="j6K-QI-S6w"/>
                         </constraints>
                     </view>
@@ -112,7 +141,6 @@
                                             <subviews>
                                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Y9-dn-Iyq" customClass="AnswerButton" customModule="Education_Multiplication" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                                    <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                     <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="40"/>
                                                     <state key="normal" title="Button">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -121,6 +149,9 @@
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                             <real key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                            <color key="value" systemColor="systemBlueColor"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </button>
@@ -190,6 +221,12 @@
         <designable name="9Y9-dn-Iyq">
             <size key="intrinsicContentSize" width="146" height="63"/>
         </designable>
+        <designable name="oIB-TD-YpC">
+            <size key="intrinsicContentSize" width="347" height="63"/>
+        </designable>
+        <designable name="zmI-Lv-hBe">
+            <size key="intrinsicContentSize" width="56" height="34"/>
+        </designable>
     </designables>
     <resources>
         <systemColor name="systemBackgroundColor">
@@ -197,6 +234,9 @@
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -16,10 +16,14 @@
 		9064830425E199AF00646826 /* Education_MultiplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9064830325E199AF00646826 /* Education_MultiplicationTests.swift */; };
 		9064830F25E199AF00646826 /* Education_MultiplicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9064830E25E199AF00646826 /* Education_MultiplicationUITests.swift */; };
 		9064832625E241AE00646826 /* AnimalsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9064832525E241AE00646826 /* AnimalsScene.swift */; };
+		9065535C25E4FA75005FBEEF /* StepRangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9065535B25E4FA75005FBEEF /* StepRangeSlider.swift */; };
+		9065536B25E61C25005FBEEF /* ThumbLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9065536A25E61C25005FBEEF /* ThumbLayer.swift */; };
 		907AE3D925E4149B00F95452 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907AE3D825E4149B00F95452 /* MainMenuViewController.swift */; };
 		907AE3DE25E41A2000F95452 /* GameSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907AE3DD25E41A2000F95452 /* GameSettingsViewController.swift */; };
 		90AB89AA25E2753A006FEB04 /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AB89A925E2753A006FEB04 /* AnswerButton.swift */; };
+		90AC273525E6317A00FBB37E /* ThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AC273425E6317A00FBB37E /* ThumbView.swift */; };
 		90BC3B7C25E4DDEB00CC3111 /* NavigationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BC3B7B25E4DDEB00CC3111 /* NavigationAnimator.swift */; };
+		90BC3B8125E4EC1000CC3111 /* BigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BC3B8025E4EC1000CC3111 /* BigButton.swift */; };
 		90E4543725E2A16E00A294FA /* Multiplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E4543625E2A16E00A294FA /* Multiplication.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,10 +60,14 @@
 		9064830E25E199AF00646826 /* Education_MultiplicationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Education_MultiplicationUITests.swift; sourceTree = "<group>"; };
 		9064831025E199AF00646826 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9064832525E241AE00646826 /* AnimalsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsScene.swift; sourceTree = "<group>"; };
+		9065535B25E4FA75005FBEEF /* StepRangeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepRangeSlider.swift; sourceTree = "<group>"; };
+		9065536A25E61C25005FBEEF /* ThumbLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbLayer.swift; sourceTree = "<group>"; };
 		907AE3D825E4149B00F95452 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		907AE3DD25E41A2000F95452 /* GameSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingsViewController.swift; sourceTree = "<group>"; };
 		90AB89A925E2753A006FEB04 /* AnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
+		90AC273425E6317A00FBB37E /* ThumbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbView.swift; sourceTree = "<group>"; };
 		90BC3B7B25E4DDEB00CC3111 /* NavigationAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationAnimator.swift; sourceTree = "<group>"; };
+		90BC3B8025E4EC1000CC3111 /* BigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButton.swift; sourceTree = "<group>"; };
 		90E4543625E2A16E00A294FA /* Multiplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multiplication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,14 +119,12 @@
 		906482EB25E199AB00646826 /* Education-Multiplication */ = {
 			isa = PBXGroup;
 			children = (
+				90AC273925E6363900FBB37E /* ViewControllers */,
+				9065536925E61BE5005FBEEF /* Custom controls */,
 				906482EC25E199AB00646826 /* AppDelegate.swift */,
 				906482EE25E199AB00646826 /* SceneDelegate.swift */,
-				906482F025E199AB00646826 /* MultiplicationViewController.swift */,
-				907AE3D825E4149B00F95452 /* MainMenuViewController.swift */,
 				90BC3B7B25E4DDEB00CC3111 /* NavigationAnimator.swift */,
-				907AE3DD25E41A2000F95452 /* GameSettingsViewController.swift */,
 				9064832525E241AE00646826 /* AnimalsScene.swift */,
-				90AB89A925E2753A006FEB04 /* AnswerButton.swift */,
 				90E4543625E2A16E00A294FA /* Multiplication.swift */,
 				906482F225E199AB00646826 /* Main.storyboard */,
 				906482F525E199AF00646826 /* Assets.xcassets */,
@@ -144,6 +150,28 @@
 				9064831025E199AF00646826 /* Info.plist */,
 			);
 			path = "Education-MultiplicationUITests";
+			sourceTree = "<group>";
+		};
+		9065536925E61BE5005FBEEF /* Custom controls */ = {
+			isa = PBXGroup;
+			children = (
+				90BC3B8025E4EC1000CC3111 /* BigButton.swift */,
+				90AB89A925E2753A006FEB04 /* AnswerButton.swift */,
+				9065535B25E4FA75005FBEEF /* StepRangeSlider.swift */,
+				90AC273425E6317A00FBB37E /* ThumbView.swift */,
+				9065536A25E61C25005FBEEF /* ThumbLayer.swift */,
+			);
+			path = "Custom controls";
+			sourceTree = "<group>";
+		};
+		90AC273925E6363900FBB37E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				906482F025E199AB00646826 /* MultiplicationViewController.swift */,
+				907AE3D825E4149B00F95452 /* MainMenuViewController.swift */,
+				907AE3DD25E41A2000F95452 /* GameSettingsViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,11 +305,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				90AB89AA25E2753A006FEB04 /* AnswerButton.swift in Sources */,
+				90BC3B8125E4EC1000CC3111 /* BigButton.swift in Sources */,
 				9064832625E241AE00646826 /* AnimalsScene.swift in Sources */,
 				907AE3DE25E41A2000F95452 /* GameSettingsViewController.swift in Sources */,
 				906482F125E199AB00646826 /* MultiplicationViewController.swift in Sources */,
+				9065535C25E4FA75005FBEEF /* StepRangeSlider.swift in Sources */,
 				90E4543725E2A16E00A294FA /* Multiplication.swift in Sources */,
 				907AE3D925E4149B00F95452 /* MainMenuViewController.swift in Sources */,
+				90AC273525E6317A00FBB37E /* ThumbView.swift in Sources */,
+				9065536B25E61C25005FBEEF /* ThumbLayer.swift in Sources */,
 				906482ED25E199AB00646826 /* AppDelegate.swift in Sources */,
 				906482EF25E199AB00646826 /* SceneDelegate.swift in Sources */,
 				90BC3B7C25E4DDEB00CC3111 /* NavigationAnimator.swift in Sources */,

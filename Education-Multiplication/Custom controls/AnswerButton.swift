@@ -7,43 +7,11 @@
 
 import UIKit
 
-@IBDesignable
-class AnswerButton: UIButton {
-    @IBInspectable private var cornerRadius: CGFloat {
-        get {
-            return layer.cornerRadius
-        }
-        
-        set {
-            layer.masksToBounds = newValue > 0
-            layer.cornerRadius = newValue
-        }
-    }
-    
+class AnswerButton: BigButton {
     var numberToDisplay: Int!
     
     var highlightOnAnimator: UIViewPropertyAnimator!
     var highlightOffAnimator: UIViewPropertyAnimator!
-    
-    override var isHighlighted: Bool {
-        didSet {
-            animateHighlight()
-        }
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        
-        
-    }
-    
-    private func animateHighlight() {
-        UIView.animate(withDuration: 0.2) { [unowned self] in
-            self.transform = isHighlighted ? CGAffineTransform(scaleX: 0.9, y: 0.9) : .identity
-        } completion: { (isFinished) in
-            
-        }
-    }
     
     func playWrongAnswerAnimation() {
         self.isEnabled = false

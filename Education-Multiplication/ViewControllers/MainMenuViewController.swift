@@ -8,6 +8,8 @@
 import UIKit
 
 class MainMenuViewController: UIViewController {
+    @IBOutlet var rangeSliderView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,6 +19,9 @@ class MainMenuViewController: UIViewController {
         navigationController?.view.insertSubview(imageView, at: 0)
         
         navigationController?.delegate = self
+        
+        let slider = StepRangeSlider(frame: rangeSliderView.bounds, range: 1...12)
+        rangeSliderView.addSubview(slider)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
