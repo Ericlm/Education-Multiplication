@@ -16,10 +16,13 @@ class MainMenuViewController: UIViewController {
         let image = UIImage(named: "uncolored_castle")
         let imageView = UIImageView(frame: view.frame)
         imageView.image = image
+        imageView.contentMode = .scaleAspectFill
         navigationController?.view.insertSubview(imageView, at: 0)
         
         navigationController?.delegate = self
-        
+    }
+    
+    override func viewDidLayoutSubviews() {
         let slider = StepRangeSlider(frame: rangeSliderView.bounds, range: 1...12)
         rangeSliderView.addSubview(slider)
     }

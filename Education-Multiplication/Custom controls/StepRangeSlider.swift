@@ -9,20 +9,27 @@ import UIKit
 
 class StepRangeSlider: UIControl {
     private let range: ClosedRange<Int>
-    private let lowerValue = 0
-    private let upperValue = 0.8
     
-    private let thumbSize = CGSize(width: 50, height: 50)
+    private(set) var lowerValue: Int
+    private(set) var upperValue: Int
+    
+    private let thumbSize = CGSize(width: 40, height: 40)
     private let trackLayer = CALayer()
+    private var rangeStepsLayer: RangeSliderStepsLayer!
+    
     private var lowerThumbView: ThumbView!
     private var upperThumbView: ThumbView!
     
-    init(frame: CGRect, range: ClosedRange<Int>) {
+    init(frame: CGRect, range: ClosedRange<Int>, lowerValue: Int? = nil, upperValue: Int? = nil) {
         self.range = range
+        self.lowerValue = lowerValue ?? range.min()!
+        self.upperValue = upperValue ?? range.max()!
+        
         super.init(frame: frame)
         
         createTrack()
         createThumbViews()
+        drawRange()
     }
     
     required init?(coder: NSCoder) {
@@ -39,19 +46,30 @@ class StepRangeSlider: UIControl {
         lowerThumbView = ThumbView(frame: CGRect(origin: .zero, size: thumbSize))
         lowerThumbView.isUserInteractionEnabled = false
         lowerThumbView.center.y = trackLayer.frame.origin.y + trackLayer.frame.height/2
-        lowerThumbView.center.x = trackLayer.frame.origin.x + trackLayer.frame.width * CGFloat(lowerValue)
+        let normalizedLower = CGFloat(lowerValue) / CGFloat(range.max()!)
+        lowerThumbView.center.x = trackLayer.frame.origin.x + trackLayer.frame.width * normalizedLower
         addSubview(lowerThumbView)
         lowerThumbView.layer.setNeedsDisplay()
         
         upperThumbView = ThumbView(frame: CGRect(origin: .zero, size: thumbSize))
         upperThumbView.isUserInteractionEnabled = false
         upperThumbView.center.y = trackLayer.frame.origin.y + trackLayer.frame.height/2
-        upperThumbView.center.x = trackLayer.frame.origin.x + trackLayer.frame.width * CGFloat(upperValue)
+        let normalizedUpper = CGFloat(upperValue) / CGFloat(range.max()!)
+        upperThumbView.center.x = trackLayer.frame.origin.x + trackLayer.frame.width * CGFloat(normalizedUpper)
         addSubview(upperThumbView)
         upperThumbView.layer.setNeedsDisplay()
     }
+    
+    private func drawRange() {
+        CATransaction.begin()
+        rangeStepsLayer = RangeSliderStepsLayer(layer: trackLayer)
+        rangeStepsLayer.setNeedsDisplay()
+        trackLayer.addSublayer(rangeStepsLayer)
+        CATransaction.commit()
+    }
 }
 
+// TODO: - Start with continuous update, then step update, then max and min for each value
 extension StepRangeSlider {
     override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
         let touchLocation = touch.location(in: self)
@@ -71,8 +89,10 @@ extension StepRangeSlider {
         let touchLocation = touch.location(in: self)
         
         if lowerThumbView.isHighlighted {
+            lowerThumbView.center.x = clampPosition(position: touchLocation)
             return true
         } else if upperThumbView.isHighlighted {
+            upperThumbView.center.x = clampPosition(position: touchLocation)
             return true
         }
         
@@ -82,5 +102,21 @@ extension StepRangeSlider {
     override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
         lowerThumbView.isHighlighted = false
         upperThumbView.isHighlighted = false
+    }
+    
+    private func clampPosition(position: CGPoint) -> CGFloat {
+        // We convert the position from the view's layer to the trackLayer
+        let localPosition = trackLayer.convert(position, from: layer)
+        let floatingStep = localPosition.x / rangeStepsLayer.stepSize
+        let roundedSteps = Int(floatingStep.rounded())
+        
+        let minimumPosition = range.min()! - 1
+        let maximumPosition = range.max()!
+        let clampedStep = max(minimumPosition, min(roundedSteps, maximumPosition))
+        
+        let stepPosition = CGFloat(clampedStep) * rangeStepsLayer.stepSize
+        let localFramePosition = layer.convert(CGPoint(x: stepPosition, y: trackLayer.frame.midY), from: trackLayer).x
+        
+        return localFramePosition
     }
 }

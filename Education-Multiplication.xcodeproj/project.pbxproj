@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		901EC25425E64477009405B2 /* RangeSliderStepsLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901EC25325E64477009405B2 /* RangeSliderStepsLayer.swift */; };
 		906482ED25E199AB00646826 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906482EC25E199AB00646826 /* AppDelegate.swift */; };
 		906482EF25E199AB00646826 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906482EE25E199AB00646826 /* SceneDelegate.swift */; };
 		906482F125E199AB00646826 /* MultiplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906482F025E199AB00646826 /* MultiplicationViewController.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		901EC25325E64477009405B2 /* RangeSliderStepsLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeSliderStepsLayer.swift; sourceTree = "<group>"; };
 		906482E925E199AB00646826 /* Education-Multiplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Education-Multiplication.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		906482EC25E199AB00646826 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		906482EE25E199AB00646826 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				90BC3B8025E4EC1000CC3111 /* BigButton.swift */,
 				90AB89A925E2753A006FEB04 /* AnswerButton.swift */,
 				9065535B25E4FA75005FBEEF /* StepRangeSlider.swift */,
+				901EC25325E64477009405B2 /* RangeSliderStepsLayer.swift */,
 				90AC273425E6317A00FBB37E /* ThumbView.swift */,
 				9065536A25E61C25005FBEEF /* ThumbLayer.swift */,
 			);
@@ -310,6 +313,7 @@
 				907AE3DE25E41A2000F95452 /* GameSettingsViewController.swift in Sources */,
 				906482F125E199AB00646826 /* MultiplicationViewController.swift in Sources */,
 				9065535C25E4FA75005FBEEF /* StepRangeSlider.swift in Sources */,
+				901EC25425E64477009405B2 /* RangeSliderStepsLayer.swift in Sources */,
 				90E4543725E2A16E00A294FA /* Multiplication.swift in Sources */,
 				907AE3D925E4149B00F95452 /* MainMenuViewController.swift in Sources */,
 				90AC273525E6317A00FBB37E /* ThumbView.swift in Sources */,
