@@ -89,10 +89,10 @@ extension StepRangeSlider {
         let touchLocation = touch.location(in: self)
         
         if lowerThumbView.isHighlighted {
-            lowerThumbView.center.x = clampPosition(position: touchLocation)
+            lowerThumbView.center.x = clampPosition(position: touchLocation, isUpThumb: false)
             return true
         } else if upperThumbView.isHighlighted {
-            upperThumbView.center.x = clampPosition(position: touchLocation)
+            upperThumbView.center.x = clampPosition(position: touchLocation, isUpThumb: true)
             return true
         }
         
@@ -104,15 +104,34 @@ extension StepRangeSlider {
         upperThumbView.isHighlighted = false
     }
     
-    private func clampPosition(position: CGPoint) -> CGFloat {
+    private func clampPosition(position: CGPoint, isUpThumb: Bool) -> CGFloat {
         // We convert the position from the view's layer to the trackLayer
         let localPosition = trackLayer.convert(position, from: layer)
         let floatingStep = localPosition.x / rangeStepsLayer.stepSize
         let roundedSteps = Int(floatingStep.rounded())
         
-        let minimumPosition = range.min()! - 1
-        let maximumPosition = range.max()!
+        let minimumPosition: Int
+        if isUpThumb {
+            minimumPosition = lowerValue + 1
+        } else {
+            minimumPosition = range.min()! - 1
+        }
+        let maximumPosition: Int
+        if isUpThumb {
+            maximumPosition = range.max()!
+        } else {
+            maximumPosition = upperValue - 1
+        }
+        
+        //let minimumPosition = range.min()! - 1
+        //let maximumPosition = range.max()!
         let clampedStep = max(minimumPosition, min(roundedSteps, maximumPosition))
+        
+        if isUpThumb {
+            upperValue = clampedStep
+        } else {
+            lowerValue = clampedStep
+        }
         
         let stepPosition = CGFloat(clampedStep) * rangeStepsLayer.stepSize
         let localFramePosition = layer.convert(CGPoint(x: stepPosition, y: trackLayer.frame.midY), from: trackLayer).x

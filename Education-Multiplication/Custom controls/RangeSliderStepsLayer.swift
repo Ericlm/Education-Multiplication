@@ -19,7 +19,7 @@ class RangeSliderStepsLayer: CALayer {
         super.init(layer: layer)
         
         if let layer = layer as? CALayer {
-            let width = layer.bounds.width// + strokeWidth
+            let width = layer.bounds.width
             let xOrigin = layer.bounds.minX - strokeWidth / 2
             
             frame = CGRect(x: xOrigin, y: layer.bounds.minY, width: width, height: layer.bounds.height)
