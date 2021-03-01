@@ -1,5 +1,5 @@
 //
-//  RangeSliderSteps.swift
+//  RangeSliderStepsLayer.swift
 //  Education-Multiplication
 //
 //  Created by Eric Le Maître on 24/02/2021.
@@ -42,7 +42,7 @@ class RangeSliderStepsLayer: CALayer {
         let line = CAShapeLayer()
         let linePath = UIBezierPath()
         linePath.move(to: CGPoint(x: xPosition, y: 0))
-        linePath.addLine(to: CGPoint(x: xPosition, y: bounds.maxY * 1.2))
+        linePath.addLine(to: CGPoint(x: xPosition, y: bounds.maxY))
         line.path = linePath.cgPath
         line.strokeColor = UIColor.white.cgColor
         line.lineWidth = strokeWidth

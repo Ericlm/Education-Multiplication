@@ -1,5 +1,5 @@
 //
-//  NavigationAnimator.swift
+//  SlideNavigationAnimator.swift
 //  Education-Multiplication
 //
 //  Created by Eric Le Maître on 23/02/2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NavigationAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+class SlideNavigationAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     private let presenting: Bool
     
     init(presenting: Bool) {
@@ -27,21 +27,16 @@ class NavigationAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         if presenting {
             toView.transform = CGAffineTransform(translationX: container.frame.width, y: 0)
             container.addSubview(toView)
-            toView.alpha = 0.0
         } else {
             container.insertSubview(toView, belowSubview: fromView)
         }
         
-        UIView.animate(withDuration: transitionDuration(using: transitionContext)) {
+        UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, options: [.curveEaseInOut]) {
             if self.presenting {
-                toView.alpha = 1.0
                 toView.transform = CGAffineTransform.identity
-                
-                
-                fromView.alpha = 0
+                fromView.transform = CGAffineTransform(translationX: -container.frame.width, y: 0)
             } else {
-                fromView.alpha = 1.0
-                toView.alpha = 1.0
+                
             }
         } completion: { _ in
             let success = !transitionContext.transitionWasCancelled
@@ -50,9 +45,5 @@ class NavigationAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             }
             transitionContext.completeTransition(success)
         }
-
-
     }
-    
-
 }

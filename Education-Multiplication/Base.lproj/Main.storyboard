@@ -36,29 +36,16 @@
                                     <segue destination="EAx-Uy-k9w" kind="show" identifier="SettingsSegue" id="exP-V1-F1T"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2zu-7d-c35">
-                                <rect key="frame" x="37.666666666666657" y="153" width="300" height="100"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="NRP-93-0sU"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="u6y-ft-DER"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="2zu-7d-c35" firstAttribute="centerX" secondItem="U1U-oQ-2RN" secondAttribute="centerX" id="2Xe-Dg-bmq"/>
                             <constraint firstItem="oIB-TD-YpC" firstAttribute="centerY" secondItem="U1U-oQ-2RN" secondAttribute="centerY" id="RkD-gJ-4gs"/>
-                            <constraint firstItem="2zu-7d-c35" firstAttribute="centerY" secondItem="U1U-oQ-2RN" secondAttribute="centerY" multiplier="0.5" id="YYx-uf-OJe"/>
                             <constraint firstItem="oIB-TD-YpC" firstAttribute="centerX" secondItem="U1U-oQ-2RN" secondAttribute="centerX" id="c0a-FV-Y2E"/>
-                            <constraint firstItem="2zu-7d-c35" firstAttribute="width" secondItem="U1U-oQ-2RN" secondAttribute="width" multiplier="0.8" id="cdE-Hn-njW"/>
                             <constraint firstItem="oIB-TD-YpC" firstAttribute="width" secondItem="U1U-oQ-2RN" secondAttribute="width" multiplier="0.5" priority="750" id="gNm-xB-byN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HHN-Qr-WoG"/>
-                    <connections>
-                        <outlet property="rangeSliderView" destination="2zu-7d-c35" id="rb3-Sv-zPi"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mou-To-NN9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -90,16 +77,29 @@
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="MultiplicationSegue" id="Pjd-bU-e9U"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="udr-qk-kf3">
+                                <rect key="frame" x="47" y="44" width="281" height="120"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="cLQ-lV-dUs"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qwT-ye-d9g"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="udr-qk-kf3" firstAttribute="centerX" secondItem="JLj-Cd-hpo" secondAttribute="centerX" id="GJ5-gb-PEq"/>
+                            <constraint firstItem="udr-qk-kf3" firstAttribute="top" secondItem="qwT-ye-d9g" secondAttribute="top" id="Gdq-k5-ItJ"/>
                             <constraint firstItem="zmI-Lv-hBe" firstAttribute="centerX" secondItem="JLj-Cd-hpo" secondAttribute="centerX" id="cTT-X0-jAp"/>
+                            <constraint firstItem="udr-qk-kf3" firstAttribute="width" secondItem="JLj-Cd-hpo" secondAttribute="width" multiplier="0.75" id="etd-VR-TTE"/>
                             <constraint firstItem="zmI-Lv-hBe" firstAttribute="width" secondItem="JLj-Cd-hpo" secondAttribute="width" multiplier="0.4" id="fAb-EZ-6Nl"/>
                             <constraint firstItem="zmI-Lv-hBe" firstAttribute="centerY" secondItem="JLj-Cd-hpo" secondAttribute="centerY" id="j6K-QI-S6w"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1cU-u8-hoB"/>
+                    <connections>
+                        <outlet property="rangeSliderView" destination="udr-qk-kf3" id="Iqy-Uj-mcz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h8Y-IQ-Gh3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -225,7 +225,7 @@
             <size key="intrinsicContentSize" width="347" height="63"/>
         </designable>
         <designable name="zmI-Lv-hBe">
-            <size key="intrinsicContentSize" width="56" height="34"/>
+            <size key="intrinsicContentSize" width="159" height="63"/>
         </designable>
     </designables>
     <resources>

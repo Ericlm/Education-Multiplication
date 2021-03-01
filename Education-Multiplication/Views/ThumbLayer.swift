@@ -16,6 +16,11 @@ class ThumbLayer: CALayer {
     
     override func draw(in ctx: CGContext) {
         ctx.setFillColor(isHighlighted ? UIColor.systemYellow.cgColor : UIColor.systemPink.cgColor)
-        ctx.fill(bounds)
+        ctx.setStrokeColor(UIColor.white.cgColor)
+        ctx.setLineWidth(4)
+        ctx.addEllipse(in: bounds.insetBy(dx: 2, dy: 2))
+        ctx.drawPath(using: .fillStroke)
+        
+        //ctx.fill(bounds)
     }
 }

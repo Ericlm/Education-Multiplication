@@ -1,5 +1,5 @@
 //
-//  BlueButton.swift
+//  BigButton.swift
 //  Education-Multiplication
 //
 //  Created by Eric Le Maître on 23/02/2021.
@@ -37,7 +37,15 @@ class BigButton: UIButton {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        
+        commonInit()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
+    private func commonInit() {
         titleLabel?.minimumScaleFactor = 0.6
         titleLabel?.adjustsFontSizeToFitWidth = true
         titleLabel?.font = UIFont(name: "Chalkduster", size: 40)

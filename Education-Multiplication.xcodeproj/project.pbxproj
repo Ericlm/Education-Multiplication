@@ -21,10 +21,12 @@
 		9065536B25E61C25005FBEEF /* ThumbLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9065536A25E61C25005FBEEF /* ThumbLayer.swift */; };
 		907AE3D925E4149B00F95452 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907AE3D825E4149B00F95452 /* MainMenuViewController.swift */; };
 		907AE3DE25E41A2000F95452 /* GameSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907AE3DD25E41A2000F95452 /* GameSettingsViewController.swift */; };
+		9090011025ED218900316814 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9090010F25ED218900316814 /* Preferences.swift */; };
 		90AB89AA25E2753A006FEB04 /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AB89A925E2753A006FEB04 /* AnswerButton.swift */; };
 		90AC273525E6317A00FBB37E /* ThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AC273425E6317A00FBB37E /* ThumbView.swift */; };
-		90BC3B7C25E4DDEB00CC3111 /* NavigationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BC3B7B25E4DDEB00CC3111 /* NavigationAnimator.swift */; };
+		90BC3B7C25E4DDEB00CC3111 /* SlideNavigationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BC3B7B25E4DDEB00CC3111 /* SlideNavigationAnimator.swift */; };
 		90BC3B8125E4EC1000CC3111 /* BigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BC3B8025E4EC1000CC3111 /* BigButton.swift */; };
+		90C2DF9C25ECF280006EE404 /* FadeColorNavigationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C2DF9B25ECF280006EE404 /* FadeColorNavigationAnimator.swift */; };
 		90E4543725E2A16E00A294FA /* Multiplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E4543625E2A16E00A294FA /* Multiplication.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,10 +68,12 @@
 		9065536A25E61C25005FBEEF /* ThumbLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbLayer.swift; sourceTree = "<group>"; };
 		907AE3D825E4149B00F95452 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		907AE3DD25E41A2000F95452 /* GameSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingsViewController.swift; sourceTree = "<group>"; };
+		9090010F25ED218900316814 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		90AB89A925E2753A006FEB04 /* AnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
 		90AC273425E6317A00FBB37E /* ThumbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbView.swift; sourceTree = "<group>"; };
-		90BC3B7B25E4DDEB00CC3111 /* NavigationAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationAnimator.swift; sourceTree = "<group>"; };
+		90BC3B7B25E4DDEB00CC3111 /* SlideNavigationAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideNavigationAnimator.swift; sourceTree = "<group>"; };
 		90BC3B8025E4EC1000CC3111 /* BigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButton.swift; sourceTree = "<group>"; };
+		90C2DF9B25ECF280006EE404 /* FadeColorNavigationAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeColorNavigationAnimator.swift; sourceTree = "<group>"; };
 		90E4543625E2A16E00A294FA /* Multiplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multiplication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,13 +125,13 @@
 		906482EB25E199AB00646826 /* Education-Multiplication */ = {
 			isa = PBXGroup;
 			children = (
-				90AC273925E6363900FBB37E /* ViewControllers */,
-				9065536925E61BE5005FBEEF /* Custom controls */,
 				906482EC25E199AB00646826 /* AppDelegate.swift */,
 				906482EE25E199AB00646826 /* SceneDelegate.swift */,
-				90BC3B7B25E4DDEB00CC3111 /* NavigationAnimator.swift */,
+				90AC273925E6363900FBB37E /* Controllers */,
+				9065536925E61BE5005FBEEF /* Views */,
 				9064832525E241AE00646826 /* AnimalsScene.swift */,
 				90E4543625E2A16E00A294FA /* Multiplication.swift */,
+				9090010F25ED218900316814 /* Preferences.swift */,
 				906482F225E199AB00646826 /* Main.storyboard */,
 				906482F525E199AF00646826 /* Assets.xcassets */,
 				906482F725E199AF00646826 /* LaunchScreen.storyboard */,
@@ -154,7 +158,7 @@
 			path = "Education-MultiplicationUITests";
 			sourceTree = "<group>";
 		};
-		9065536925E61BE5005FBEEF /* Custom controls */ = {
+		9065536925E61BE5005FBEEF /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				90BC3B8025E4EC1000CC3111 /* BigButton.swift */,
@@ -164,17 +168,27 @@
 				90AC273425E6317A00FBB37E /* ThumbView.swift */,
 				9065536A25E61C25005FBEEF /* ThumbLayer.swift */,
 			);
-			path = "Custom controls";
+			path = Views;
 			sourceTree = "<group>";
 		};
-		90AC273925E6363900FBB37E /* ViewControllers */ = {
+		90AC273925E6363900FBB37E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				90C2DFA325ECF296006EE404 /* Navigation animators */,
 				906482F025E199AB00646826 /* MultiplicationViewController.swift */,
 				907AE3D825E4149B00F95452 /* MainMenuViewController.swift */,
 				907AE3DD25E41A2000F95452 /* GameSettingsViewController.swift */,
 			);
-			path = ViewControllers;
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		90C2DFA325ECF296006EE404 /* Navigation animators */ = {
+			isa = PBXGroup;
+			children = (
+				90BC3B7B25E4DDEB00CC3111 /* SlideNavigationAnimator.swift */,
+				90C2DF9B25ECF280006EE404 /* FadeColorNavigationAnimator.swift */,
+			);
+			path = "Navigation animators";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,10 +331,12 @@
 				90E4543725E2A16E00A294FA /* Multiplication.swift in Sources */,
 				907AE3D925E4149B00F95452 /* MainMenuViewController.swift in Sources */,
 				90AC273525E6317A00FBB37E /* ThumbView.swift in Sources */,
+				90C2DF9C25ECF280006EE404 /* FadeColorNavigationAnimator.swift in Sources */,
 				9065536B25E61C25005FBEEF /* ThumbLayer.swift in Sources */,
 				906482ED25E199AB00646826 /* AppDelegate.swift in Sources */,
 				906482EF25E199AB00646826 /* SceneDelegate.swift in Sources */,
-				90BC3B7C25E4DDEB00CC3111 /* NavigationAnimator.swift in Sources */,
+				9090011025ED218900316814 /* Preferences.swift in Sources */,
+				90BC3B7C25E4DDEB00CC3111 /* SlideNavigationAnimator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

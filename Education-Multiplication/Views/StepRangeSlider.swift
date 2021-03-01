@@ -1,5 +1,5 @@
 //
-//  RangeSlider.swift
+//  StepRangeSlider.swift
 //  Education-Multiplication
 //
 //  Created by Eric Le Maître on 23/02/2021.
@@ -37,7 +37,9 @@ class StepRangeSlider: UIControl {
     }
     
     private func createTrack() {
-        trackLayer.frame = bounds.insetBy(dx: thumbSize.width/2, dy: bounds.height / 3)
+        let trackWidth = bounds.insetBy(dx: thumbSize.width/2, dy: 0).width
+        let trackHeight: CGFloat = 12
+        trackLayer.frame = CGRect(origin: .zero, size: CGSize(width: trackWidth, height: trackHeight))
         trackLayer.backgroundColor = UIColor.systemBlue.cgColor
         layer.addSublayer(trackLayer)
     }
