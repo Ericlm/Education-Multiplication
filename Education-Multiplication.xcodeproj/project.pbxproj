@@ -26,6 +26,9 @@
 		90AC273525E6317A00FBB37E /* ThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AC273425E6317A00FBB37E /* ThumbView.swift */; };
 		90BC3B7C25E4DDEB00CC3111 /* SlideNavigationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BC3B7B25E4DDEB00CC3111 /* SlideNavigationAnimator.swift */; };
 		90BC3B8125E4EC1000CC3111 /* BigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BC3B8025E4EC1000CC3111 /* BigButton.swift */; };
+		90BD84AD25ED5FFF00C68771 /* StepperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90BD84AC25ED5FFF00C68771 /* StepperView.xib */; };
+		90BD84B225ED60A100C68771 /* StepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BD84B125ED60A100C68771 /* StepperView.swift */; };
+		90BD84BA25ED746600C68771 /* StepperButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BD84B925ED746600C68771 /* StepperButton.swift */; };
 		90C2DF9C25ECF280006EE404 /* FadeColorNavigationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C2DF9B25ECF280006EE404 /* FadeColorNavigationAnimator.swift */; };
 		90E4543725E2A16E00A294FA /* Multiplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E4543625E2A16E00A294FA /* Multiplication.swift */; };
 /* End PBXBuildFile section */
@@ -73,6 +76,9 @@
 		90AC273425E6317A00FBB37E /* ThumbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbView.swift; sourceTree = "<group>"; };
 		90BC3B7B25E4DDEB00CC3111 /* SlideNavigationAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideNavigationAnimator.swift; sourceTree = "<group>"; };
 		90BC3B8025E4EC1000CC3111 /* BigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButton.swift; sourceTree = "<group>"; };
+		90BD84AC25ED5FFF00C68771 /* StepperView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StepperView.xib; sourceTree = "<group>"; };
+		90BD84B125ED60A100C68771 /* StepperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperView.swift; sourceTree = "<group>"; };
+		90BD84B925ED746600C68771 /* StepperButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperButton.swift; sourceTree = "<group>"; };
 		90C2DF9B25ECF280006EE404 /* FadeColorNavigationAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeColorNavigationAnimator.swift; sourceTree = "<group>"; };
 		90E4543625E2A16E00A294FA /* Multiplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multiplication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +139,7 @@
 				90E4543625E2A16E00A294FA /* Multiplication.swift */,
 				9090010F25ED218900316814 /* Preferences.swift */,
 				906482F225E199AB00646826 /* Main.storyboard */,
+				90BD84AC25ED5FFF00C68771 /* StepperView.xib */,
 				906482F525E199AF00646826 /* Assets.xcassets */,
 				906482F725E199AF00646826 /* LaunchScreen.storyboard */,
 				906482FA25E199AF00646826 /* Info.plist */,
@@ -162,11 +169,13 @@
 			isa = PBXGroup;
 			children = (
 				90BC3B8025E4EC1000CC3111 /* BigButton.swift */,
+				90BD84B925ED746600C68771 /* StepperButton.swift */,
 				90AB89A925E2753A006FEB04 /* AnswerButton.swift */,
 				9065535B25E4FA75005FBEEF /* StepRangeSlider.swift */,
 				901EC25325E64477009405B2 /* RangeSliderStepsLayer.swift */,
 				90AC273425E6317A00FBB37E /* ThumbView.swift */,
 				9065536A25E61C25005FBEEF /* ThumbLayer.swift */,
+				90BD84B125ED60A100C68771 /* StepperView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -296,6 +305,7 @@
 			files = (
 				906482F925E199AF00646826 /* LaunchScreen.storyboard in Resources */,
 				906482F625E199AF00646826 /* Assets.xcassets in Resources */,
+				90BD84AD25ED5FFF00C68771 /* StepperView.xib in Resources */,
 				906482F425E199AB00646826 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,11 +336,13 @@
 				9064832625E241AE00646826 /* AnimalsScene.swift in Sources */,
 				907AE3DE25E41A2000F95452 /* GameSettingsViewController.swift in Sources */,
 				906482F125E199AB00646826 /* MultiplicationViewController.swift in Sources */,
+				90BD84BA25ED746600C68771 /* StepperButton.swift in Sources */,
 				9065535C25E4FA75005FBEEF /* StepRangeSlider.swift in Sources */,
 				901EC25425E64477009405B2 /* RangeSliderStepsLayer.swift in Sources */,
 				90E4543725E2A16E00A294FA /* Multiplication.swift in Sources */,
 				907AE3D925E4149B00F95452 /* MainMenuViewController.swift in Sources */,
 				90AC273525E6317A00FBB37E /* ThumbView.swift in Sources */,
+				90BD84B225ED60A100C68771 /* StepperView.swift in Sources */,
 				90C2DF9C25ECF280006EE404 /* FadeColorNavigationAnimator.swift in Sources */,
 				9065536B25E61C25005FBEEF /* ThumbLayer.swift in Sources */,
 				906482ED25E199AB00646826 /* AppDelegate.swift in Sources */,

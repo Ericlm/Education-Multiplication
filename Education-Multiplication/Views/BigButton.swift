@@ -9,7 +9,7 @@ import UIKit
 
 @IBDesignable
 class BigButton: UIButton {
-    @IBInspectable private var cornerRadius: CGFloat {
+    @IBInspectable internal var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
         }
@@ -43,6 +43,12 @@ class BigButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
+    }
+    
+    override func prepareForInterfaceBuilder() {
+        commonInit()
+        
+        super.prepareForInterfaceBuilder()
     }
     
     private func commonInit() {
