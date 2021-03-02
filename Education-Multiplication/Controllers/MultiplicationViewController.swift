@@ -9,6 +9,7 @@ import UIKit
 import SpriteKit
 
 class MultiplicationViewController: UIViewController {
+    @IBOutlet var spriteView: SKView!
     @IBOutlet var multiplicationLabel: UILabel!
     @IBOutlet var collectionView: UICollectionView!
     
@@ -35,7 +36,8 @@ class MultiplicationViewController: UIViewController {
         view.backgroundColor = .clear
         
         // We take the skview from the navigation controller, using a tag, and then we extract the scene from it.
-        scene = ((navigationController!.view.viewWithTag(1) as! SKView).scene as! AnimalsScene)
+        scene = AnimalsScene(size: view.frame.size)
+        spriteView.presentScene(scene)
         
         //We generate a multiplication and assign its question to the label
         multiplication = Multiplication(factorsRange: factorsRange, selectedFactors: selectedFactors, numberOfAnswers: numberOfAnswers, numberOfFactors: numberOfFactors)

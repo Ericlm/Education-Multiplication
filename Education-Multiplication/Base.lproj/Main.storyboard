@@ -123,6 +123,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <skView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h7M-xb-Awk">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </skView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 x 12 = 144" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="BVj-Z7-99L">
                                 <rect key="frame" x="10" y="171.66666666666666" width="355" height="63"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="50"/>
@@ -181,20 +184,25 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="h7M-xb-Awk" secondAttribute="trailing" id="1Lk-aV-cc8"/>
                             <constraint firstItem="yvd-Nq-RXn" firstAttribute="top" secondItem="BVj-Z7-99L" secondAttribute="bottom" constant="150" id="4xb-8w-eTa"/>
+                            <constraint firstItem="h7M-xb-Awk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5OI-3i-NHR"/>
                             <constraint firstItem="BVj-Z7-99L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8kn-gd-qXV"/>
                             <constraint firstItem="BVj-Z7-99L" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="J0d-er-GXb"/>
+                            <constraint firstItem="h7M-xb-Awk" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="JWu-bx-QW7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yvd-Nq-RXn" secondAttribute="bottom" id="SWd-F2-jHb"/>
                             <constraint firstItem="BVj-Z7-99L" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.5" id="XhP-gQ-x0f"/>
                             <constraint firstItem="yvd-Nq-RXn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cJt-yf-1dF"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BVj-Z7-99L" secondAttribute="trailing" constant="10" id="feT-PX-Pay"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yvd-Nq-RXn" secondAttribute="trailing" id="lQg-uk-0NJ"/>
+                            <constraint firstAttribute="bottom" secondItem="h7M-xb-Awk" secondAttribute="bottom" id="uMH-8s-VdB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lD4-pf-2ss"/>
                     <connections>
                         <outlet property="collectionView" destination="yvd-Nq-RXn" id="pX7-XB-HfG"/>
                         <outlet property="multiplicationLabel" destination="BVj-Z7-99L" id="Gyi-v3-SQe"/>
+                        <outlet property="spriteView" destination="h7M-xb-Awk" id="oFd-vM-Pai"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

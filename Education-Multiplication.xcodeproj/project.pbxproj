@@ -34,6 +34,15 @@
 		90CD559E25EE829300266878 /* background_desert.png in Resources */ = {isa = PBXBuildFile; fileRef = 90CD559A25EE829300266878 /* background_desert.png */; };
 		90CD559F25EE829300266878 /* background_forest.png in Resources */ = {isa = PBXBuildFile; fileRef = 90CD559B25EE829300266878 /* background_forest.png */; };
 		90CD55A025EE829300266878 /* background_fall.png in Resources */ = {isa = PBXBuildFile; fileRef = 90CD559C25EE829300266878 /* background_fall.png */; };
+		90CD55A825EE8E3100266878 /* CloudScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD55A725EE8E3100266878 /* CloudScene.swift */; };
+		90CD55B425EE8EBE00266878 /* cloud8.png in Resources */ = {isa = PBXBuildFile; fileRef = 90CD55AC25EE8EBD00266878 /* cloud8.png */; };
+		90CD55B525EE8EBE00266878 /* cloud1.png in Resources */ = {isa = PBXBuildFile; fileRef = 90CD55AD25EE8EBD00266878 /* cloud1.png */; };
+		90CD55B625EE8EBE00266878 /* cloud6.png in Resources */ = {isa = PBXBuildFile; fileRef = 90CD55AE25EE8EBD00266878 /* cloud6.png */; };
+		90CD55B725EE8EBE00266878 /* cloud2.png in Resources */ = {isa = PBXBuildFile; fileRef = 90CD55AF25EE8EBD00266878 /* cloud2.png */; };
+		90CD55B825EE8EBE00266878 /* cloud5.png in Resources */ = {isa = PBXBuildFile; fileRef = 90CD55B025EE8EBD00266878 /* cloud5.png */; };
+		90CD55B925EE8EBE00266878 /* cloud4.png in Resources */ = {isa = PBXBuildFile; fileRef = 90CD55B125EE8EBD00266878 /* cloud4.png */; };
+		90CD55BA25EE8EBE00266878 /* cloud3.png in Resources */ = {isa = PBXBuildFile; fileRef = 90CD55B225EE8EBD00266878 /* cloud3.png */; };
+		90CD55BB25EE8EBE00266878 /* cloud7.png in Resources */ = {isa = PBXBuildFile; fileRef = 90CD55B325EE8EBD00266878 /* cloud7.png */; };
 		90E4543725E2A16E00A294FA /* Multiplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E4543625E2A16E00A294FA /* Multiplication.swift */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +97,15 @@
 		90CD559A25EE829300266878 /* background_desert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_desert.png; sourceTree = "<group>"; };
 		90CD559B25EE829300266878 /* background_forest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_forest.png; sourceTree = "<group>"; };
 		90CD559C25EE829300266878 /* background_fall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_fall.png; sourceTree = "<group>"; };
+		90CD55A725EE8E3100266878 /* CloudScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudScene.swift; sourceTree = "<group>"; };
+		90CD55AC25EE8EBD00266878 /* cloud8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud8.png; sourceTree = "<group>"; };
+		90CD55AD25EE8EBD00266878 /* cloud1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud1.png; sourceTree = "<group>"; };
+		90CD55AE25EE8EBD00266878 /* cloud6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud6.png; sourceTree = "<group>"; };
+		90CD55AF25EE8EBD00266878 /* cloud2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud2.png; sourceTree = "<group>"; };
+		90CD55B025EE8EBD00266878 /* cloud5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud5.png; sourceTree = "<group>"; };
+		90CD55B125EE8EBD00266878 /* cloud4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud4.png; sourceTree = "<group>"; };
+		90CD55B225EE8EBD00266878 /* cloud3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud3.png; sourceTree = "<group>"; };
+		90CD55B325EE8EBD00266878 /* cloud7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud7.png; sourceTree = "<group>"; };
 		90E4543625E2A16E00A294FA /* Multiplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multiplication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,7 +161,7 @@
 				906482EE25E199AB00646826 /* SceneDelegate.swift */,
 				90AC273925E6363900FBB37E /* Controllers */,
 				9065536925E61BE5005FBEEF /* Views */,
-				9064832525E241AE00646826 /* AnimalsScene.swift */,
+				90CD55C025EE8EE300266878 /* Scenes */,
 				90E4543625E2A16E00A294FA /* Multiplication.swift */,
 				9090010F25ED218900316814 /* Preferences.swift */,
 				906482F225E199AB00646826 /* Main.storyboard */,
@@ -212,12 +230,37 @@
 		90CD559525EE826800266878 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				90CD55BF25EE8EC400266878 /* Clouds */,
 				90CD559A25EE829300266878 /* background_desert.png */,
 				90CD559C25EE829300266878 /* background_fall.png */,
 				90CD559B25EE829300266878 /* background_forest.png */,
 				90CD559925EE829300266878 /* background_grass.png */,
 			);
 			path = Sprites;
+			sourceTree = "<group>";
+		};
+		90CD55BF25EE8EC400266878 /* Clouds */ = {
+			isa = PBXGroup;
+			children = (
+				90CD55AD25EE8EBD00266878 /* cloud1.png */,
+				90CD55AF25EE8EBD00266878 /* cloud2.png */,
+				90CD55B225EE8EBD00266878 /* cloud3.png */,
+				90CD55B125EE8EBD00266878 /* cloud4.png */,
+				90CD55B025EE8EBD00266878 /* cloud5.png */,
+				90CD55AE25EE8EBD00266878 /* cloud6.png */,
+				90CD55B325EE8EBD00266878 /* cloud7.png */,
+				90CD55AC25EE8EBD00266878 /* cloud8.png */,
+			);
+			path = Clouds;
+			sourceTree = "<group>";
+		};
+		90CD55C025EE8EE300266878 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				9064832525E241AE00646826 /* AnimalsScene.swift */,
+				90CD55A725EE8E3100266878 /* CloudScene.swift */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,14 +366,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90CD55B425EE8EBE00266878 /* cloud8.png in Resources */,
 				90CD55A025EE829300266878 /* background_fall.png in Resources */,
+				90CD55B825EE8EBE00266878 /* cloud5.png in Resources */,
 				906482F925E199AF00646826 /* LaunchScreen.storyboard in Resources */,
+				90CD55B525EE8EBE00266878 /* cloud1.png in Resources */,
 				906482F625E199AF00646826 /* Assets.xcassets in Resources */,
+				90CD55B925EE8EBE00266878 /* cloud4.png in Resources */,
 				90BD84AD25ED5FFF00C68771 /* StepperView.xib in Resources */,
+				90CD55BA25EE8EBE00266878 /* cloud3.png in Resources */,
+				90CD55B725EE8EBE00266878 /* cloud2.png in Resources */,
 				90CD559D25EE829300266878 /* background_grass.png in Resources */,
+				90CD55BB25EE8EBE00266878 /* cloud7.png in Resources */,
 				90CD559E25EE829300266878 /* background_desert.png in Resources */,
 				906482F425E199AB00646826 /* Main.storyboard in Resources */,
 				90CD559F25EE829300266878 /* background_forest.png in Resources */,
+				90CD55B625EE8EBE00266878 /* cloud6.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +409,7 @@
 				90AB89AA25E2753A006FEB04 /* AnswerButton.swift in Sources */,
 				90BC3B8125E4EC1000CC3111 /* BigButton.swift in Sources */,
 				9064832625E241AE00646826 /* AnimalsScene.swift in Sources */,
+				90CD55A825EE8E3100266878 /* CloudScene.swift in Sources */,
 				907AE3DE25E41A2000F95452 /* GameSettingsViewController.swift in Sources */,
 				906482F125E199AB00646826 /* MultiplicationViewController.swift in Sources */,
 				90BD84BA25ED746600C68771 /* StepperButton.swift in Sources */,

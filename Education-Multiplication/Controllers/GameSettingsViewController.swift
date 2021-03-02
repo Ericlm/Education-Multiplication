@@ -45,7 +45,6 @@ class GameSettingsViewController: UIViewController {
 extension GameSettingsViewController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if operation == .push {
-            ((navigationController.view.viewWithTag(1) as! SKView).scene as! AnimalsScene).showBackground()
             return FadeColorNavigationAnimator(isPresenting: true)
         } else {
             return FadeColorNavigationAnimator(isPresenting: false)

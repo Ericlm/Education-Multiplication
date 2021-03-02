@@ -8,7 +8,7 @@
 import UIKit
 import SpriteKit
 
-class MainMenuViewController: UIViewController {
+class MainMenuViewController: UIViewController {    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,11 +16,9 @@ class MainMenuViewController: UIViewController {
         view.backgroundColor = .clear
         
         // We add the scene to the navigation controller.
-        let scene = AnimalsScene(size: view.frame.size)
-        scene.scaleMode = .aspectFit
+        let scene = CloudScene(size: view.frame.size)
         let sceneView = SKView(frame: view.frame)
         sceneView.presentScene(scene)
-        sceneView.tag = 1
         navigationController?.view.insertSubview(sceneView, at: 0)
         
         // We set this controller to be the delegate to handle the animations when pushing/poping controllers.
