@@ -9,14 +9,13 @@ import UIKit
 import SpriteKit
 
 class MultiplicationViewController: UIViewController {
-    @IBOutlet var animalsView: SKView!
     @IBOutlet var multiplicationLabel: UILabel!
     @IBOutlet var collectionView: UICollectionView!
     
     /// Time for fade-in and fade-out animations for buttons and label.
     let animationTime = 0.4
     
-    /// The factors the user selected to be questionned abou.t
+    /// The factors the user selected to be questionned about.
     var selectedFactors: [Int]!
     /// The range of the factors the multiplication can be generated with.
     var factorsRange: ClosedRange<Int>!
@@ -33,9 +32,10 @@ class MultiplicationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //We create the scene with the size of the SKView and present it
-        scene = AnimalsScene(size: animalsView.frame.size)
-        animalsView.presentScene(scene)
+        view.backgroundColor = .clear
+        
+        // We take the skview from the navigation controller, using a tag, and then we extract the scene from it.
+        scene = ((navigationController!.view.viewWithTag(1) as! SKView).scene as! AnimalsScene)
         
         //We generate a multiplication and assign its question to the label
         multiplication = Multiplication(factorsRange: factorsRange, selectedFactors: selectedFactors, numberOfAnswers: numberOfAnswers, numberOfFactors: numberOfFactors)

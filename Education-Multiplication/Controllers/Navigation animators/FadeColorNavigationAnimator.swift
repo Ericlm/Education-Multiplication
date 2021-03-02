@@ -25,16 +25,16 @@ class FadeColorNavigationAnimator: NSObject, UIViewControllerAnimatedTransitioni
         
         let container = transitionContext.containerView
         if presenting {
+            toView.transform = CGAffineTransform(translationX: 0, y: container.frame.height)
             container.addSubview(toView)
-            toView.alpha = 0.0
         } else {
             container.insertSubview(toView, belowSubview: fromView)
         }
         
         UIView.animate(withDuration: transitionDuration(using: transitionContext)) {
             if self.presenting {
-                toView.alpha = 1.0
-                fromView.alpha = 0
+                toView.transform = .identity
+                fromView.transform = CGAffineTransform(translationX: 0, y: -container.frame.height)
             } else {
                 fromView.alpha = 1.0
                 toView.alpha = 1.0

@@ -30,6 +30,10 @@
 		90BD84B225ED60A100C68771 /* StepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BD84B125ED60A100C68771 /* StepperView.swift */; };
 		90BD84BA25ED746600C68771 /* StepperButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BD84B925ED746600C68771 /* StepperButton.swift */; };
 		90C2DF9C25ECF280006EE404 /* FadeColorNavigationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C2DF9B25ECF280006EE404 /* FadeColorNavigationAnimator.swift */; };
+		90CD559D25EE829300266878 /* background_grass.png in Resources */ = {isa = PBXBuildFile; fileRef = 90CD559925EE829300266878 /* background_grass.png */; };
+		90CD559E25EE829300266878 /* background_desert.png in Resources */ = {isa = PBXBuildFile; fileRef = 90CD559A25EE829300266878 /* background_desert.png */; };
+		90CD559F25EE829300266878 /* background_forest.png in Resources */ = {isa = PBXBuildFile; fileRef = 90CD559B25EE829300266878 /* background_forest.png */; };
+		90CD55A025EE829300266878 /* background_fall.png in Resources */ = {isa = PBXBuildFile; fileRef = 90CD559C25EE829300266878 /* background_fall.png */; };
 		90E4543725E2A16E00A294FA /* Multiplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E4543625E2A16E00A294FA /* Multiplication.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +84,10 @@
 		90BD84B125ED60A100C68771 /* StepperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperView.swift; sourceTree = "<group>"; };
 		90BD84B925ED746600C68771 /* StepperButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperButton.swift; sourceTree = "<group>"; };
 		90C2DF9B25ECF280006EE404 /* FadeColorNavigationAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeColorNavigationAnimator.swift; sourceTree = "<group>"; };
+		90CD559925EE829300266878 /* background_grass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_grass.png; sourceTree = "<group>"; };
+		90CD559A25EE829300266878 /* background_desert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_desert.png; sourceTree = "<group>"; };
+		90CD559B25EE829300266878 /* background_forest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_forest.png; sourceTree = "<group>"; };
+		90CD559C25EE829300266878 /* background_fall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_fall.png; sourceTree = "<group>"; };
 		90E4543625E2A16E00A294FA /* Multiplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multiplication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,6 +149,7 @@
 				906482F225E199AB00646826 /* Main.storyboard */,
 				90BD84AC25ED5FFF00C68771 /* StepperView.xib */,
 				906482F525E199AF00646826 /* Assets.xcassets */,
+				90CD559525EE826800266878 /* Sprites */,
 				906482F725E199AF00646826 /* LaunchScreen.storyboard */,
 				906482FA25E199AF00646826 /* Info.plist */,
 			);
@@ -198,6 +207,17 @@
 				90C2DF9B25ECF280006EE404 /* FadeColorNavigationAnimator.swift */,
 			);
 			path = "Navigation animators";
+			sourceTree = "<group>";
+		};
+		90CD559525EE826800266878 /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				90CD559A25EE829300266878 /* background_desert.png */,
+				90CD559C25EE829300266878 /* background_fall.png */,
+				90CD559B25EE829300266878 /* background_forest.png */,
+				90CD559925EE829300266878 /* background_grass.png */,
+			);
+			path = Sprites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,10 +323,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90CD55A025EE829300266878 /* background_fall.png in Resources */,
 				906482F925E199AF00646826 /* LaunchScreen.storyboard in Resources */,
 				906482F625E199AF00646826 /* Assets.xcassets in Resources */,
 				90BD84AD25ED5FFF00C68771 /* StepperView.xib in Resources */,
+				90CD559D25EE829300266878 /* background_grass.png in Resources */,
+				90CD559E25EE829300266878 /* background_desert.png in Resources */,
 				906482F425E199AB00646826 /* Main.storyboard in Resources */,
+				90CD559F25EE829300266878 /* background_forest.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SpriteKit
 
 class GameSettingsViewController: UIViewController {
     @IBOutlet var rangeSliderView: UIView!
@@ -13,8 +14,10 @@ class GameSettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // We set the background transparent so that the navigation's image is visible.
         view.backgroundColor = .clear
         
+        // We set the controller as delegate to handle animations to the game controller.
         navigationController?.delegate = self
     }
     
@@ -42,6 +45,7 @@ class GameSettingsViewController: UIViewController {
 extension GameSettingsViewController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if operation == .push {
+            ((navigationController.view.viewWithTag(1) as! SKView).scene as! AnimalsScene).showBackground()
             return FadeColorNavigationAnimator(isPresenting: true)
         } else {
             return FadeColorNavigationAnimator(isPresenting: false)

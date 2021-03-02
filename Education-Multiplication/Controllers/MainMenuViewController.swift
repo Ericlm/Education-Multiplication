@@ -6,23 +6,29 @@
 //
 
 import UIKit
+import SpriteKit
 
 class MainMenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // We set the background to be transparent, so the navigationController's image can be displayed.
         view.backgroundColor = .clear
         
-        let image = UIImage(named: "uncolored_castle")
-        let imageView = UIImageView(frame: view.frame)
-        imageView.image = image
-        imageView.contentMode = .scaleAspectFill
-        navigationController?.view.insertSubview(imageView, at: 0)
+        // We add the scene to the navigation controller.
+        let scene = AnimalsScene(size: view.frame.size)
+        scene.scaleMode = .aspectFit
+        let sceneView = SKView(frame: view.frame)
+        sceneView.presentScene(scene)
+        sceneView.tag = 1
+        navigationController?.view.insertSubview(sceneView, at: 0)
         
+        // We set this controller to be the delegate to handle the animations when pushing/poping controllers.
         navigationController?.delegate = self
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // If the user selected a quick game, we push a MultiplicationViewController with template values.
         if segue.identifier == "QuickGameSegue", let multiplicationViewController = segue.destination as? MultiplicationViewController {
             multiplicationViewController.selectedFactors = Preferences.selectedFactors
             multiplicationViewController.factorsRange = Preferences.factorsRange
