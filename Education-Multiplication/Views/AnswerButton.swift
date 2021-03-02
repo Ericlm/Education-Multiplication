@@ -8,11 +8,10 @@
 import UIKit
 
 class AnswerButton: BigButton {
+    /// The number to be displayed inside the button.
     var numberToDisplay: Int!
     
-    var highlightOnAnimator: UIViewPropertyAnimator!
-    var highlightOffAnimator: UIViewPropertyAnimator!
-    
+    /// Plays an animation for a wrong answer. The button will shake and wiggle.
     func playWrongAnswerAnimation() {
         self.isEnabled = false
         UIView.animate(withDuration: 0.2) {
@@ -23,6 +22,8 @@ class AnswerButton: BigButton {
         }
     }
     
+    /// Changes the number inside the button and resets the button with animations.
+    /// - Parameter animationTime: The time the animation should take to complete.
     func reload(animationTime: TimeInterval) {
         isEnabled = false
         self.transform = .identity

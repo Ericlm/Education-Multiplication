@@ -12,6 +12,7 @@ class ThumbView: UIView {
         return ThumbLayer.self
     }
     
+    /// Indicates whether the view is highlighted, and send the information to the `ThumbLayer`.
     var isHighlighted = false {
         didSet {
             (layer as! ThumbLayer).isHighlighted = isHighlighted
@@ -19,13 +20,34 @@ class ThumbView: UIView {
         }
     }
     
+    /// The number displayed by the label inside the view.
+    var number: Int = 0 {
+        didSet {
+            numberLabel.text = "\(number)"
+        }
+    }
+    
+    /// The label used to display the currently selected number.
+    private var numberLabel: UILabel!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .clear
         layer.contentsScale = UIScreen.main.scale
+        
+        createNumberLabel()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    /// Creates and assigns the `numberLabel`.
+    private func createNumberLabel() {
+        numberLabel = UILabel(frame: bounds)
+        numberLabel.font = UIFont(name: "Chalkduster", size: 20)
+        numberLabel.textAlignment = .center
+        numberLabel.text = "\(number)"
+        addSubview(numberLabel)
     }
 }

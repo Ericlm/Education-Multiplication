@@ -20,10 +20,10 @@ class GameSettingsViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         let slider = StepRangeSlider(frame: rangeSliderView.bounds, range: 1...12)
+        slider.addTarget(self, action: #selector(rangeSliderValueChanged(_:)), for: .valueChanged)
         rangeSliderView.addSubview(slider)
     }
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "MultiplicationSegue", let multiplicationViewController = segue.destination as? MultiplicationViewController {
             #warning("The selected factors and factor range are manually set")
@@ -32,6 +32,10 @@ class GameSettingsViewController: UIViewController {
             multiplicationViewController.numberOfAnswers = 4
             multiplicationViewController.numberOfFactors = 2
         }
+    }
+    
+    @objc func rangeSliderValueChanged(_ slider: StepRangeSlider) {
+        #warning("Range slider values changed does nothing")
     }
 }
 

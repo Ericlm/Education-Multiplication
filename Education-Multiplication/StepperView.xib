@@ -11,23 +11,39 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StepperView" customModule="Education_Multiplication" customModuleProvider="target">
             <connections>
                 <outlet property="countLabel" destination="SXI-5o-vXr" id="U5I-bf-j3t"/>
-                <outlet property="downButton" destination="7hO-dr-r5u" id="rCa-DK-EMy"/>
-                <outlet property="upButton" destination="WIb-90-hZH" id="oO4-xw-oFN"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="341" height="152"/>
+            <rect key="frame" x="0.0" y="0.0" width="279" height="138"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXI-5o-vXr">
-                    <rect key="frame" x="130" y="57" width="81.5" height="38"/>
-                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="30"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXP-T1-nso" userLabel="LabelBackgroundView">
+                    <rect key="frame" x="99.5" y="33.5" width="80" height="71"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="SXI-5o-vXr">
+                            <rect key="frame" x="10" y="10" width="60" height="51"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="3zn-j7-IBX"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="40"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="SXI-5o-vXr" firstAttribute="leading" secondItem="xXP-T1-nso" secondAttribute="leading" constant="10" id="OqI-1H-tUH"/>
+                        <constraint firstAttribute="trailing" secondItem="SXI-5o-vXr" secondAttribute="trailing" constant="10" id="QtR-5O-WLF"/>
+                        <constraint firstItem="SXI-5o-vXr" firstAttribute="top" secondItem="xXP-T1-nso" secondAttribute="top" constant="10" id="n15-v0-0Qx"/>
+                        <constraint firstAttribute="bottom" secondItem="SXI-5o-vXr" secondAttribute="bottom" constant="10" id="wN6-lf-pc1"/>
+                    </constraints>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIb-90-hZH" userLabel="UpButton" customClass="StepperButton" customModule="Education_Multiplication" customModuleProvider="target">
-                    <rect key="frame" x="241.5" y="44.5" width="30" height="63"/>
+                    <rect key="frame" x="179.5" y="33.5" width="50" height="71"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="Sz8-HO-1Z0"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="40"/>
                     <state key="normal" title="+">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -39,10 +55,18 @@
                         <userDefinedRuntimeAttribute type="color" keyPath="color">
                             <color key="value" systemColor="systemBlueColor"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="topRight" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="bottomRight" value="YES"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="upTapped:" destination="-1" eventType="touchUpInside" id="3Ks-KR-dhD"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hO-dr-r5u" userLabel="DownButton" customClass="StepperButton" customModule="Education_Multiplication" customModuleProvider="target">
-                    <rect key="frame" x="70" y="44.5" width="30" height="63"/>
+                    <rect key="frame" x="49.5" y="33.5" width="50" height="71"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="vF9-X4-Aix"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="40"/>
                     <state key="normal" title="-"/>
                     <userDefinedRuntimeAttributes>
@@ -52,24 +76,31 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                             <real key="value" value="10"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="topLeft" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="bottomLeft" value="YES"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="downTapped:" destination="-1" eventType="touchUpInside" id="64A-5S-f84"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemPinkColor"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="WIb-90-hZH" firstAttribute="leading" secondItem="SXI-5o-vXr" secondAttribute="trailing" constant="30" id="7TR-Nn-X7R"/>
-                <constraint firstItem="WIb-90-hZH" firstAttribute="centerY" secondItem="SXI-5o-vXr" secondAttribute="centerY" id="JyE-JF-2yr"/>
-                <constraint firstItem="SXI-5o-vXr" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="VmY-zO-2Mh"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WIb-90-hZH" secondAttribute="trailing" constant="20" id="Yat-sD-IdO"/>
-                <constraint firstItem="7hO-dr-r5u" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="bdA-tC-hbX"/>
-                <constraint firstItem="SXI-5o-vXr" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="cm5-te-8gM"/>
-                <constraint firstItem="7hO-dr-r5u" firstAttribute="centerY" secondItem="SXI-5o-vXr" secondAttribute="centerY" id="rfi-23-Gkc"/>
-                <constraint firstItem="SXI-5o-vXr" firstAttribute="leading" secondItem="7hO-dr-r5u" secondAttribute="trailing" constant="30" id="wsi-qa-PKF"/>
+                <constraint firstItem="7hO-dr-r5u" firstAttribute="height" secondItem="xXP-T1-nso" secondAttribute="height" id="Cbs-1Y-7Ed"/>
+                <constraint firstItem="WIb-90-hZH" firstAttribute="height" secondItem="xXP-T1-nso" secondAttribute="height" id="ESG-1i-cnE"/>
+                <constraint firstItem="WIb-90-hZH" firstAttribute="centerY" secondItem="xXP-T1-nso" secondAttribute="centerY" id="IpE-jT-gU3"/>
+                <constraint firstItem="WIb-90-hZH" firstAttribute="leading" secondItem="xXP-T1-nso" secondAttribute="trailing" id="JoH-K6-LMX"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WIb-90-hZH" secondAttribute="trailing" priority="750" constant="20" id="Yat-sD-IdO"/>
+                <constraint firstItem="xXP-T1-nso" firstAttribute="leading" secondItem="7hO-dr-r5u" secondAttribute="trailing" id="bTP-is-ZLO"/>
+                <constraint firstItem="7hO-dr-r5u" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="leading" priority="750" constant="20" id="bdA-tC-hbX"/>
+                <constraint firstItem="7hO-dr-r5u" firstAttribute="centerY" secondItem="xXP-T1-nso" secondAttribute="centerY" id="k9j-k5-cKg"/>
+                <constraint firstItem="xXP-T1-nso" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="l55-qe-GHQ"/>
+                <constraint firstItem="xXP-T1-nso" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="vZI-Jv-XWs"/>
             </constraints>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="184.78260869565219" y="55.580357142857139"/>
+            <point key="canvasLocation" x="139.85507246376812" y="50.892857142857139"/>
         </view>
     </objects>
     <designables>
@@ -83,9 +114,6 @@
     <resources>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

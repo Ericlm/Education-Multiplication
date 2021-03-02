@@ -9,6 +9,7 @@ import UIKit
 
 @IBDesignable
 class BigButton: UIButton {
+    /// The radius applied to every corners of the button.
     @IBInspectable internal var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
@@ -20,6 +21,7 @@ class BigButton: UIButton {
         }
     }
     
+    /// The background color of the button.
     @IBInspectable private var color: UIColor {
         get {
             return backgroundColor ?? .systemBlue
@@ -47,10 +49,10 @@ class BigButton: UIButton {
     
     override func prepareForInterfaceBuilder() {
         commonInit()
-        
         super.prepareForInterfaceBuilder()
     }
     
+    /// This function is called in others initializers methods to setup the view in both *Interface Builder* and for the app at runtime.
     private func commonInit() {
         titleLabel?.minimumScaleFactor = 0.6
         titleLabel?.adjustsFontSizeToFitWidth = true
@@ -58,8 +60,9 @@ class BigButton: UIButton {
         titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
     }
     
+    /// Animates the button with a scaling animation when it's highlighted.
     private func animateHighlight() {
-        UIView.animate(withDuration: 0.2) { [unowned self] in
+        UIView.animate(withDuration: 0.2, delay: 0, options: [.allowUserInteraction]) { [unowned self] in
             self.transform = isHighlighted ? CGAffineTransform(scaleX: 0.9, y: 0.9) : .identity
         } completion: { (isFinished) in
         }

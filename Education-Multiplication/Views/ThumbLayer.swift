@@ -20,7 +20,5 @@ class ThumbLayer: CALayer {
         ctx.setLineWidth(4)
         ctx.addEllipse(in: bounds.insetBy(dx: 2, dy: 2))
         ctx.drawPath(using: .fillStroke)
-        
-        //ctx.fill(bounds)
     }
 }
