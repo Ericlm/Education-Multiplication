@@ -14,7 +14,7 @@ class MultiplicationViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     
     /// Time for fade-in and fade-out animations for buttons and label.
-    let animationTime = 0.4
+    private let animationTime = 0.4
     
     /// The factors the user selected to be questionned about.
     var selectedFactors: [Int]!
@@ -26,9 +26,14 @@ class MultiplicationViewController: UIViewController {
     var numberOfAnswers: Int!
     
     /// The current running multiplication
-    var multiplication: Multiplication!
+    private var multiplication: Multiplication!
     /// The SKScene used to add fun to the exercise.
-    var scene: AnimalsScene!
+    private var scene: AnimalsScene!
+    
+    #warning("Temporary values")
+    var counting = 0
+    var numberOfQuestions = 5
+    var spritesToDrop = 8
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +41,9 @@ class MultiplicationViewController: UIViewController {
         view.backgroundColor = .clear
         
         // We take the skview from the navigation controller, using a tag, and then we extract the scene from it.
-        scene = AnimalsScene(size: view.frame.size)
+        scene = AnimalsScene(size: view.frame.size, numberOfQuestions: numberOfQuestions, numberOfAnswers: 8)
+        spriteView.showsFPS = true
+        spriteView.ignoresSiblingOrder = true
         spriteView.presentScene(scene)
         
         //We generate a multiplication and assign its question to the label
@@ -49,8 +56,10 @@ class MultiplicationViewController: UIViewController {
     /// - Parameter button: The `AnswerButton` the user pressed.
     @objc func buttonPressed(button: AnswerButton) {
         if multiplication.isNumberCorrect(button.numberToDisplay) {
-            scene.dropSprite()
+            scene.dropSprites(spritesToDrop)
             updateMultiplication()
+            counting += 1
+            print(counting)
         } else {
             button.playWrongAnswerAnimation()
         }

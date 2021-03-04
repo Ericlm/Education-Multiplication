@@ -44,8 +44,6 @@ struct Multiplication {
         generateOperation()
         createHiddenIndex()
         generatePossibleAnswers()
-        
-        print("Correct answer is \(correctAnswer)")
     }
     
     /// Generates a multiplication and its result, and store them inside the `operation` array.

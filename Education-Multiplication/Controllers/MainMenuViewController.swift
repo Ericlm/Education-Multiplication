@@ -8,18 +8,18 @@
 import UIKit
 import SpriteKit
 
-class MainMenuViewController: UIViewController {    
+class MainMenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // We set the background to be transparent, so the navigationController's image can be displayed.
         view.backgroundColor = .clear
         
-        // We add the scene to the navigation controller.
+        // We add the cloud scene to the navigation controller.
         let scene = CloudScene(size: view.frame.size)
-        let sceneView = SKView(frame: view.frame)
-        sceneView.presentScene(scene)
-        navigationController?.view.insertSubview(sceneView, at: 0)
+        let skView = SKView(frame: view.frame)
+        skView.presentScene(scene)
+        navigationController?.view.insertSubview(skView, at: 0)
         
         // We set this controller to be the delegate to handle the animations when pushing/poping controllers.
         navigationController?.delegate = self

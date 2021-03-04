@@ -31,7 +31,7 @@ class GameSettingsViewController: UIViewController {
         if segue.identifier == "MultiplicationSegue", let multiplicationViewController = segue.destination as? MultiplicationViewController {
             #warning("The selected factors and factor range are manually set")
             multiplicationViewController.factorsRange = 1...20
-            multiplicationViewController.selectedFactors = Array(1...2)
+            multiplicationViewController.selectedFactors = [1]
             multiplicationViewController.numberOfAnswers = 4
             multiplicationViewController.numberOfFactors = 2
         }
