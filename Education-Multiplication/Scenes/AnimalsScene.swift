@@ -42,13 +42,12 @@ class AnimalsScene: SKScene {
     }
     
     func dropSprites(_ numberToDrop: Int) {
-        #warning("Add random delay for each drop")
         for _ in 0..<numberToDrop {
             let animal = SKSpriteNode(imageNamed: animalsSpriteName.randomElement()!)
             animal.size = animalSize
             animal.physicsBody = SKPhysicsBody(circleOfRadius: animal.size.width/2)
             animal.position = CGPoint(x: CGFloat.random(in: animal.size.width/2...size.width-animal.size.width/2), y: size.height + animal.size.height/2)
-            DispatchQueue.main.asyncAfter(deadline: .now() + TimeInterval.random(in: 0...2)) { [weak self] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + TimeInterval.random(in: 0...1.2)) { [weak self] in
                 self?.addChild(animal)
             }
         }
@@ -63,29 +62,35 @@ class AnimalsScene: SKScene {
     }
     
     func createConfettis() {
-        let textureNames = ["confetti-bleu-clair","confetti-bleu","confetti-jaune","confetti-orange","confetti-rose","confetti-rouge","confetti-vert-clair","confetti-vert","confetti-violet"]
-        for i in 0..<textureNames.count {
-            let emitterNode = SKEmitterNode()
-            emitterNode.particleTexture = SKTexture(imageNamed: textureNames[i])
-            emitterNode.position = CGPoint(x: size.width/2, y: size.height)
+        //Canon confettis
+        /*for (index,color) in colors.enumerated() {
+            let emitterNode = ConfettiEmitterGenerator.createCanonConfettiEmitter(forConfettiColor: color)
             
-            emitterNode.particlePositionRange = CGVector(dx: size.width, dy: 0)
+            let xOffset = size.width / CGFloat(colors.count) / 2
+            let xPosition: CGFloat = size.width * CGFloat(index) / CGFloat(colors.count) + xOffset
+            let position = CGPoint(x: xPosition, y: 0)
+            emitterNode.position = position
+            addChild(emitterNode)
+        }*/
+        
+        //Pop confettis
+        /*for color in ConfettiColor.allCases {
+            let emitterNode = ConfettiEmitterGenerator.createPopConfettiEmitter(forConfettiColor: color)
+            let randomPosition = CGPoint(x: CGFloat.random(in: 0...size.width), y: CGFloat.random(in: 0...size.height))
+            emitterNode.position = randomPosition
+            emitterNode.isPaused = true
+            addChild(emitterNode)
             
-            emitterNode.particleBirthRate = 8
-            emitterNode.particleLifetime = 12
-            emitterNode.emissionAngle = 270.degreesToRadians
-            
-            emitterNode.particleSpeed = 100
-            emitterNode.particleSpeedRange = 10
-            
-            emitterNode.particleAlphaRange = 0.2
-            
-            emitterNode.particleScale = 0.2
-            emitterNode.particleScaleRange = 0.05
-            
-            emitterNode.particleRotationRange = 360.degreesToRadians
-            emitterNode.particleRotationSpeed = 90.degreesToRadians
-            
+            let randomTime = TimeInterval.random(in: 0...1)
+            DispatchQueue.main.asyncAfter(deadline: .now() + randomTime) {
+                emitterNode.isPaused = false
+            }
+        }*/
+        
+        //Rain confettis
+        for color in ConfettiColor.allCases {
+            let emitterNode = ConfettiEmitterGenerator.createRainConfettiEmitter(forConfettiColor: color, emissionRange: CGVector(dx: size.width, dy: 0))
+            emitterNode.position = CGPoint(x: size.width/2, y: size.height + 20)
             addChild(emitterNode)
         }
     }

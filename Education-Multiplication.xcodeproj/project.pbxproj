@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		901251DB25F215F200E2B347 /* BackgroundLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901251DA25F215F200E2B347 /* BackgroundLabel.swift */; };
+		901251E325F2254A00E2B347 /* SelectTableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901251E225F2254A00E2B347 /* SelectTableCollectionViewCell.swift */; };
 		901EC25425E64477009405B2 /* RangeSliderStepsLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901EC25325E64477009405B2 /* RangeSliderStepsLayer.swift */; };
+		9020D05925F0E6E00081CE9B /* ConfettiCanon.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9020D05825F0E6E00081CE9B /* ConfettiCanon.sks */; };
+		9020D05E25F0E8390081CE9B /* ConfettiRain.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9020D05D25F0E8390081CE9B /* ConfettiRain.sks */; };
+		9020D06325F0E90C0081CE9B /* ConfettiPop.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9020D06225F0E90C0081CE9B /* ConfettiPop.sks */; };
+		9020D06825F0EB8A0081CE9B /* ConfettiEmitterGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9020D06725F0EB8A0081CE9B /* ConfettiEmitterGenerator.swift */; };
 		9031640325EF96CE004A1727 /* background_house.png in Resources */ = {isa = PBXBuildFile; fileRef = 9031640225EF96CE004A1727 /* background_house.png */; };
 		9031643025EFA498004A1727 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9031642E25EFA498004A1727 /* Assets.xcassets */; };
 		906482ED25E199AB00646826 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906482EC25E199AB00646826 /* AppDelegate.swift */; };
@@ -96,7 +102,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		901251DA25F215F200E2B347 /* BackgroundLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundLabel.swift; sourceTree = "<group>"; };
+		901251E225F2254A00E2B347 /* SelectTableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTableCollectionViewCell.swift; sourceTree = "<group>"; };
 		901EC25325E64477009405B2 /* RangeSliderStepsLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeSliderStepsLayer.swift; sourceTree = "<group>"; };
+		9020D05825F0E6E00081CE9B /* ConfettiCanon.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ConfettiCanon.sks; sourceTree = "<group>"; };
+		9020D05D25F0E8390081CE9B /* ConfettiRain.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ConfettiRain.sks; sourceTree = "<group>"; };
+		9020D06225F0E90C0081CE9B /* ConfettiPop.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ConfettiPop.sks; sourceTree = "<group>"; };
+		9020D06725F0EB8A0081CE9B /* ConfettiEmitterGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiEmitterGenerator.swift; sourceTree = "<group>"; };
 		9031640225EF96CE004A1727 /* background_house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_house.png; sourceTree = "<group>"; };
 		9031642E25EFA498004A1727 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		906482E925E199AB00646826 /* Education-Multiplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Education-Multiplication.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -267,6 +279,8 @@
 				90AC273425E6317A00FBB37E /* ThumbView.swift */,
 				9065536A25E61C25005FBEEF /* ThumbLayer.swift */,
 				90BD84B125ED60A100C68771 /* StepperView.swift */,
+				901251DA25F215F200E2B347 /* BackgroundLabel.swift */,
+				901251E225F2254A00E2B347 /* SelectTableCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -362,7 +376,11 @@
 			children = (
 				9031642E25EFA498004A1727 /* Assets.xcassets */,
 				9064832525E241AE00646826 /* AnimalsScene.swift */,
+				9020D06725F0EB8A0081CE9B /* ConfettiEmitterGenerator.swift */,
 				90CD55A725EE8E3100266878 /* CloudScene.swift */,
+				9020D05825F0E6E00081CE9B /* ConfettiCanon.sks */,
+				9020D05D25F0E8390081CE9B /* ConfettiRain.sks */,
+				9020D06225F0E90C0081CE9B /* ConfettiPop.sks */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -473,12 +491,14 @@
 				90D7668025EFFBF400297C3A /* buffalo.png in Resources */,
 				90CD55B425EE8EBE00266878 /* cloud8.png in Resources */,
 				90CD55A025EE829300266878 /* background_fall.png in Resources */,
+				9020D05E25F0E8390081CE9B /* ConfettiRain.sks in Resources */,
 				90D7667925EFFBF400297C3A /* owl.png in Resources */,
 				90CD55B825EE8EBE00266878 /* cloud5.png in Resources */,
 				90D7667725EFFBF400297C3A /* walrus.png in Resources */,
 				90D7667225EFFBF400297C3A /* moose.png in Resources */,
 				9031643025EFA498004A1727 /* Assets.xcassets in Resources */,
 				90D7668E25EFFBF500297C3A /* dog.png in Resources */,
+				9020D06325F0E90C0081CE9B /* ConfettiPop.sks in Resources */,
 				90D7668125EFFBF500297C3A /* pig.png in Resources */,
 				906482F925E199AF00646826 /* LaunchScreen.storyboard in Resources */,
 				90CD55B525EE8EBE00266878 /* cloud1.png in Resources */,
@@ -488,6 +508,7 @@
 				90D7667D25EFFBF400297C3A /* frog.png in Resources */,
 				90BD84AD25ED5FFF00C68771 /* StepperView.xib in Resources */,
 				90D7668925EFFBF500297C3A /* gorilla.png in Resources */,
+				9020D05925F0E6E00081CE9B /* ConfettiCanon.sks in Resources */,
 				90D7667B25EFFBF400297C3A /* crocodile.png in Resources */,
 				90D7667E25EFFBF400297C3A /* cow.png in Resources */,
 				90D7668625EFFBF500297C3A /* chick.png in Resources */,
@@ -546,8 +567,11 @@
 				90BC3B8125E4EC1000CC3111 /* BigButton.swift in Sources */,
 				9064832625E241AE00646826 /* AnimalsScene.swift in Sources */,
 				90CD55A825EE8E3100266878 /* CloudScene.swift in Sources */,
+				901251DB25F215F200E2B347 /* BackgroundLabel.swift in Sources */,
 				907AE3DE25E41A2000F95452 /* GameSettingsViewController.swift in Sources */,
 				906482F125E199AB00646826 /* MultiplicationViewController.swift in Sources */,
+				901251E325F2254A00E2B347 /* SelectTableCollectionViewCell.swift in Sources */,
+				9020D06825F0EB8A0081CE9B /* ConfettiEmitterGenerator.swift in Sources */,
 				90BD84BA25ED746600C68771 /* StepperButton.swift in Sources */,
 				9065535C25E4FA75005FBEEF /* StepRangeSlider.swift in Sources */,
 				901EC25425E64477009405B2 /* RangeSliderStepsLayer.swift in Sources */,

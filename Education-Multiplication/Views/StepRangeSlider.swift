@@ -46,9 +46,10 @@ class StepRangeSlider: UIControl {
     
     /// Creates the track layer of the view, and assigning it to the `trackLayer` value.
     private func createTrack() {
-        let trackWidth = bounds.width
+        let trackWidth = bounds.width - thumbSize.width
         let trackHeight: CGFloat = 12
-        trackLayer.frame = CGRect(origin: .zero, size: CGSize(width: trackWidth, height: trackHeight))
+        let trackOrigin = CGPoint(x: thumbSize.width/2, y: bounds.height/2)
+        trackLayer.frame = CGRect(origin: trackOrigin, size: CGSize(width: trackWidth, height: trackHeight))
         trackLayer.backgroundColor = UIColor.systemBlue.cgColor
         layer.addSublayer(trackLayer)
     }

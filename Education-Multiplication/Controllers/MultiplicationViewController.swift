@@ -89,6 +89,13 @@ class MultiplicationViewController: UIViewController {
             }
         }
     }
+    
+    #warning("Shake gesture to throw confettis")
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            scene.createConfettis()
+        }
+    }
 }
 
 extension MultiplicationViewController: UICollectionViewDataSource {
