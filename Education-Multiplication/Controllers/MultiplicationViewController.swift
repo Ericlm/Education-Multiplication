@@ -11,29 +11,41 @@ import SpriteKit
 class MultiplicationViewController: UIViewController {
     @IBOutlet var spriteView: SKView!
     @IBOutlet var multiplicationLabel: UILabel!
+    @IBOutlet var questionNumberLabel: BackgroundLabel!
     @IBOutlet var collectionView: UICollectionView!
     
     /// Time for fade-in and fade-out animations for buttons and label.
     private let animationTime = 0.4
     
     /// The factors the user selected to be questionned about.
-    var selectedFactors: [Int]!
+    private var selectedFactors: [Int] {
+        return Preferences.selectedFactors
+    }
     /// The range of the factors the multiplication can be generated with.
-    var factorsRange: ClosedRange<Int>!
+    private var factorsRange: ClosedRange<Int> {
+        return Preferences.factorsRange
+    }
     /// The number of factors used to generate the multiplication.
-    var numberOfFactors: Int!
+    private var numberOfFactors: Int {
+        return Preferences.numberOfFactors
+    }
     /// The number of answers that are available to the user.
-    var numberOfAnswers: Int!
+    private var numberOfAnswers: Int {
+        return Preferences.numberOfAnswers
+    }
+    /// The number of questions to be asked within the session
+    private var numberOfQuestions: Int {
+        return Preferences.numberOfQuestions
+    }
     
     /// The current running multiplication
     private var multiplication: Multiplication!
+    /// The current number of question
+    private var currentQuestionNumber = 1
+    /// The number of wrong answers given before the correct one
+    private var currentQuestionNumberOfWrongAnswer = 0
     /// The SKScene used to add fun to the exercise.
     private var scene: AnimalsScene!
-    
-    #warning("Temporary values")
-    var counting = 0
-    var numberOfQuestions = 5
-    var spritesToDrop = 8
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,9 +53,8 @@ class MultiplicationViewController: UIViewController {
         view.backgroundColor = .clear
         
         // We take the skview from the navigation controller, using a tag, and then we extract the scene from it.
-        scene = AnimalsScene(size: view.frame.size, numberOfQuestions: numberOfQuestions, numberOfAnswers: 8)
-        spriteView.showsFPS = true
-        spriteView.ignoresSiblingOrder = true
+        scene = AnimalsScene(size: view.frame.size)
+        scene.maximumNumberOfSprites = numberOfQuestions * numberOfAnswers
         spriteView.presentScene(scene)
         
         //We generate a multiplication and assign its question to the label
@@ -51,18 +62,41 @@ class MultiplicationViewController: UIViewController {
         multiplicationLabel.text = multiplication.operationText()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.delegate = self
+    }
+    
     /// Called when the user press a button representing an answer. Depending on the number displayed by the button, it validates or invalidates the answer.
     /// If the answer is correct, it also takes care of updating the multiplication.
     /// - Parameter button: The `AnswerButton` the user pressed.
     @objc func buttonPressed(button: AnswerButton) {
+        #warning("Navigates to main menu by tapping any answer")
+        navigationController?.popToRootViewController(animated: true)
+        return
+        
         if multiplication.isNumberCorrect(button.numberToDisplay) {
-            scene.dropSprites(spritesToDrop)
-            updateMultiplication()
-            counting += 1
-            print(counting)
+            scene.dropSprites(numberOfAnswers - currentQuestionNumberOfWrongAnswer)
+            
+            if currentQuestionNumber == numberOfQuestions {
+                showEndScreen()
+            } else {
+                currentQuestionNumber += 1
+                currentQuestionNumberOfWrongAnswer = 0
+                updateMultiplication()
+            }
         } else {
+            currentQuestionNumberOfWrongAnswer += 1
             button.playWrongAnswerAnimation()
         }
+    }
+    
+    private func showEndScreen() {
+        scene.createRandomConfettis()
+        multiplicationLabel.isHidden = true
+        for answerButton in collectionView.visibleCells where answerButton.viewWithTag(1) is AnswerButton {
+            answerButton.isHidden = true
+        }
+        navigationController?.popToRootViewController(animated: true)
     }
     
     /// Updates the current multiplication by re-generating it, then animates the label and updates it to have the new multiplication's values. It also aks the button to reload their value.
@@ -87,13 +121,6 @@ class MultiplicationViewController: UIViewController {
                 button.numberToDisplay = multiplication.possibleAnswers[indexPath.row]
                 button.reload(animationTime: animationTime)
             }
-        }
-    }
-    
-    #warning("Shake gesture to throw confettis")
-    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        if motion == .motionShake {
-            scene.createConfettis()
         }
     }
 }
@@ -155,5 +182,11 @@ extension MultiplicationViewController: UICollectionViewDelegate, UICollectionVi
         
         let insets = UIEdgeInsets(top: verticalInsets, left: horizontalInset, bottom: verticalInsets, right: horizontalInset)
         return insets
+    }
+}
+
+extension MultiplicationViewController: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return VerticalSlideNavigationAnimator(presenting: false)
     }
 }

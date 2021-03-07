@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIB-TD-YpC" customClass="BigButton" customModule="Education_Multiplication" customModuleProvider="target">
-                                <rect key="frame" x="14" y="356" width="347" height="100"/>
+                                <rect key="frame" x="43.666666666666657" y="356" width="288" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="VYU-FJ-kIe"/>
                                 </constraints>
@@ -40,9 +40,11 @@
                         <viewLayoutGuide key="safeArea" id="u6y-ft-DER"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="oIB-TD-YpC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="u6y-ft-DER" secondAttribute="leading" constant="14" id="Rk7-Wx-gUu"/>
                             <constraint firstItem="oIB-TD-YpC" firstAttribute="centerY" secondItem="U1U-oQ-2RN" secondAttribute="centerY" id="RkD-gJ-4gs"/>
                             <constraint firstItem="oIB-TD-YpC" firstAttribute="centerX" secondItem="U1U-oQ-2RN" secondAttribute="centerX" id="c0a-FV-Y2E"/>
                             <constraint firstItem="oIB-TD-YpC" firstAttribute="width" secondItem="U1U-oQ-2RN" secondAttribute="width" multiplier="0.5" priority="750" id="gNm-xB-byN"/>
+                            <constraint firstItem="u6y-ft-DER" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oIB-TD-YpC" secondAttribute="trailing" constant="14" id="q6f-WU-aBk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HHN-Qr-WoG"/>
@@ -60,7 +62,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zmI-Lv-hBe" customClass="BigButton" customModule="Education_Multiplication" customModuleProvider="target">
-                                <rect key="frame" x="112.66666666666669" y="690.66666666666663" width="150" height="80"/>
+                                <rect key="frame" x="93.666666666666671" y="690.66666666666663" width="187.66666666666663" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Zp4-yp-EPP"/>
                                 </constraints>
@@ -77,24 +79,12 @@
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="MultiplicationSegue" id="Pjd-bU-e9U"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="udr-qk-kf3">
-                                <rect key="frame" x="47" y="74" width="281" height="60"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ova-OY-P52">
+                                <rect key="frame" x="37.666666666666657" y="164.00000000000003" width="300" height="396.66666666666674"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="cLQ-lV-dUs"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="320" id="HFN-QK-WBr"/>
                                 </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fT1-ob-SqY" customClass="StepperView" customModule="Education_Multiplication" customModuleProvider="target">
-                                <rect key="frame" x="87.666666666666686" y="234.33333333333337" width="200" height="100"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="bQU-oV-jTr"/>
-                                    <constraint firstAttribute="height" constant="100" id="q79-fX-ChC"/>
-                                </constraints>
-                            </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ova-OY-P52">
-                                <rect key="frame" x="18.666666666666657" y="384.33333333333337" width="337.66666666666674" height="256.33333333333337"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <viewLayoutGuide key="contentLayoutGuide" id="3M2-zA-tb9"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="gGG-WB-Hbq"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cWv-Z7-s62">
@@ -106,16 +96,16 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="Bl6-wL-Mcg" customClass="SelectTableCollectionViewCell" customModule="Education_Multiplication" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="89" height="80"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="oNj-ch-Kb0">
-                                            <rect key="frame" x="0.0" y="0.0" width="89" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="B6M-Ph-JFE">
-                                                    <rect key="frame" x="0.0" y="21" width="89" height="38"/>
-                                                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="30"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="2.3333333333333357" y="18.666666666666668" width="75.666666666666657" height="42.666666666666657"/>
+                                                    <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="30"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -141,33 +131,155 @@
                                     <outlet property="delegate" destination="EAx-Uy-k9w" id="aK2-uR-x2v"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yyh-GX-lDf" customClass="SmallButton" customModule="Education_Multiplication" customModuleProvider="target">
+                                <rect key="frame" x="105.66666666666669" y="610.66666666666663" width="164" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="n4E-Ig-UJk"/>
+                                </constraints>
+                                <state key="normal" title="Réglages avancés"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" systemColor="systemBlueColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="FT8-4b-jbQ" kind="show" id="WbQ-Ik-0TA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KvP-wn-rbi" customClass="SmallButton" customModule="Education_Multiplication" customModuleProvider="target">
+                                <rect key="frame" x="30" y="54" width="64" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="I9T-yM-J6f">
+                                        <variation key="widthClass=regular" constant="50"/>
+                                    </constraint>
+                                </constraints>
+                                <state key="normal" title="Retour"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" systemColor="systemBlueColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="EAx-Uy-k9w" eventType="touchUpInside" id="PyO-UL-Mz0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qwT-ye-d9g"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ova-OY-P52" firstAttribute="width" secondItem="JLj-Cd-hpo" secondAttribute="width" multiplier="0.9" id="C3Q-Ag-As4"/>
-                            <constraint firstItem="udr-qk-kf3" firstAttribute="centerX" secondItem="JLj-Cd-hpo" secondAttribute="centerX" id="GJ5-gb-PEq"/>
-                            <constraint firstItem="udr-qk-kf3" firstAttribute="top" secondItem="qwT-ye-d9g" secondAttribute="top" constant="30" id="Gdq-k5-ItJ"/>
-                            <constraint firstItem="zmI-Lv-hBe" firstAttribute="top" secondItem="ova-OY-P52" secondAttribute="bottom" constant="50" id="T4Z-gl-Vcr"/>
-                            <constraint firstItem="fT1-ob-SqY" firstAttribute="centerX" secondItem="JLj-Cd-hpo" secondAttribute="centerX" id="cR6-MI-KXB"/>
+                            <constraint firstItem="KvP-wn-rbi" firstAttribute="top" secondItem="qwT-ye-d9g" secondAttribute="top" constant="10" id="3TQ-Ax-iGL">
+                                <variation key="widthClass=regular" constant="20"/>
+                            </constraint>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Yyh-GX-lDf" secondAttribute="trailing" constant="20" id="4e1-z1-Gvz"/>
+                            <constraint firstItem="Yyh-GX-lDf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JLj-Cd-hpo" secondAttribute="leading" constant="20" id="A7G-R0-ce7"/>
+                            <constraint firstItem="ova-OY-P52" firstAttribute="top" relation="greaterThanOrEqual" secondItem="KvP-wn-rbi" secondAttribute="bottom" constant="10" id="AqT-JW-Vlo"/>
+                            <constraint firstItem="ova-OY-P52" firstAttribute="width" secondItem="JLj-Cd-hpo" secondAttribute="width" multiplier="0.8" id="C3Q-Ag-As4"/>
+                            <constraint firstItem="Yyh-GX-lDf" firstAttribute="top" secondItem="ova-OY-P52" secondAttribute="bottom" priority="750" constant="50" id="JFY-sV-qbS"/>
+                            <constraint firstItem="KvP-wn-rbi" firstAttribute="leading" secondItem="qwT-ye-d9g" secondAttribute="leading" constant="30" id="Klf-5U-mu4">
+                                <variation key="widthClass=regular" constant="45"/>
+                            </constraint>
+                            <constraint firstItem="Yyh-GX-lDf" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ova-OY-P52" secondAttribute="bottom" constant="10" id="MkB-4k-D80"/>
+                            <constraint firstItem="zmI-Lv-hBe" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Yyh-GX-lDf" secondAttribute="bottom" constant="10" id="MlD-dn-ZIK"/>
+                            <constraint firstItem="qwT-ye-d9g" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KvP-wn-rbi" secondAttribute="trailing" constant="50" id="Qfj-45-tgM"/>
+                            <constraint firstItem="ova-OY-P52" firstAttribute="centerY" secondItem="qwT-ye-d9g" secondAttribute="centerY" multiplier="0.85" priority="250" id="Tkp-Ri-2L9"/>
                             <constraint firstItem="zmI-Lv-hBe" firstAttribute="centerX" secondItem="JLj-Cd-hpo" secondAttribute="centerX" id="cTT-X0-jAp"/>
-                            <constraint firstItem="udr-qk-kf3" firstAttribute="width" secondItem="JLj-Cd-hpo" secondAttribute="width" multiplier="0.75" id="etd-VR-TTE"/>
-                            <constraint firstItem="zmI-Lv-hBe" firstAttribute="width" secondItem="JLj-Cd-hpo" secondAttribute="width" multiplier="0.4" id="fAb-EZ-6Nl"/>
-                            <constraint firstItem="fT1-ob-SqY" firstAttribute="centerY" secondItem="JLj-Cd-hpo" secondAttribute="centerY" multiplier="0.7" id="ivn-0g-ySX"/>
+                            <constraint firstItem="zmI-Lv-hBe" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Yyh-GX-lDf" secondAttribute="bottom" priority="500" constant="30" id="eMv-kR-jKQ"/>
+                            <constraint firstItem="zmI-Lv-hBe" firstAttribute="width" secondItem="JLj-Cd-hpo" secondAttribute="width" multiplier="0.5" id="fAb-EZ-6Nl"/>
                             <constraint firstItem="zmI-Lv-hBe" firstAttribute="centerY" secondItem="JLj-Cd-hpo" secondAttribute="centerY" multiplier="1.8" id="j6K-QI-S6w"/>
-                            <constraint firstItem="ova-OY-P52" firstAttribute="top" secondItem="fT1-ob-SqY" secondAttribute="bottom" constant="50" id="sPk-xA-K27"/>
+                            <constraint firstItem="ova-OY-P52" firstAttribute="height" secondItem="JLj-Cd-hpo" secondAttribute="height" multiplier="0.55" priority="500" id="jZ1-aD-JHx"/>
+                            <constraint firstItem="ova-OY-P52" firstAttribute="top" relation="greaterThanOrEqual" secondItem="KvP-wn-rbi" secondAttribute="bottom" priority="650" constant="150" id="jcb-Rm-whr">
+                                <variation key="widthClass=compact" constant="70"/>
+                            </constraint>
+                            <constraint firstItem="ova-OY-P52" firstAttribute="width" secondItem="JLj-Cd-hpo" secondAttribute="width" multiplier="0.6" id="lOD-KQ-NBk"/>
                             <constraint firstItem="ova-OY-P52" firstAttribute="centerX" secondItem="JLj-Cd-hpo" secondAttribute="centerX" id="srQ-kF-aDL"/>
+                            <constraint firstItem="Yyh-GX-lDf" firstAttribute="centerX" secondItem="JLj-Cd-hpo" secondAttribute="centerX" id="yJx-ly-wGR"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="lOD-KQ-NBk"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=regular">
+                            <mask key="constraints">
+                                <exclude reference="C3Q-Ag-As4"/>
+                                <include reference="lOD-KQ-NBk"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="1cU-u8-hoB"/>
                     <connections>
-                        <outlet property="rangeSliderView" destination="udr-qk-kf3" id="Iqy-Uj-mcz"/>
                         <outlet property="tableCollection" destination="ova-OY-P52" id="7cR-WW-O6p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h8Y-IQ-Gh3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1966" y="88"/>
+        </scene>
+        <!--Advanced Settings View Controller-->
+        <scene sceneID="77K-Gq-t5G">
+            <objects>
+                <viewController id="FT8-4b-jbQ" customClass="AdvancedSettingsViewController" customModule="Education_Multiplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NSr-ye-Xv5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQq-5N-TXP" customClass="SmallButton" customModule="Education_Multiplication" customModuleProvider="target">
+                                <rect key="frame" x="30" y="54" width="64" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ccD-51-ZLh">
+                                        <variation key="widthClass=regular" constant="50"/>
+                                    </constraint>
+                                </constraints>
+                                <state key="normal" title="Retour"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" systemColor="systemBlueColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="FT8-4b-jbQ" eventType="touchUpInside" id="dub-fZ-WB5"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4h7-CM-T5B">
+                                <rect key="frame" x="37.666666666666657" y="586.66666666666663" width="300" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="seu-5F-Whx"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="yRG-RX-0mk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4h7-CM-T5B" firstAttribute="centerY" secondItem="yRG-RX-0mk" secondAttribute="centerY" multiplier="1.5" id="2ei-g9-Tt3"/>
+                            <constraint firstItem="4h7-CM-T5B" firstAttribute="centerX" secondItem="yRG-RX-0mk" secondAttribute="centerX" id="GBA-hP-upL"/>
+                            <constraint firstItem="4h7-CM-T5B" firstAttribute="width" secondItem="NSr-ye-Xv5" secondAttribute="width" multiplier="0.8" id="c8e-gJ-REI"/>
+                            <constraint firstItem="FQq-5N-TXP" firstAttribute="leading" secondItem="yRG-RX-0mk" secondAttribute="leading" constant="30" id="kqe-49-VF7">
+                                <variation key="widthClass=regular" constant="45"/>
+                            </constraint>
+                            <constraint firstItem="yRG-RX-0mk" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FQq-5N-TXP" secondAttribute="trailing" constant="50" id="qf1-1f-0fS"/>
+                            <constraint firstItem="FQq-5N-TXP" firstAttribute="top" secondItem="yRG-RX-0mk" secondAttribute="top" constant="10" id="xEe-zX-o4z">
+                                <variation key="widthClass=regular" constant="20"/>
+                            </constraint>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="qZD-TM-Qfl"/>
+                    <connections>
+                        <outlet property="rangeSliderView" destination="4h7-CM-T5B" id="n6I-G3-ey8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q4W-2w-YZG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3014" y="88"/>
         </scene>
         <!--Multiplication View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -177,13 +289,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <skView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h7M-xb-Awk">
+                            <skView contentMode="scaleToFill" ignoresSiblingOrder="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h7M-xb-Awk">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </skView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 x 12 = 144" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="BVj-Z7-99L" customClass="BackgroundLabel" customModule="Education_Multiplication" customModuleProvider="target">
-                                <rect key="frame" x="10" y="171.66666666666666" width="355" height="63"/>
-                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="50"/>
+                                <rect key="frame" x="13.333333333333343" y="167.66666666666666" width="348.66666666666663" height="71"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="50"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -193,7 +305,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" delaysContentTouches="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yvd-Nq-RXn">
-                                <rect key="frame" x="0.0" y="384.66666666666674" width="375" height="393.33333333333326"/>
+                                <rect key="frame" x="0.0" y="388.66666666666674" width="375" height="389.33333333333326"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="10" id="ksd-CZ-a8q">
                                     <size key="itemSize" width="128" height="128"/>
@@ -211,7 +323,7 @@
                                             <subviews>
                                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Y9-dn-Iyq" customClass="AnswerButton" customModule="Education_Multiplication" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="40"/>
+                                                    <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="40"/>
                                                     <state key="normal" title="Button">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="thin"/>
@@ -240,6 +352,18 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="YmW-3d-cqH"/>
                                 </connections>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Question 1/10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="WH7-VK-pcr" customClass="BackgroundLabel" customModule="Education_Multiplication" customModuleProvider="target">
+                                <rect key="frame" x="84" y="44" width="207" height="42.666666666666657"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="30"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -251,10 +375,12 @@
                             <constraint firstItem="BVj-Z7-99L" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="J0d-er-GXb"/>
                             <constraint firstItem="h7M-xb-Awk" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="JWu-bx-QW7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yvd-Nq-RXn" secondAttribute="bottom" id="SWd-F2-jHb"/>
+                            <constraint firstItem="WH7-VK-pcr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="StW-Ry-bLZ"/>
                             <constraint firstItem="BVj-Z7-99L" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.5" id="XhP-gQ-x0f"/>
                             <constraint firstItem="yvd-Nq-RXn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cJt-yf-1dF"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BVj-Z7-99L" secondAttribute="trailing" constant="10" id="feT-PX-Pay"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yvd-Nq-RXn" secondAttribute="trailing" id="lQg-uk-0NJ"/>
+                            <constraint firstItem="WH7-VK-pcr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mUe-WF-YgA"/>
                             <constraint firstAttribute="bottom" secondItem="h7M-xb-Awk" secondAttribute="bottom" id="uMH-8s-VdB"/>
                         </constraints>
                     </view>
@@ -262,6 +388,7 @@
                     <connections>
                         <outlet property="collectionView" destination="yvd-Nq-RXn" id="pX7-XB-HfG"/>
                         <outlet property="multiplicationLabel" destination="BVj-Z7-99L" id="Gyi-v3-SQe"/>
+                        <outlet property="questionNumberLabel" destination="WH7-VK-pcr" id="Edu-Pm-RRK"/>
                         <outlet property="spriteView" destination="h7M-xb-Awk" id="oFd-vM-Pai"/>
                     </connections>
                 </viewController>
@@ -289,16 +416,28 @@
     </scenes>
     <designables>
         <designable name="9Y9-dn-Iyq">
-            <size key="intrinsicContentSize" width="146" height="63"/>
+            <size key="intrinsicContentSize" width="122" height="69"/>
         </designable>
         <designable name="BVj-Z7-99L">
-            <size key="intrinsicContentSize" width="401.66666666666669" height="63.333333333333336"/>
+            <size key="intrinsicContentSize" width="348.66666666666669" height="71"/>
+        </designable>
+        <designable name="FQq-5N-TXP">
+            <size key="intrinsicContentSize" width="64" height="41"/>
+        </designable>
+        <designable name="KvP-wn-rbi">
+            <size key="intrinsicContentSize" width="64" height="41"/>
+        </designable>
+        <designable name="WH7-VK-pcr">
+            <size key="intrinsicContentSize" width="207" height="42.666666666666664"/>
+        </designable>
+        <designable name="Yyh-GX-lDf">
+            <size key="intrinsicContentSize" width="164" height="41"/>
         </designable>
         <designable name="oIB-TD-YpC">
-            <size key="intrinsicContentSize" width="347" height="63"/>
+            <size key="intrinsicContentSize" width="288" height="69"/>
         </designable>
         <designable name="zmI-Lv-hBe">
-            <size key="intrinsicContentSize" width="159" height="63"/>
+            <size key="intrinsicContentSize" width="136" height="69"/>
         </designable>
     </designables>
     <resources>

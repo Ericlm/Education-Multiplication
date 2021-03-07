@@ -45,7 +45,7 @@ class ThumbView: UIView {
     /// Creates and assigns the `numberLabel`.
     private func createNumberLabel() {
         numberLabel = UILabel(frame: bounds)
-        numberLabel.font = UIFont(name: "Chalkduster", size: 20)
+        numberLabel.font = UIFont(name: "ChalkboardSE-Bold", size: 20)
         numberLabel.textAlignment = .center
         numberLabel.text = "\(number)"
         addSubview(numberLabel)

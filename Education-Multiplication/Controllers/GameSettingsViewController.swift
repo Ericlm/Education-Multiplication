@@ -9,10 +9,7 @@ import UIKit
 import SpriteKit
 
 class GameSettingsViewController: UIViewController {
-    @IBOutlet var rangeSliderView: UIView!
     @IBOutlet var tableCollection: UICollectionView!
-    
-    private var stepSlider: StepRangeSlider?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,31 +17,16 @@ class GameSettingsViewController: UIViewController {
         // We set the background transparent so that the navigation's image is visible.
         view.backgroundColor = .clear
         
-        // We set the controller as delegate to handle animations to the game controller.
-        navigationController?.delegate = self
-        
         tableCollection.allowsMultipleSelection = true
     }
     
-    override func viewDidLayoutSubviews() {
-        guard stepSlider == nil else { return }
-        stepSlider = StepRangeSlider(frame: rangeSliderView.bounds, range: 1...12)
-        stepSlider!.addTarget(self, action: #selector(rangeSliderValueChanged(_:)), for: .valueChanged)
-        rangeSliderView.addSubview(stepSlider!)
+    override func viewWillAppear(_ animated: Bool) {
+        // We set the controller as delegate to handle animations to the game controller.
+        navigationController?.delegate = self
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "MultiplicationSegue", let multiplicationViewController = segue.destination as? MultiplicationViewController {
-            #warning("The selected factors and factor range are manually set")
-            multiplicationViewController.factorsRange = 1...20
-            multiplicationViewController.selectedFactors = [1]
-            multiplicationViewController.numberOfAnswers = 4
-            multiplicationViewController.numberOfFactors = 2
-        }
-    }
-    
-    @objc func rangeSliderValueChanged(_ slider: StepRangeSlider) {
-        #warning("Range slider values changed does nothing")
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
     }
 }
 
@@ -67,7 +49,7 @@ extension GameSettingsViewController: UICollectionViewDataSource {
 extension GameSettingsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if traitCollection.horizontalSizeClass == .compact {
-            return CGSize(width: 50, height: 50)
+            return CGSize(width: 70, height: 70)
         } else {
             return CGSize(width: 100, height: 100)
         }
@@ -76,10 +58,17 @@ extension GameSettingsViewController: UICollectionViewDelegateFlowLayout {
 
 extension GameSettingsViewController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if toVC is AdvancedSettingsViewController {
+            return HorizontalSlideNavigationAnimator(presenting: true)
+        } else if toVC is MainMenuViewController {
+            return HorizontalSlideNavigationAnimator(presenting: false)
+        }
+        
+        // Show the game view controller
         if operation == .push {
-            return FadeColorNavigationAnimator(isPresenting: true)
+            return VerticalSlideNavigationAnimator(presenting: true)
         } else {
-            return FadeColorNavigationAnimator(isPresenting: false)
+            return VerticalSlideNavigationAnimator(presenting: false)
         }
     }
 }

@@ -10,14 +10,24 @@ import UIKit
 @IBDesignable
 class StepperView: UIView {
     /// The label displaying the current count.
-    @IBOutlet var countLabel: UILabel!
+    @IBOutlet private var countLabel: UILabel!
+    
+    var step: Int = 1
+    var range: ClosedRange<Int> = 0...1
+    var currentValue: Int {
+        didSet {
+            countLabel.text = String(currentValue)
+        }
+    }
     
     override init(frame: CGRect) {
+        currentValue = 0
         super.init(frame: frame)
         commonInit()
     }
     
     required init?(coder: NSCoder) {
+        currentValue = 0
         super.init(coder: coder)
         commonInit()
     }

@@ -1,22 +1,22 @@
 //
-//  FadeColorNavigationAnimator.swift
+//  SlideNavigationAnimator.swift
 //  Education-Multiplication
 //
-//  Created by Eric Le Maître on 01/03/2021.
+//  Created by Eric Le Maître on 23/02/2021.
 //
 
 import UIKit
 
-class FadeColorNavigationAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+class HorizontalSlideNavigationAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     private let presenting: Bool
     
-    init(isPresenting: Bool) {
-        presenting = isPresenting
+    init(presenting: Bool) {
+        self.presenting = presenting
         super.init()
     }
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 2.0
+        return 1.0
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -25,25 +25,28 @@ class FadeColorNavigationAnimator: NSObject, UIViewControllerAnimatedTransitioni
         
         let container = transitionContext.containerView
         if presenting {
-            toView.transform = CGAffineTransform(translationX: 0, y: container.frame.height)
+            toView.transform = CGAffineTransform(translationX: container.frame.width, y: 0)
             container.addSubview(toView)
         } else {
-            container.insertSubview(toView, belowSubview: fromView)
+            toView.frame = CGRect(x: -container.frame.width, y: 0, width: container.frame.width, height: container.frame.height)
+            toView.transform = CGAffineTransform(translationX: -container.frame.width, y: 0)
+            container.addSubview(toView)
         }
         
-        UIView.animate(withDuration: transitionDuration(using: transitionContext)) {
+        UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, options: [.curveEaseInOut]) {
             if self.presenting {
                 toView.transform = .identity
-                fromView.transform = CGAffineTransform(translationX: 0, y: -container.frame.height)
+                fromView.transform = CGAffineTransform(translationX: -container.frame.width, y: 0)
             } else {
-                fromView.alpha = 1.0
-                toView.alpha = 1.0
+                fromView.transform = CGAffineTransform(translationX: container.frame.width, y: 0)
+                toView.transform = .identity
             }
         } completion: { _ in
             let success = !transitionContext.transitionWasCancelled
             if !success {
                 toView.removeFromSuperview()
             }
+            
             transitionContext.completeTransition(success)
         }
     }

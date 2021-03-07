@@ -9,21 +9,17 @@ import SpriteKit
 
 class AnimalsScene: SKScene {
     private let animalsSpriteName = ["bear","buffalo","chick","chicken","cow","crocodile","dog","duck","elephant","frog","giraffe","goat","gorilla","hippo","horse","monkey","moose","narwhal","owl","panda","parrot","penguin","pig","rabbit","rhino","sloth","snake","walrus","whale","zebra"]
-    private let numberOfQuestions: Int
-    private let numberOfAnswers: Int
     
+    var maximumNumberOfSprites: Int!
     private var background: SKSpriteNode!
-    
     private var animalSize: CGSize {
         let screenArea = size.width * size.height
-        let spriteArea = screenArea / CGFloat(numberOfQuestions) / CGFloat(numberOfAnswers)
+        let spriteArea = screenArea / CGFloat(maximumNumberOfSprites)
         let spriteSize = sqrt(spriteArea) * 0.95
         return CGSize(width: spriteSize, height: spriteSize)
     }
     
-    init(size: CGSize, numberOfQuestions: Int, numberOfAnswers: Int) {
-        self.numberOfQuestions = numberOfQuestions
-        self.numberOfAnswers = numberOfAnswers
+    override init(size: CGSize) {
         super.init(size: size)
     }
     
@@ -32,10 +28,6 @@ class AnimalsScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
-        let shape = SKShapeNode(circleOfRadius: 20)
-        shape.position = CGPoint(x: size.width/2, y: size.height/2)
-        addChild(shape)
-        
         physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: 0, y: 0, width: size.width, height: size.height*2))
         
         addBackground()
@@ -58,12 +50,20 @@ class AnimalsScene: SKScene {
         background.zPosition = -1
         background.blendMode = .replace
         background.position = CGPoint(x: size.width/2, y: size.height/2)
+        
+        let backgroundAspectRatio = size.height / background.size.height
+        background.setScale(backgroundAspectRatio)
         addChild(background)
     }
     
-    func createConfettis() {
-        //Canon confettis
-        /*for (index,color) in colors.enumerated() {
+    func createRandomConfettis() {
+        let confettiMethods = [createCanonConfetti, createPopConfettis, createRainConfettis]
+        confettiMethods.randomElement()!()
+    }
+    
+    private func createCanonConfetti() {
+        let colors = ConfettiColor.allCases
+        for (index,color) in colors.enumerated() {
             let emitterNode = ConfettiEmitterGenerator.createCanonConfettiEmitter(forConfettiColor: color)
             
             let xOffset = size.width / CGFloat(colors.count) / 2
@@ -71,10 +71,11 @@ class AnimalsScene: SKScene {
             let position = CGPoint(x: xPosition, y: 0)
             emitterNode.position = position
             addChild(emitterNode)
-        }*/
-        
-        //Pop confettis
-        /*for color in ConfettiColor.allCases {
+        }
+    }
+    
+    private func createPopConfettis() {
+        for color in ConfettiColor.allCases {
             let emitterNode = ConfettiEmitterGenerator.createPopConfettiEmitter(forConfettiColor: color)
             let randomPosition = CGPoint(x: CGFloat.random(in: 0...size.width), y: CGFloat.random(in: 0...size.height))
             emitterNode.position = randomPosition
@@ -85,9 +86,10 @@ class AnimalsScene: SKScene {
             DispatchQueue.main.asyncAfter(deadline: .now() + randomTime) {
                 emitterNode.isPaused = false
             }
-        }*/
-        
-        //Rain confettis
+        }
+    }
+    
+    private func createRainConfettis() {
         for color in ConfettiColor.allCases {
             let emitterNode = ConfettiEmitterGenerator.createRainConfettiEmitter(forConfettiColor: color, emissionRange: CGVector(dx: size.width, dy: 0))
             emitterNode.position = CGPoint(x: size.width/2, y: size.height + 20)

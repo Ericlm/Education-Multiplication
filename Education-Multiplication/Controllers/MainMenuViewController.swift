@@ -15,35 +15,30 @@ class MainMenuViewController: UIViewController {
         // We set the background to be transparent, so the navigationController's image can be displayed.
         view.backgroundColor = .clear
         
-        // We add the cloud scene to the navigation controller.
-        let scene = CloudScene(size: view.frame.size)
-        let skView = SKView(frame: view.frame)
-        skView.presentScene(scene)
-        navigationController?.view.insertSubview(skView, at: 0)
-        
+        addSKView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         // We set this controller to be the delegate to handle the animations when pushing/poping controllers.
         navigationController?.delegate = self
     }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // If the user selected a quick game, we push a MultiplicationViewController with template values.
-        if segue.identifier == "QuickGameSegue", let multiplicationViewController = segue.destination as? MultiplicationViewController {
-            multiplicationViewController.selectedFactors = Preferences.selectedFactors
-            multiplicationViewController.factorsRange = Preferences.factorsRange
-            multiplicationViewController.numberOfAnswers = 4
-            multiplicationViewController.numberOfFactors = 2
-        } else if segue.identifier == "SettingsSegue" {
-            //view.isHidden = true
-        }
+    
+    func addSKView() {
+        //Add the skView to the navigation
+        let scene = CloudScene(size: view.frame.size)
+        let skView = SKView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+        skView.tag = 1
+        skView.presentScene(scene)
+        navigationController?.view.insertSubview(skView, at: 0)
     }
 }
 
 extension MainMenuViewController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if operation == .push {
-            return SlideNavigationAnimator(presenting: true)
+            return HorizontalSlideNavigationAnimator(presenting: true)
         } else {
-            return SlideNavigationAnimator(presenting: false)
+            return HorizontalSlideNavigationAnimator(presenting: false)
         }
     }
 }

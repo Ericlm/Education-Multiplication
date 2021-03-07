@@ -53,10 +53,10 @@ class BigButton: UIButton {
     }
     
     /// This function is called in others initializers methods to setup the view in both *Interface Builder* and for the app at runtime.
-    private func commonInit() {
+    internal func commonInit() {
         titleLabel?.minimumScaleFactor = 0.6
         titleLabel?.adjustsFontSizeToFitWidth = true
-        titleLabel?.font = UIFont(name: "Chalkduster", size: 40)
+        titleLabel?.font = UIFont(name: "ChalkboardSE-Bold", size: 40)
         titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
     }
     
@@ -64,7 +64,15 @@ class BigButton: UIButton {
     private func animateHighlight() {
         UIView.animate(withDuration: 0.2, delay: 0, options: [.allowUserInteraction]) { [unowned self] in
             self.transform = isHighlighted ? CGAffineTransform(scaleX: 0.9, y: 0.9) : .identity
-        } completion: { (isFinished) in
         }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        var frame = titleLabel!.frame
+        frame.size.height = bounds.size.height
+        frame.origin.y = titleEdgeInsets.top
+        titleLabel?.frame = frame
     }
 }
