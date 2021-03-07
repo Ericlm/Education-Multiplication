@@ -101,6 +101,7 @@ extension StepRangeSlider {
     override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
         let touchLocation = touch.location(in: self)
         
+        // Process the touch to detect if the user wants to move a thumb view.
         if lowerThumbView.frame.contains(touchLocation) {
             lowerThumbView.isHighlighted = true
             return true
@@ -115,9 +116,11 @@ extension StepRangeSlider {
     override func continueTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
         let touchLocation = touch.location(in: self)
         
+        // Process the touch to move the thumb view corresponding to the currently highlighted thumb view.
         if lowerThumbView.isHighlighted {
             let oldLowerValue = lowerValue
             lowerThumbView.center.x = clampPosition(position: touchLocation, isUpThumb: false)
+            // We only send action if the new value is different from the current one
             if(oldLowerValue != lowerValue) {
                 lowerThumbView.number = lowerValue
                 sendActions(for: .valueChanged)
@@ -126,6 +129,7 @@ extension StepRangeSlider {
         } else if upperThumbView.isHighlighted {
             let oldUpperValue = upperValue
             upperThumbView.center.x = clampPosition(position: touchLocation, isUpThumb: true)
+            // We only send action if the new value is different from the current one
             if(oldUpperValue != upperValue) {
                 upperThumbView.number = upperValue
                 sendActions(for: .valueChanged)

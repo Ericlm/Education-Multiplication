@@ -11,6 +11,6 @@ class SmallButton: BigButton {
     override func commonInit() {
         super.commonInit()
         let fontSize: CGFloat = traitCollection.horizontalSizeClass == .compact ? 20 : 30
-        titleLabel?.font = UIFont(name: "ChalkboardSE-Bold", size: fontSize)
+        titleLabel?.font = UIFont(name: "MarkerFelt-Wide", size: fontSize)
     }
 }

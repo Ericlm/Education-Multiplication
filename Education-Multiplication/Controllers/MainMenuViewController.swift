@@ -23,8 +23,8 @@ class MainMenuViewController: UIViewController {
         navigationController?.delegate = self
     }
     
+    /// Adds an SKView showing the CloudScene to the navigation controller.
     func addSKView() {
-        //Add the skView to the navigation
         let scene = CloudScene(size: view.frame.size)
         let skView = SKView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
         skView.tag = 1

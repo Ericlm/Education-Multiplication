@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIB-TD-YpC" customClass="BigButton" customModule="Education_Multiplication" customModuleProvider="target">
-                                <rect key="frame" x="43.666666666666657" y="356" width="288" height="100"/>
+                                <rect key="frame" x="54.666666666666657" y="356" width="266" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="VYU-FJ-kIe"/>
                                 </constraints>
@@ -103,8 +103,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="B6M-Ph-JFE">
-                                                    <rect key="frame" x="2.3333333333333357" y="18.666666666666668" width="75.666666666666657" height="42.666666666666657"/>
-                                                    <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="30"/>
+                                                    <rect key="frame" x="5" y="20.666666666666671" width="70" height="39"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -132,7 +132,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yyh-GX-lDf" customClass="SmallButton" customModule="Education_Multiplication" customModuleProvider="target">
-                                <rect key="frame" x="105.66666666666669" y="610.66666666666663" width="164" height="50"/>
+                                <rect key="frame" x="112.66666666666669" y="610.66666666666663" width="150" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="n4E-Ig-UJk"/>
                                 </constraints>
@@ -149,8 +149,8 @@
                                     <segue destination="FT8-4b-jbQ" kind="show" id="WbQ-Ik-0TA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KvP-wn-rbi" customClass="SmallButton" customModule="Education_Multiplication" customModuleProvider="target">
-                                <rect key="frame" x="30" y="54" width="64" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KvP-wn-rbi" customClass="SmallButton" customModule="Education_Multiplication" customModuleProvider="target">
+                                <rect key="frame" x="30" y="54" width="60" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="I9T-yM-J6f">
                                         <variation key="widthClass=regular" constant="50"/>
@@ -169,6 +169,15 @@
                                     <action selector="backButtonTapped:" destination="EAx-Uy-k9w" eventType="touchUpInside" id="PyO-UL-Mz0"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" text="Tables à réviser :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7D-MH-1rd">
+                                <rect key="frame" x="116" y="118" width="143" height="26"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=regular">
+                                    <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qwT-ye-d9g"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -188,8 +197,11 @@
                             <constraint firstItem="zmI-Lv-hBe" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Yyh-GX-lDf" secondAttribute="bottom" constant="10" id="MlD-dn-ZIK"/>
                             <constraint firstItem="qwT-ye-d9g" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KvP-wn-rbi" secondAttribute="trailing" constant="50" id="Qfj-45-tgM"/>
                             <constraint firstItem="ova-OY-P52" firstAttribute="centerY" secondItem="qwT-ye-d9g" secondAttribute="centerY" multiplier="0.85" priority="250" id="Tkp-Ri-2L9"/>
+                            <constraint firstItem="A7D-MH-1rd" firstAttribute="centerX" secondItem="ova-OY-P52" secondAttribute="centerX" priority="750" id="X9b-dg-PWZ"/>
                             <constraint firstItem="zmI-Lv-hBe" firstAttribute="centerX" secondItem="JLj-Cd-hpo" secondAttribute="centerX" id="cTT-X0-jAp"/>
-                            <constraint firstItem="zmI-Lv-hBe" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Yyh-GX-lDf" secondAttribute="bottom" priority="500" constant="30" id="eMv-kR-jKQ"/>
+                            <constraint firstItem="zmI-Lv-hBe" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Yyh-GX-lDf" secondAttribute="bottom" priority="500" constant="30" id="eMv-kR-jKQ">
+                                <variation key="widthClass=regular" constant="70"/>
+                            </constraint>
                             <constraint firstItem="zmI-Lv-hBe" firstAttribute="width" secondItem="JLj-Cd-hpo" secondAttribute="width" multiplier="0.5" id="fAb-EZ-6Nl"/>
                             <constraint firstItem="zmI-Lv-hBe" firstAttribute="centerY" secondItem="JLj-Cd-hpo" secondAttribute="centerY" multiplier="1.8" id="j6K-QI-S6w"/>
                             <constraint firstItem="ova-OY-P52" firstAttribute="height" secondItem="JLj-Cd-hpo" secondAttribute="height" multiplier="0.55" priority="500" id="jZ1-aD-JHx"/>
@@ -198,7 +210,9 @@
                             </constraint>
                             <constraint firstItem="ova-OY-P52" firstAttribute="width" secondItem="JLj-Cd-hpo" secondAttribute="width" multiplier="0.6" id="lOD-KQ-NBk"/>
                             <constraint firstItem="ova-OY-P52" firstAttribute="centerX" secondItem="JLj-Cd-hpo" secondAttribute="centerX" id="srQ-kF-aDL"/>
+                            <constraint firstItem="A7D-MH-1rd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KvP-wn-rbi" secondAttribute="trailing" constant="10" id="tw3-KU-JvI"/>
                             <constraint firstItem="Yyh-GX-lDf" firstAttribute="centerX" secondItem="JLj-Cd-hpo" secondAttribute="centerX" id="yJx-ly-wGR"/>
+                            <constraint firstItem="ova-OY-P52" firstAttribute="top" secondItem="A7D-MH-1rd" secondAttribute="bottom" constant="20" id="zDe-iK-pYC"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -230,7 +244,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQq-5N-TXP" customClass="SmallButton" customModule="Education_Multiplication" customModuleProvider="target">
-                                <rect key="frame" x="30" y="54" width="64" height="40"/>
+                                <rect key="frame" x="30" y="54" width="60" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ccD-51-ZLh">
                                         <variation key="widthClass=regular" constant="50"/>
@@ -250,22 +264,73 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4h7-CM-T5B">
-                                <rect key="frame" x="37.666666666666657" y="586.66666666666663" width="300" height="60"/>
+                                <rect key="frame" x="18.666666666666657" y="668.66666666666663" width="337.66666666666674" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="seu-5F-Whx"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="chX-Uv-f0x" customClass="StepperView" customModule="Education_Multiplication" customModuleProvider="target">
+                                <rect key="frame" x="87.666666666666686" y="193.66666666666666" width="200" height="99.999999999999972"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ukN-bM-hN5" customClass="StepperView" customModule="Education_Multiplication" customModuleProvider="target">
+                                <rect key="frame" x="87.666666666666686" y="437.33333333333331" width="200" height="99.999999999999943"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="TGa-rH-Qjp"/>
+                                    <constraint firstAttribute="width" constant="200" id="roe-JB-aOE"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre de questions :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWQ-3a-dLS">
+                                <rect key="frame" x="92.666666666666686" y="152.66666666666666" width="190" height="26"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=regular">
+                                    <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre de réponses :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9g-yQ-CoZ">
+                                <rect key="frame" x="95.666666666666686" y="391.33333333333331" width="184" height="26"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=regular">
+                                    <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Facteurs minimum et maximum :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="og6-Hi-Flw">
+                                <rect key="frame" x="44.333333333333343" y="622.66666666666663" width="286.33333333333326" height="26"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=regular">
+                                    <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yRG-RX-0mk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="4h7-CM-T5B" firstAttribute="centerY" secondItem="yRG-RX-0mk" secondAttribute="centerY" multiplier="1.5" id="2ei-g9-Tt3"/>
+                            <constraint firstItem="4h7-CM-T5B" firstAttribute="centerY" secondItem="yRG-RX-0mk" secondAttribute="centerY" multiplier="1.7" id="2ei-g9-Tt3"/>
+                            <constraint firstItem="DWQ-3a-dLS" firstAttribute="centerX" secondItem="chX-Uv-f0x" secondAttribute="centerX" id="3Bw-6i-omv"/>
+                            <constraint firstItem="4h7-CM-T5B" firstAttribute="top" secondItem="og6-Hi-Flw" secondAttribute="bottom" constant="20" id="4K2-be-Zsa"/>
+                            <constraint firstItem="chX-Uv-f0x" firstAttribute="width" secondItem="ukN-bM-hN5" secondAttribute="width" id="AXg-Wj-MrX"/>
+                            <constraint firstItem="ukN-bM-hN5" firstAttribute="top" secondItem="Y9g-yQ-CoZ" secondAttribute="bottom" constant="20" id="CxY-PM-Ptv"/>
+                            <constraint firstItem="ukN-bM-hN5" firstAttribute="centerY" secondItem="NSr-ye-Xv5" secondAttribute="centerY" multiplier="1.2" id="Ezm-3h-AWP"/>
                             <constraint firstItem="4h7-CM-T5B" firstAttribute="centerX" secondItem="yRG-RX-0mk" secondAttribute="centerX" id="GBA-hP-upL"/>
-                            <constraint firstItem="4h7-CM-T5B" firstAttribute="width" secondItem="NSr-ye-Xv5" secondAttribute="width" multiplier="0.8" id="c8e-gJ-REI"/>
+                            <constraint firstItem="chX-Uv-f0x" firstAttribute="top" secondItem="DWQ-3a-dLS" secondAttribute="bottom" constant="15" id="K2q-Z5-BzF"/>
+                            <constraint firstItem="chX-Uv-f0x" firstAttribute="centerY" secondItem="NSr-ye-Xv5" secondAttribute="centerY" multiplier="0.6" id="UB9-dC-iGd"/>
+                            <constraint firstItem="chX-Uv-f0x" firstAttribute="height" secondItem="ukN-bM-hN5" secondAttribute="height" id="WBP-oy-f0E"/>
+                            <constraint firstItem="ukN-bM-hN5" firstAttribute="centerX" secondItem="NSr-ye-Xv5" secondAttribute="centerX" id="WXW-iT-Me9"/>
+                            <constraint firstItem="4h7-CM-T5B" firstAttribute="width" secondItem="NSr-ye-Xv5" secondAttribute="width" multiplier="0.9" id="c8e-gJ-REI"/>
+                            <constraint firstItem="Y9g-yQ-CoZ" firstAttribute="centerX" secondItem="ukN-bM-hN5" secondAttribute="centerX" id="cAv-fq-BLS"/>
+                            <constraint firstItem="chX-Uv-f0x" firstAttribute="centerX" secondItem="NSr-ye-Xv5" secondAttribute="centerX" id="hhB-KT-XVw"/>
                             <constraint firstItem="FQq-5N-TXP" firstAttribute="leading" secondItem="yRG-RX-0mk" secondAttribute="leading" constant="30" id="kqe-49-VF7">
                                 <variation key="widthClass=regular" constant="45"/>
                             </constraint>
+                            <constraint firstItem="og6-Hi-Flw" firstAttribute="centerX" secondItem="4h7-CM-T5B" secondAttribute="centerX" id="prP-Pn-WSm"/>
                             <constraint firstItem="yRG-RX-0mk" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FQq-5N-TXP" secondAttribute="trailing" constant="50" id="qf1-1f-0fS"/>
                             <constraint firstItem="FQq-5N-TXP" firstAttribute="top" secondItem="yRG-RX-0mk" secondAttribute="top" constant="10" id="xEe-zX-o4z">
                                 <variation key="widthClass=regular" constant="20"/>
@@ -274,6 +339,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="qZD-TM-Qfl"/>
                     <connections>
+                        <outlet property="numberOfAnswersStepper" destination="ukN-bM-hN5" id="jMs-zE-hAq"/>
+                        <outlet property="numberOfQuestionsStepper" destination="chX-Uv-f0x" id="Fdt-Eu-WhH"/>
                         <outlet property="rangeSliderView" destination="4h7-CM-T5B" id="n6I-G3-ey8"/>
                     </connections>
                 </viewController>
@@ -293,9 +360,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </skView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 x 12 = 144" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="BVj-Z7-99L" customClass="BackgroundLabel" customModule="Education_Multiplication" customModuleProvider="target">
-                                <rect key="frame" x="13.333333333333343" y="167.66666666666666" width="348.66666666666663" height="71"/>
+                                <rect key="frame" x="22" y="170.66666666666666" width="331" height="65"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="50"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="50"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -305,7 +372,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" delaysContentTouches="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yvd-Nq-RXn">
-                                <rect key="frame" x="0.0" y="388.66666666666674" width="375" height="389.33333333333326"/>
+                                <rect key="frame" x="0.0" y="385.66666666666674" width="375" height="392.33333333333326"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="10" id="ksd-CZ-a8q">
                                     <size key="itemSize" width="128" height="128"/>
@@ -353,9 +420,9 @@
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Question 1/10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="WH7-VK-pcr" customClass="BackgroundLabel" customModule="Education_Multiplication" customModuleProvider="target">
-                                <rect key="frame" x="84" y="44" width="207" height="42.666666666666657"/>
+                                <rect key="frame" x="93" y="44" width="189" height="39"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="30"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -364,11 +431,42 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OwF-Up-Z7J" customClass="BigButton" customModule="Education_Multiplication" customModuleProvider="target">
+                                <rect key="frame" x="62.666666666666657" y="374" width="249.99999999999997" height="64"/>
+                                <state key="normal" title="Recommencer"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" systemColor="systemBlueColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="restartButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DeY-IF-ra9"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p00-XR-GY3" customClass="BigButton" customModule="Education_Multiplication" customModuleProvider="target">
+                                <rect key="frame" x="50" y="301.66666666666669" width="275" height="64"/>
+                                <state key="normal" title="Retour au menu"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" systemColor="systemBlueColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="mainMenuButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jgI-2v-XoY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="h7M-xb-Awk" secondAttribute="trailing" id="1Lk-aV-cc8"/>
+                            <constraint firstItem="yvd-Nq-RXn" firstAttribute="top" secondItem="p00-XR-GY3" secondAttribute="bottom" constant="20" id="2dN-tj-iJA"/>
                             <constraint firstItem="yvd-Nq-RXn" firstAttribute="top" secondItem="BVj-Z7-99L" secondAttribute="bottom" constant="150" id="4xb-8w-eTa"/>
                             <constraint firstItem="h7M-xb-Awk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5OI-3i-NHR"/>
                             <constraint firstItem="BVj-Z7-99L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8kn-gd-qXV"/>
@@ -377,8 +475,11 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yvd-Nq-RXn" secondAttribute="bottom" id="SWd-F2-jHb"/>
                             <constraint firstItem="WH7-VK-pcr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="StW-Ry-bLZ"/>
                             <constraint firstItem="BVj-Z7-99L" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.5" id="XhP-gQ-x0f"/>
+                            <constraint firstItem="OwF-Up-Z7J" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZtU-8X-fyv"/>
+                            <constraint firstItem="OwF-Up-Z7J" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ZvD-YB-aVO"/>
                             <constraint firstItem="yvd-Nq-RXn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cJt-yf-1dF"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BVj-Z7-99L" secondAttribute="trailing" constant="10" id="feT-PX-Pay"/>
+                            <constraint firstItem="p00-XR-GY3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kej-5y-T2v"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yvd-Nq-RXn" secondAttribute="trailing" id="lQg-uk-0NJ"/>
                             <constraint firstItem="WH7-VK-pcr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mUe-WF-YgA"/>
                             <constraint firstAttribute="bottom" secondItem="h7M-xb-Awk" secondAttribute="bottom" id="uMH-8s-VdB"/>
@@ -387,8 +488,10 @@
                     <navigationItem key="navigationItem" id="lD4-pf-2ss"/>
                     <connections>
                         <outlet property="collectionView" destination="yvd-Nq-RXn" id="pX7-XB-HfG"/>
+                        <outlet property="mainMenuButton" destination="p00-XR-GY3" id="Phi-Oa-tyO"/>
                         <outlet property="multiplicationLabel" destination="BVj-Z7-99L" id="Gyi-v3-SQe"/>
                         <outlet property="questionNumberLabel" destination="WH7-VK-pcr" id="Edu-Pm-RRK"/>
+                        <outlet property="restartButton" destination="OwF-Up-Z7J" id="HoV-79-jIs"/>
                         <outlet property="spriteView" destination="h7M-xb-Awk" id="oFd-vM-Pai"/>
                     </connections>
                 </viewController>
@@ -416,28 +519,34 @@
     </scenes>
     <designables>
         <designable name="9Y9-dn-Iyq">
-            <size key="intrinsicContentSize" width="122" height="69"/>
+            <size key="intrinsicContentSize" width="120" height="64"/>
         </designable>
         <designable name="BVj-Z7-99L">
-            <size key="intrinsicContentSize" width="348.66666666666669" height="71"/>
+            <size key="intrinsicContentSize" width="331" height="65"/>
         </designable>
         <designable name="FQq-5N-TXP">
-            <size key="intrinsicContentSize" width="64" height="41"/>
+            <size key="intrinsicContentSize" width="60" height="38"/>
         </designable>
         <designable name="KvP-wn-rbi">
-            <size key="intrinsicContentSize" width="64" height="41"/>
+            <size key="intrinsicContentSize" width="60" height="38"/>
+        </designable>
+        <designable name="OwF-Up-Z7J">
+            <size key="intrinsicContentSize" width="250" height="64"/>
         </designable>
         <designable name="WH7-VK-pcr">
-            <size key="intrinsicContentSize" width="207" height="42.666666666666664"/>
+            <size key="intrinsicContentSize" width="188.66666666666666" height="39"/>
         </designable>
         <designable name="Yyh-GX-lDf">
-            <size key="intrinsicContentSize" width="164" height="41"/>
+            <size key="intrinsicContentSize" width="150" height="38"/>
         </designable>
         <designable name="oIB-TD-YpC">
-            <size key="intrinsicContentSize" width="288" height="69"/>
+            <size key="intrinsicContentSize" width="266" height="64"/>
+        </designable>
+        <designable name="p00-XR-GY3">
+            <size key="intrinsicContentSize" width="275" height="64"/>
         </designable>
         <designable name="zmI-Lv-hBe">
-            <size key="intrinsicContentSize" width="136" height="69"/>
+            <size key="intrinsicContentSize" width="119" height="64"/>
         </designable>
     </designables>
     <resources>

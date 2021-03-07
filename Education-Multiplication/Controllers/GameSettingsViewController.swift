@@ -11,13 +11,22 @@ import SpriteKit
 class GameSettingsViewController: UIViewController {
     @IBOutlet var tableCollection: UICollectionView!
     
+    private let numberOfCells = 12
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // We set the background transparent so that the navigation's image is visible.
         view.backgroundColor = .clear
         
+        // We allow multiple selection so that the user can select multiple tables.
         tableCollection.allowsMultipleSelection = true
+        
+        let selectedTables = Preferences.selectedFactors
+        for index in 0..<numberOfCells where selectedTables.contains(index + 1) {
+            let indexPath = IndexPath(item: index, section: 0)
+            tableCollection.selectItem(at: indexPath, animated: false, scrollPosition: .top)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,12 +40,8 @@ class GameSettingsViewController: UIViewController {
 }
 
 extension GameSettingsViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 12
+        return numberOfCells
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -58,6 +63,8 @@ extension GameSettingsViewController: UICollectionViewDelegateFlowLayout {
 
 extension GameSettingsViewController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        // Going to the AdvancedSettingsViewController or going back to the MainMenuViewController
         if toVC is AdvancedSettingsViewController {
             return HorizontalSlideNavigationAnimator(presenting: true)
         } else if toVC is MainMenuViewController {
@@ -65,10 +72,6 @@ extension GameSettingsViewController: UINavigationControllerDelegate {
         }
         
         // Show the game view controller
-        if operation == .push {
-            return VerticalSlideNavigationAnimator(presenting: true)
-        } else {
-            return VerticalSlideNavigationAnimator(presenting: false)
-        }
+        return VerticalSlideNavigationAnimator(presenting: true)
     }
 }

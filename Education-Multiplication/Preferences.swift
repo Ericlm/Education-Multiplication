@@ -11,7 +11,9 @@ import Foundation
 class Preferences {
     static var selectedFactors: [Int] {
         get {
-            return [1,2,3,4]
+            #warning("Selected factors changed")
+            //return UserDefaults.standard.array(forKey: "selectedFactors") as? [Int] ?? Array(1...12)
+            return [1,2,5,10]
         }
         
         set {
@@ -21,6 +23,9 @@ class Preferences {
     
     static var numberOfQuestions: Int {
         get {
+            #warning("Number of questions changed")
+//            let defaultsValue = UserDefaults.standard.integer(forKey: "numberOfQuestions")
+//            return defaultsValue == 0 ? 10 : defaultsValue
             return 5
         }
         set {
@@ -30,7 +35,8 @@ class Preferences {
     
     static var numberOfAnswers: Int {
         get {
-            return 4
+            let defaultsValue = UserDefaults.standard.integer(forKey: "numberOfAnswers")
+            return defaultsValue == 0 ? 4 : defaultsValue
         }
         set {
             fatalError("NumberOfAnswers writing to UserDefaults not implemented")
@@ -39,7 +45,8 @@ class Preferences {
     
     static var numberOfFactors: Int {
         get {
-            return 2
+            let defaultsValue = UserDefaults.standard.integer(forKey: "numberOfFactors")
+            return defaultsValue == 0 ? 2 : defaultsValue
         }
         
         set {
@@ -60,7 +67,8 @@ class Preferences {
     
     private static var lowerFactor: Int {
         get {
-            return 1
+            guard UserDefaults.standard.object(forKey: "lowerFactor") != nil else { return 1 }
+            return UserDefaults.standard.integer(forKey: "lowerFactor")
         }
         
         set {
@@ -70,7 +78,8 @@ class Preferences {
     
     private static var upperFactor: Int {
         get {
-            return 12
+            guard UserDefaults.standard.object(forKey: "upperFactor") != nil else { return 12 }
+            return UserDefaults.standard.integer(forKey: "upperFactor")
         }
         
         set {

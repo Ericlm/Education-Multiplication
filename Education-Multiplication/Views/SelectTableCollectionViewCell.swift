@@ -11,6 +11,7 @@ import UIKit
 class SelectTableCollectionViewCell: UICollectionViewCell {
     @IBOutlet var label: UILabel!
     
+    /// The corner radius applied to every corners of the cell.
     @IBInspectable var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
@@ -21,7 +22,9 @@ class SelectTableCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    /// The color used for the cell when selected
     private var selectedColor = UIColor.systemBlue
+    /// The color used for the cell when not selected
     private var unselectedColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.9)
     
     override var isSelected: Bool {
@@ -30,6 +33,7 @@ class SelectTableCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    /// The text displayed inside the cell.
     var text: String = "" {
         didSet {
             label.text = text

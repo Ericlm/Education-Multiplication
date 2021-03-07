@@ -9,6 +9,7 @@ import UIKit
 
 @IBDesignable
 class BackgroundLabel: UILabel {
+    /// The corner radius applied to every corners of the label's background.
     @IBInspectable var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius

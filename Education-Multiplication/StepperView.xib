@@ -19,14 +19,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXP-T1-nso" userLabel="LabelBackgroundView">
-                    <rect key="frame" x="99.5" y="33.5" width="80" height="71"/>
+                    <rect key="frame" x="99.5" y="33" width="80" height="72"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="SXI-5o-vXr">
-                            <rect key="frame" x="10" y="10" width="60" height="51"/>
+                            <rect key="frame" x="10" y="10" width="60" height="52"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="60" id="3zn-j7-IBX"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="40"/>
+                            <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -40,11 +40,11 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIb-90-hZH" userLabel="UpButton" customClass="StepperButton" customModule="Education_Multiplication" customModuleProvider="target">
-                    <rect key="frame" x="179.5" y="33.5" width="50" height="71"/>
+                    <rect key="frame" x="179.5" y="33" width="50" height="72"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="Sz8-HO-1Z0"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="40"/>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
                     <state key="normal" title="+">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
@@ -63,11 +63,11 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hO-dr-r5u" userLabel="DownButton" customClass="StepperButton" customModule="Education_Multiplication" customModuleProvider="target">
-                    <rect key="frame" x="49.5" y="33.5" width="50" height="71"/>
+                    <rect key="frame" x="49.5" y="33" width="50" height="72"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="vF9-X4-Aix"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="40"/>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
                     <state key="normal" title="-"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="color">
@@ -105,10 +105,10 @@
     </objects>
     <designables>
         <designable name="7hO-dr-r5u">
-            <size key="intrinsicContentSize" width="30" height="63"/>
+            <size key="intrinsicContentSize" width="30" height="64"/>
         </designable>
         <designable name="WIb-90-hZH">
-            <size key="intrinsicContentSize" width="30" height="63"/>
+            <size key="intrinsicContentSize" width="30" height="64"/>
         </designable>
     </designables>
     <resources>

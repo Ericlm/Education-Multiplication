@@ -8,12 +8,12 @@
 import UIKit
 
 @IBDesignable
-class StepperView: UIView {
+class StepperView: UIControl {
     /// The label displaying the current count.
     @IBOutlet private var countLabel: UILabel!
     
     var step: Int = 1
-    var range: ClosedRange<Int> = 0...1
+    var range: ClosedRange<Int> = 1...10
     var currentValue: Int {
         didSet {
             countLabel.text = String(currentValue)
@@ -48,8 +48,16 @@ class StepperView: UIView {
     }
     
     @IBAction func upTapped(_ sender: StepperButton) {
+        if currentValue < range.max()! {
+            currentValue += step
+            sendActions(for: .valueChanged)
+        }
     }
     
     @IBAction func downTapped(_ sender: StepperButton) {
+        if currentValue > range.min()! {
+            currentValue -= step
+            sendActions(for: .valueChanged)
+        }
     }
 }

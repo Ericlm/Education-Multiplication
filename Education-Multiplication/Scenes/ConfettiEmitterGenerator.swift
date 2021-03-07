@@ -21,7 +21,7 @@ enum ConfettiColor: String, CaseIterable {
 }
 
 class ConfettiEmitterGenerator {
-    
+     
     static func createRainConfettiEmitter(forConfettiColor color: ConfettiColor, emissionRange: CGVector) -> SKEmitterNode {
         let texture = SKTexture(imageNamed: color.rawValue)
         let emitterNode = SKEmitterNode(fileNamed: "ConfettiRain")!

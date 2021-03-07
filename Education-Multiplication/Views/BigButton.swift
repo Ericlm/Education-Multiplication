@@ -56,7 +56,7 @@ class BigButton: UIButton {
     internal func commonInit() {
         titleLabel?.minimumScaleFactor = 0.6
         titleLabel?.adjustsFontSizeToFitWidth = true
-        titleLabel?.font = UIFont(name: "ChalkboardSE-Bold", size: 40)
+        titleLabel?.font = UIFont(name: "MarkerFelt-Wide", size: 40)
         titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
     }
     
@@ -70,6 +70,7 @@ class BigButton: UIButton {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        // Avoid the label inside the button to be clipped.
         var frame = titleLabel!.frame
         frame.size.height = bounds.size.height
         frame.origin.y = titleEdgeInsets.top
