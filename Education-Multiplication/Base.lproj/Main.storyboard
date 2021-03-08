@@ -356,7 +356,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <skView contentMode="scaleToFill" ignoresSiblingOrder="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h7M-xb-Awk">
+                            <skView contentMode="scaleToFill" ignoresSiblingOrder="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h7M-xb-Awk" userLabel="Animals View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </skView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 x 12 = 144" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="BVj-Z7-99L" customClass="BackgroundLabel" customModule="Education_Multiplication" customModuleProvider="target">
@@ -431,68 +431,41 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OwF-Up-Z7J" customClass="BigButton" customModule="Education_Multiplication" customModuleProvider="target">
-                                <rect key="frame" x="62.666666666666657" y="374" width="249.99999999999997" height="64"/>
-                                <state key="normal" title="Recommencer"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                        <color key="value" systemColor="systemBlueColor"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="restartButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DeY-IF-ra9"/>
-                                </connections>
-                            </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p00-XR-GY3" customClass="BigButton" customModule="Education_Multiplication" customModuleProvider="target">
-                                <rect key="frame" x="50" y="301.66666666666669" width="275" height="64"/>
-                                <state key="normal" title="Retour au menu"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                        <color key="value" systemColor="systemBlueColor"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="mainMenuButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jgI-2v-XoY"/>
-                                </connections>
-                            </button>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Si8-fZ-Prv" customClass="EndView" customModule="Education_Multiplication" customModuleProvider="target">
+                                <rect key="frame" x="37.666666666666657" y="243.66666666666666" width="300" height="324.66666666666674"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="h7M-xb-Awk" secondAttribute="trailing" id="1Lk-aV-cc8"/>
-                            <constraint firstItem="yvd-Nq-RXn" firstAttribute="top" secondItem="p00-XR-GY3" secondAttribute="bottom" constant="20" id="2dN-tj-iJA"/>
                             <constraint firstItem="yvd-Nq-RXn" firstAttribute="top" secondItem="BVj-Z7-99L" secondAttribute="bottom" constant="150" id="4xb-8w-eTa"/>
                             <constraint firstItem="h7M-xb-Awk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5OI-3i-NHR"/>
                             <constraint firstItem="BVj-Z7-99L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8kn-gd-qXV"/>
                             <constraint firstItem="BVj-Z7-99L" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="J0d-er-GXb"/>
                             <constraint firstItem="h7M-xb-Awk" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="JWu-bx-QW7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yvd-Nq-RXn" secondAttribute="bottom" id="SWd-F2-jHb"/>
+                            <constraint firstItem="Si8-fZ-Prv" firstAttribute="height" secondItem="h7M-xb-Awk" secondAttribute="height" multiplier="0.4" id="Sp7-KE-pcY"/>
                             <constraint firstItem="WH7-VK-pcr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="StW-Ry-bLZ"/>
                             <constraint firstItem="BVj-Z7-99L" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.5" id="XhP-gQ-x0f"/>
-                            <constraint firstItem="OwF-Up-Z7J" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZtU-8X-fyv"/>
-                            <constraint firstItem="OwF-Up-Z7J" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ZvD-YB-aVO"/>
+                            <constraint firstItem="Si8-fZ-Prv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bba-6a-vkR"/>
                             <constraint firstItem="yvd-Nq-RXn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cJt-yf-1dF"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BVj-Z7-99L" secondAttribute="trailing" constant="10" id="feT-PX-Pay"/>
-                            <constraint firstItem="p00-XR-GY3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kej-5y-T2v"/>
+                            <constraint firstItem="Si8-fZ-Prv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jvM-fP-EmE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yvd-Nq-RXn" secondAttribute="trailing" id="lQg-uk-0NJ"/>
                             <constraint firstItem="WH7-VK-pcr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mUe-WF-YgA"/>
+                            <constraint firstItem="Si8-fZ-Prv" firstAttribute="width" secondItem="h7M-xb-Awk" secondAttribute="width" multiplier="0.8" id="p8f-mX-bAS"/>
                             <constraint firstAttribute="bottom" secondItem="h7M-xb-Awk" secondAttribute="bottom" id="uMH-8s-VdB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lD4-pf-2ss"/>
                     <connections>
+                        <outlet property="animalsView" destination="h7M-xb-Awk" id="oFd-vM-Pai"/>
                         <outlet property="collectionView" destination="yvd-Nq-RXn" id="pX7-XB-HfG"/>
-                        <outlet property="mainMenuButton" destination="p00-XR-GY3" id="Phi-Oa-tyO"/>
+                        <outlet property="endView" destination="Si8-fZ-Prv" id="xME-33-m4e"/>
                         <outlet property="multiplicationLabel" destination="BVj-Z7-99L" id="Gyi-v3-SQe"/>
                         <outlet property="questionNumberLabel" destination="WH7-VK-pcr" id="Edu-Pm-RRK"/>
-                        <outlet property="restartButton" destination="OwF-Up-Z7J" id="HoV-79-jIs"/>
-                        <outlet property="spriteView" destination="h7M-xb-Awk" id="oFd-vM-Pai"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -530,9 +503,6 @@
         <designable name="KvP-wn-rbi">
             <size key="intrinsicContentSize" width="60" height="38"/>
         </designable>
-        <designable name="OwF-Up-Z7J">
-            <size key="intrinsicContentSize" width="250" height="64"/>
-        </designable>
         <designable name="WH7-VK-pcr">
             <size key="intrinsicContentSize" width="188.66666666666666" height="39"/>
         </designable>
@@ -541,9 +511,6 @@
         </designable>
         <designable name="oIB-TD-YpC">
             <size key="intrinsicContentSize" width="266" height="64"/>
-        </designable>
-        <designable name="p00-XR-GY3">
-            <size key="intrinsicContentSize" width="275" height="64"/>
         </designable>
         <designable name="zmI-Lv-hBe">
             <size key="intrinsicContentSize" width="119" height="64"/>

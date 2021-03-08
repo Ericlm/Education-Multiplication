@@ -85,6 +85,8 @@
 		90D7668E25EFFBF500297C3A /* dog.png in Resources */ = {isa = PBXBuildFile; fileRef = 90D7667025EFFBF400297C3A /* dog.png */; };
 		90D7668F25EFFBF500297C3A /* goat.png in Resources */ = {isa = PBXBuildFile; fileRef = 90D7667125EFFBF400297C3A /* goat.png */; };
 		90E4543725E2A16E00A294FA /* Multiplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E4543625E2A16E00A294FA /* Multiplication.swift */; };
+		90EF053325F644DA0045D3D6 /* EndView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90EF053225F644DA0045D3D6 /* EndView.xib */; };
+		90EF053E25F645170045D3D6 /* EndView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF053D25F645170045D3D6 /* EndView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -189,6 +191,8 @@
 		90D7667025EFFBF400297C3A /* dog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dog.png; sourceTree = "<group>"; };
 		90D7667125EFFBF400297C3A /* goat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goat.png; sourceTree = "<group>"; };
 		90E4543625E2A16E00A294FA /* Multiplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multiplication.swift; sourceTree = "<group>"; };
+		90EF053225F644DA0045D3D6 /* EndView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EndView.xib; sourceTree = "<group>"; };
+		90EF053D25F645170045D3D6 /* EndView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +252,7 @@
 				9090010F25ED218900316814 /* Preferences.swift */,
 				906482F225E199AB00646826 /* Main.storyboard */,
 				90BD84AC25ED5FFF00C68771 /* StepperView.xib */,
+				90EF053225F644DA0045D3D6 /* EndView.xib */,
 				906482F525E199AF00646826 /* Assets.xcassets */,
 				90CD559525EE826800266878 /* Sprites */,
 				906482F725E199AF00646826 /* LaunchScreen.storyboard */,
@@ -288,6 +293,7 @@
 				90BD84B125ED60A100C68771 /* StepperView.swift */,
 				901251DA25F215F200E2B347 /* BackgroundLabel.swift */,
 				901251E225F2254A00E2B347 /* SelectTableCollectionViewCell.swift */,
+				90EF053D25F645170045D3D6 /* EndView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -516,6 +522,7 @@
 				90CD55B925EE8EBE00266878 /* cloud4.png in Resources */,
 				90D7667D25EFFBF400297C3A /* frog.png in Resources */,
 				90BD84AD25ED5FFF00C68771 /* StepperView.xib in Resources */,
+				90EF053325F644DA0045D3D6 /* EndView.xib in Resources */,
 				90D7668925EFFBF500297C3A /* gorilla.png in Resources */,
 				9020D05925F0E6E00081CE9B /* ConfettiCanon.sks in Resources */,
 				90D7667B25EFFBF400297C3A /* crocodile.png in Resources */,
@@ -593,6 +600,7 @@
 				90BD84B225ED60A100C68771 /* StepperView.swift in Sources */,
 				90C2DF9C25ECF280006EE404 /* VerticalSlideNavigationAnimator.swift in Sources */,
 				9065536B25E61C25005FBEEF /* ThumbLayer.swift in Sources */,
+				90EF053E25F645170045D3D6 /* EndView.swift in Sources */,
 				906482ED25E199AB00646826 /* AppDelegate.swift in Sources */,
 				906482EF25E199AB00646826 /* SceneDelegate.swift in Sources */,
 				9090011025ED218900316814 /* Preferences.swift in Sources */,

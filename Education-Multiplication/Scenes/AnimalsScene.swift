@@ -82,17 +82,29 @@ class AnimalsScene: SKScene {
     
     /// Creates an emitter node that looks like fireworks: confettis of various color appears at random position, and then seems to explode.
     private func createPopConfettis() {
-        let createConfettisAction = SKAction.run { [unowned self] in
+        let createConfettisAction = SKAction.run { [weak self] in
             for color in ConfettiColor.allCases {
                 let emitterNode = ConfettiEmitterGenerator.createPopConfettiEmitter(forConfettiColor: color)
-                let randomPosition = CGPoint(x: CGFloat.random(in: 0...size.width), y: CGFloat.random(in: 0...size.height))
+                
+                let maxPositionX = self?.size.width ?? 0
+                let maxPositionY = self?.size.height ?? 0
+                
+                let randomPosition = CGPoint(x: CGFloat.random(in: 0...maxPositionX), y: CGFloat.random(in: 0...maxPositionY))
                 emitterNode.position = randomPosition
                 emitterNode.isPaused = true
-                addChild(emitterNode)
+                
+                let totalDuration = emitterNode.particleLifetime + emitterNode.particleLifetimeRange/2
+                self?.addChild(emitterNode)
                 
                 let randomTime = TimeInterval.random(in: 0...1)
                 DispatchQueue.main.asyncAfter(deadline: .now() + randomTime) {
                     emitterNode.isPaused = false
+                    self?.run(SKAction.sequence([
+                        SKAction.wait(forDuration: TimeInterval(totalDuration)),
+                        SKAction.run {
+                            emitterNode.removeFromParent()
+                        }
+                    ]))
                 }
             }
         }

@@ -9,12 +9,11 @@ import UIKit
 import SpriteKit
 
 class MultiplicationViewController: UIViewController {
-    @IBOutlet var spriteView: SKView!
+    @IBOutlet var animalsView: SKView!
     @IBOutlet var multiplicationLabel: UILabel!
     @IBOutlet var questionNumberLabel: BackgroundLabel!
     @IBOutlet var collectionView: UICollectionView!
-    @IBOutlet var mainMenuButton: BigButton!
-    @IBOutlet var restartButton: BigButton!
+    @IBOutlet var endView: EndView!
     
     /// Time for fade-in and fade-out animations for buttons and label.
     private let animationTime = 0.4
@@ -51,17 +50,19 @@ class MultiplicationViewController: UIViewController {
     /// The number of wrong answers given before the correct one
     private var currentQuestionNumberOfWrongAnswer = 0
     /// The SKScene used to add fun to the exercise.
-    private var scene: AnimalsScene!
+    private var animalsScene: AnimalsScene!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .clear
         
+        endView.delegate = self
+        
         // We create the AnimalsScene and add it to the view.
-        scene = AnimalsScene(size: view.frame.size)
-        scene.maximumNumberOfSprites = numberOfQuestions * numberOfAnswers
-        spriteView.presentScene(scene)
+        animalsScene = AnimalsScene(size: view.frame.size)
+        animalsScene.maximumNumberOfSprites = numberOfQuestions * numberOfAnswers
+        animalsView.presentScene(animalsScene)
         
         //We generate a multiplication and assign its question to the label
         multiplication = Multiplication(factorsRange: factorsRange, selectedFactors: selectedFactors, numberOfAnswers: numberOfAnswers, numberOfFactors: numberOfFactors)
@@ -74,19 +75,16 @@ class MultiplicationViewController: UIViewController {
         navigationController?.delegate = self
     }
     
-    @IBAction func restartButtonTapped(_ sender: BigButton) {
-    }
-    
-    @IBAction func mainMenuButtonTapped(_ sender: BigButton) {
-        navigationController?.popToRootViewController(animated: true)
-    }
-    
     /// Called when the user press a button representing an answer. Depending on the number displayed by the button, it validates or invalidates the answer.
     /// If the answer is correct, it also takes care of updating the multiplication.
     /// - Parameter button: The `AnswerButton` the user pressed.
     @objc func buttonPressed(button: AnswerButton) {
+        #warning("Go to victory when answer button is tapped")
+        showEndScreen()
+        return
+        
         if multiplication.isNumberCorrect(button.numberToDisplay) {
-            scene.dropSprites(numberOfAnswers - currentQuestionNumberOfWrongAnswer)
+            animalsScene.dropSprites(numberOfAnswers - currentQuestionNumberOfWrongAnswer)
             
             if currentQuestionNumber == numberOfQuestions {
                 showEndScreen()
@@ -104,16 +102,23 @@ class MultiplicationViewController: UIViewController {
     /// Starts a "GameOver" sequence, hiding the questions and answers, creating confettis, and showing buttons to replay or go back to main menu.
     private func showEndScreen() {
         hideMultiplicationInterface()
+        endView.isHidden = false
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+            self?.animalsScene.createRandomConfettis()
+        }
     }
     
     private func hideMultiplicationInterface() {
         UIView.animate(withDuration: 1, delay: 0, options: []) { [unowned self] in
             multiplicationLabel.alpha = 0
+            questionNumberLabel.alpha = 0
             for answerButton in collectionView.visibleCells where answerButton.viewWithTag(1) is AnswerButton {
                 answerButton.alpha = 0
             }
         } completion: { [unowned self] (finish) in
             multiplicationLabel.isHidden = true
+            questionNumberLabel.isHidden = false
             for answerButton in collectionView.visibleCells where answerButton.viewWithTag(1) is AnswerButton {
                 answerButton.isHidden = true
             }
@@ -211,4 +216,16 @@ extension MultiplicationViewController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return VerticalSlideNavigationAnimator(presenting: false)
     }
+}
+
+extension MultiplicationViewController: EndViewDelegate {
+    func mainMenuButtonTapped() {
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func replayButtonTapped() {
+        fatalError("Replaying has not been implemented")
+    }
+    
+    
 }

@@ -13,6 +13,8 @@ class AdvancedSettingsViewController: UIViewController {
     @IBOutlet var numberOfQuestionsStepper: StepperView!
     @IBOutlet var numberOfAnswersStepper: StepperView!
     
+    var stepSlider: StepRangeSlider?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,9 +41,11 @@ class AdvancedSettingsViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        let stepSlider = StepRangeSlider(frame: rangeSliderView.bounds, range: 1...12)
-        stepSlider.addTarget(self, action: #selector(rangeSliderValueChanged(_:)), for: .valueChanged)
-        rangeSliderView.addSubview(stepSlider)
+        if stepSlider == nil {
+            stepSlider = StepRangeSlider(frame: rangeSliderView.bounds, range: 1...12)
+            stepSlider!.addTarget(self, action: #selector(rangeSliderValueChanged(_:)), for: .valueChanged)
+            rangeSliderView.addSubview(stepSlider!)
+        }
     }
     
     @objc func rangeSliderValueChanged(_ slider: StepRangeSlider) {
