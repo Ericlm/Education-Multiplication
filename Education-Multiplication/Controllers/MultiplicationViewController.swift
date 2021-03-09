@@ -38,6 +38,10 @@ class MultiplicationViewController: UIViewController {
     private var numberOfQuestions: Int {
         return Preferences.numberOfQuestions
     }
+    /// The maximum possible score.
+    private var maximumScore: Int {
+        return numberOfQuestions * numberOfAnswers
+    }
     
     /// The current running multiplication
     private var multiplication: Multiplication!
@@ -47,8 +51,10 @@ class MultiplicationViewController: UIViewController {
             questionNumberLabel.text = "Question \(currentQuestionNumber)/\(numberOfQuestions)"
         }
     }
-    /// The number of wrong answers given before the correct one
+    /// The number of wrong answers given before the correct one has been submitted.
     private var currentQuestionNumberOfWrongAnswer = 0
+    /// The current score of the exercise.
+    private var currentScore = 0
     /// The SKScene used to add fun to the exercise.
     private var animalsScene: AnimalsScene!
     
@@ -61,7 +67,6 @@ class MultiplicationViewController: UIViewController {
         
         // We create the AnimalsScene and add it to the view.
         animalsView.isAsynchronous = false
-        animalsView.showsNodeCount = true
         animalsScene = AnimalsScene(size: view.frame.size)
         animalsScene.maximumNumberOfSprites = numberOfQuestions * numberOfAnswers
         animalsView.presentScene(animalsScene)
@@ -71,6 +76,7 @@ class MultiplicationViewController: UIViewController {
         multiplicationLabel.text = multiplication.operationText()
         
         questionNumberLabel.text = "Question \(currentQuestionNumber)/\(numberOfQuestions)"
+        endView.maximumScore = maximumScore
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,9 +88,10 @@ class MultiplicationViewController: UIViewController {
     /// - Parameter button: The `AnswerButton` the user pressed.
     @objc func buttonPressed(button: AnswerButton) {
         #warning("Cheat: every answer is correct")
-        
+        let currentQuestionScore = numberOfAnswers - currentQuestionNumberOfWrongAnswer
+        currentScore += currentQuestionScore
         //if multiplication.isNumberCorrect(button.numberToDisplay) {
-            animalsScene.dropSprites(numberOfAnswers - currentQuestionNumberOfWrongAnswer)
+            animalsScene.dropSprites(currentQuestionScore)
             
             if currentQuestionNumber == numberOfQuestions {
                 hideInterface()
@@ -93,14 +100,17 @@ class MultiplicationViewController: UIViewController {
                 currentQuestionNumberOfWrongAnswer = 0
                 updateMultiplication()
             }
-        /*} else {
-            currentQuestionNumberOfWrongAnswer += 1
-            button.playWrongAnswerAnimation()
-        }*/
+//        } else {
+//            currentQuestionNumberOfWrongAnswer += 1
+//            button.playWrongAnswerAnimation()
+//        }
     }
     
     private func showEndScreen() {
-        animalsScene.createRandomConfettis()
+        if currentScore == maximumScore {
+            animalsScene.createRandomConfettis()
+        }
+        endView.score = currentScore
         endView.show()
     }
     
@@ -243,6 +253,7 @@ extension MultiplicationViewController: EndViewDelegate {
         
         currentQuestionNumber = 1
         currentQuestionNumberOfWrongAnswer = 0
+        currentScore = 0
         updateMultiplication()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) { [unowned self] in

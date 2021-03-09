@@ -32,14 +32,13 @@ class AnimalsScene: SKScene {
     
     func resetScene() {
         removeAllActions()
+        let childrenAction = SKAction.sequence([SKAction.fadeOut(withDuration: 1.2), SKAction.removeFromParent()])
         for child in children where child.name == "confettis" {
-            let sequence = SKAction.sequence([SKAction.fadeOut(withDuration: 1.2), SKAction.removeFromParent()])
-            child.run(sequence)
+            child.run(childrenAction)
         }
         
         for animal in children where animal.name == "animal" {
-            let sequence = SKAction.sequence([SKAction.fadeOut(withDuration: 2), SKAction.removeFromParent()])
-            animal.run(sequence)
+            animal.run(childrenAction)
         }
     }
     

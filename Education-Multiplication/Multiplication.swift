@@ -110,7 +110,7 @@ struct Multiplication {
         //If the answer must be generated for the result, we need to take a different approach than for an answer concerning a factor
         if isResult {
             //We set an arbitrary lowest bound when we ask a result
-            lowestValue = result == 1 ? 1 : result / 2
+            lowestValue = result == 1 ? 1 : Int(Double(result) * 0.5)
         } else {
             //If we ask for a factor, the lowest bound will be the smallest in the factors range
             lowestValue = factorsRange.min()!
@@ -122,11 +122,11 @@ struct Multiplication {
         //We take a different approach when we ask for a result or not
         if isResult {
             //Our arbitrary highest is twice the result
-            let highBound = result * 2
+            let highBound = Int(Double(result) * 1.5)
             
             //We need to ensure we have a range big enough so that every answer is different
-            if highBound < numberOfAnswers {
-                highestValue = numberOfAnswers
+            if highBound - lowestValue < numberOfAnswers {
+                highestValue = lowestValue + numberOfAnswers
             } else {
                 highestValue = highBound
             }

@@ -18,9 +18,10 @@ class EndView: UIView {
     
     weak var delegate: EndViewDelegate?
     
+    var maximumScore: Int = 0
     var score: Int = 0 {
         didSet {
-            scoreLabel.text = "Score: \(score)"
+            scoreLabel.text = "Score: \(score)/\(maximumScore)"
         }
     }
     
