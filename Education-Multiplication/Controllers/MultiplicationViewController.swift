@@ -87,9 +87,9 @@ class MultiplicationViewController: UIViewController {
     /// If the answer is correct, it also takes care of updating the multiplication.
     /// - Parameter button: The `AnswerButton` the user pressed.
     @objc func buttonPressed(button: AnswerButton) {
-        let currentQuestionScore = numberOfAnswers - currentQuestionNumberOfWrongAnswer
-        currentScore += currentQuestionScore
         if multiplication.isNumberCorrect(button.numberToDisplay) {
+            let currentQuestionScore = numberOfAnswers - currentQuestionNumberOfWrongAnswer
+            currentScore += currentQuestionScore
             animalsScene.dropSprites(currentQuestionScore)
             
             if currentQuestionNumber == numberOfQuestions {
