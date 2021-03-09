@@ -9,7 +9,7 @@ import SpriteKit
 
 class CloudScene: SKScene {
     override func didMove(to view: SKView) {
-        backgroundColor = UIColor(red: 213/255, green: 238/255, blue: 250/255, alpha: 1)
+        backgroundColor = .clear
         
         // Creates and start 8 particle emitters (one per texture)
         for i in 1...8 {

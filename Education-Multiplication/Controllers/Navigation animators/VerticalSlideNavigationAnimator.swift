@@ -44,6 +44,7 @@ class VerticalSlideNavigationAnimator: NSObject, UIViewControllerAnimatedTransit
             let scene = CloudScene(size: toView.frame.size)
             let skView = SKView(frame: CGRect(x: 0, y: 0, width: toView.frame.width, height: toView.frame.height))
             skView.transform = CGAffineTransform(translationX: 0, y: -container.frame.height)
+            skView.allowsTransparency = true
             skView.tag = 1
             skView.presentScene(scene)
             transitionContext.viewController(forKey: .to)?.navigationController?.view.insertSubview(skView, at: 0)

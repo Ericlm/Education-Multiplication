@@ -49,19 +49,16 @@ class AdvancedSettingsViewController: UIViewController {
     }
     
     @objc func rangeSliderValueChanged(_ slider: StepRangeSlider) {
-        #warning("Range slider values changed does nothing")
-        print("Lower slider : \(slider.lowerValue)")
-        print("Upper slider : \(slider.upperValue)")
+        let range = slider.lowerValue...slider.upperValue
+        Preferences.factorsRange = range
     }
     
     @objc func numberOfQuestionsValueChanged(_ stepper: StepperView) {
-        #warning("Questions stepper changes do nothing")
-        print(stepper.currentValue)
+        Preferences.numberOfQuestions = stepper.currentValue
     }
     
     @objc func numberOfAnswersValueChanged(_ stepper: StepperView) {
-        #warning("Answers stepper changes do nothing")
-        print(stepper.currentValue)
+        Preferences.numberOfAnswers = stepper.currentValue
     }
 }
 

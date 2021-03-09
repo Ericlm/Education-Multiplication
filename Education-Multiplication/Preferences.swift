@@ -7,50 +7,52 @@
 
 import Foundation
 
-#warning("Preferences are arbitrarly set")
 class Preferences {
+    private static let selectedFactorsKey = "selectedFactors"
+    private static let numberOfQuestionsKey = "numberOfQuestions"
+    private static let numberOfAnswersKey = "numberOfAnswers"
+    private static let numberOfFactorsKey = "numberOfFactors"
+    private static let lowerFactorKey = "lowerFactor"
+    private static let upperFactorKey = "upperFactor"
+    
     static var selectedFactors: [Int] {
         get {
-            #warning("Selected factors changed")
-            //return UserDefaults.standard.array(forKey: "selectedFactors") as? [Int] ?? Array(1...12)
-            return [1,2,5,10]
+            return UserDefaults.standard.array(forKey: selectedFactorsKey) as? [Int] ?? Array(1...12)
         }
         
         set {
-            fatalError("SelectedFactors writing to UserDefaults not implemented")
+            UserDefaults.standard.setValue(newValue, forKey: selectedFactorsKey)
         }
     }
     
     static var numberOfQuestions: Int {
         get {
-            #warning("Number of questions changed")
-//            let defaultsValue = UserDefaults.standard.integer(forKey: "numberOfQuestions")
-//            return defaultsValue == 0 ? 10 : defaultsValue
-            return 5
+            let defaultsValue = UserDefaults.standard.integer(forKey: numberOfQuestionsKey)
+            return defaultsValue == 0 ? 10 : defaultsValue
         }
         set {
-            fatalError("NumberOfQuestions writing to UserDefaults not implemented")
+            UserDefaults.standard.setValue(newValue, forKey: numberOfQuestionsKey)
         }
     }
     
     static var numberOfAnswers: Int {
         get {
-            let defaultsValue = UserDefaults.standard.integer(forKey: "numberOfAnswers")
+            let defaultsValue = UserDefaults.standard.integer(forKey: numberOfAnswersKey)
             return defaultsValue == 0 ? 4 : defaultsValue
         }
         set {
-            fatalError("NumberOfAnswers writing to UserDefaults not implemented")
+            UserDefaults.standard.setValue(newValue, forKey: numberOfAnswersKey)
         }
     }
     
     static var numberOfFactors: Int {
         get {
-            let defaultsValue = UserDefaults.standard.integer(forKey: "numberOfFactors")
+            let defaultsValue = UserDefaults.standard.integer(forKey: numberOfFactorsKey)
             return defaultsValue == 0 ? 2 : defaultsValue
         }
         
         set {
-            fatalError("NumberOfFactors writing to UserDefaults not implemented")
+            UserDefaults.standard.setValue(newValue, forKey: numberOfFactorsKey)
         }
     }
     
@@ -67,23 +69,23 @@ class Preferences {
     
     private static var lowerFactor: Int {
         get {
-            guard UserDefaults.standard.object(forKey: "lowerFactor") != nil else { return 1 }
-            return UserDefaults.standard.integer(forKey: "lowerFactor")
+            guard UserDefaults.standard.object(forKey: lowerFactorKey) != nil else { return 1 }
+            return UserDefaults.standard.integer(forKey: lowerFactorKey)
         }
         
         set {
-            fatalError("LowerFactor writing to UserDefaults not implemented")
+            UserDefaults.standard.setValue(newValue, forKey: lowerFactorKey)
         }
     }
     
     private static var upperFactor: Int {
         get {
-            guard UserDefaults.standard.object(forKey: "upperFactor") != nil else { return 12 }
-            return UserDefaults.standard.integer(forKey: "upperFactor")
+            guard UserDefaults.standard.object(forKey: upperFactorKey) != nil else { return 12 }
+            return UserDefaults.standard.integer(forKey: upperFactorKey)
         }
         
         set {
-            fatalError("UpperFactor writing to UserDefaults not implemented")
+            UserDefaults.standard.setValue(newValue, forKey: upperFactorKey)
         }
     }
 }

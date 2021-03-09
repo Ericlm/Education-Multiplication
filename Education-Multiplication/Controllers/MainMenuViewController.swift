@@ -15,6 +15,9 @@ class MainMenuViewController: UIViewController {
         // We set the background to be transparent, so the navigationController's image can be displayed.
         view.backgroundColor = .clear
         
+        // We set the navigation controller's view background color, so that the entire app has the same background.
+        navigationController?.view.backgroundColor = UIColor(red: 213/255, green: 238/255, blue: 250/255, alpha: 1)
+        
         addSKView()
     }
     
@@ -28,6 +31,7 @@ class MainMenuViewController: UIViewController {
         let scene = CloudScene(size: view.frame.size)
         let skView = SKView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
         skView.isAsynchronous = false
+        skView.allowsTransparency = true
         skView.tag = 1
         skView.presentScene(scene)
         navigationController?.view.insertSubview(skView, at: 0)

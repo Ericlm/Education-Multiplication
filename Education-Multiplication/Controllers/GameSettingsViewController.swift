@@ -39,6 +39,25 @@ class GameSettingsViewController: UIViewController {
     }
 }
 
+extension GameSettingsViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        var selectedNumbers = Preferences.selectedFactors
+        let selectedFactor = indexPath.row + 1
+        if !selectedNumbers.contains(selectedFactor) {
+            selectedNumbers.append(selectedFactor)
+        }
+        Preferences.selectedFactors = selectedNumbers
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let selectedFactor = indexPath.row + 1
+        var selectedNumbers = Preferences.selectedFactors
+        guard let index = selectedNumbers.firstIndex(of: selectedFactor) else { return }
+        selectedNumbers.remove(at: index)
+        Preferences.selectedFactors = selectedNumbers
+    }
+}
+
 extension GameSettingsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return numberOfCells
