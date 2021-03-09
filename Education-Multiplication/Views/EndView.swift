@@ -50,6 +50,21 @@ class EndView: UIView {
         return nib.instantiate(withOwner: self, options: nil).first as! UIView
     }
     
+    func show(_ show: Bool = true) {
+        if show {
+            alpha = 0.0
+            isHidden = false
+        }
+        
+        UIView.animate(withDuration: 1) { [unowned self] in
+            alpha = show ? 1.0 : 0.0
+        } completion: { [unowned self] (success) in
+            if !show {
+                isHidden = true
+            }
+        }
+    }
+    
     @IBAction func backToMainMenu(_ sender: BigButton) {
         delegate?.mainMenuButtonTapped()
     }

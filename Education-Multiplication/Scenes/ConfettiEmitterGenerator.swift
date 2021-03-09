@@ -25,6 +25,7 @@ class ConfettiEmitterGenerator {
     static func createRainConfettiEmitter(forConfettiColor color: ConfettiColor, emissionRange: CGVector) -> SKEmitterNode {
         let texture = SKTexture(imageNamed: color.rawValue)
         let emitterNode = SKEmitterNode(fileNamed: "ConfettiRain")!
+        emitterNode.name = "confettis"
         emitterNode.particleSize = texture.size()
         emitterNode.particleTexture = texture
         emitterNode.particlePositionRange = emissionRange
@@ -34,6 +35,7 @@ class ConfettiEmitterGenerator {
     static func createCanonConfettiEmitter(forConfettiColor color: ConfettiColor) -> SKEmitterNode {
         let texture = SKTexture(imageNamed: color.rawValue)
         let emitterNode = SKEmitterNode(fileNamed: "ConfettiCanon")!
+        emitterNode.name = "confettis"
         emitterNode.particleSize = texture.size()
         emitterNode.particleTexture = texture
         return emitterNode
@@ -42,6 +44,7 @@ class ConfettiEmitterGenerator {
     static func createPopConfettiEmitter(forConfettiColor color: ConfettiColor) -> SKEmitterNode {
         let texture = SKTexture(imageNamed: color.rawValue)
         let emitterNode = SKEmitterNode(fileNamed: "ConfettiPop")!
+        emitterNode.name = "confettis"
         emitterNode.particleTexture = texture
         emitterNode.particleSize = texture.size()
         return emitterNode

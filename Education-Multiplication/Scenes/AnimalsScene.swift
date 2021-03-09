@@ -30,6 +30,19 @@ class AnimalsScene: SKScene {
         addBackground()
     }
     
+    func resetScene() {
+        removeAllActions()
+        for child in children where child.name == "confettis" {
+            let sequence = SKAction.sequence([SKAction.fadeOut(withDuration: 1.2), SKAction.removeFromParent()])
+            child.run(sequence)
+        }
+        
+        for animal in children where animal.name == "animal" {
+            let sequence = SKAction.sequence([SKAction.fadeOut(withDuration: 2), SKAction.removeFromParent()])
+            animal.run(sequence)
+        }
+    }
+    
     /// Create a given number of animal sprites in the scene. They are dropped from the top of the scene.
     /// - Parameter numberToDrop: The number of sprites to drop.
     func dropSprites(_ numberToDrop: Int) {
@@ -37,10 +50,13 @@ class AnimalsScene: SKScene {
             let animal = SKSpriteNode(imageNamed: animalsSpriteName.randomElement()!)
             animal.size = animalSize
             animal.physicsBody = SKPhysicsBody(circleOfRadius: animal.size.width/2)
-            animal.position = CGPoint(x: CGFloat.random(in: animal.size.width/2...size.width-animal.size.width/2), y: size.height + animal.size.height/2)
-            DispatchQueue.main.asyncAfter(deadline: .now() + TimeInterval.random(in: 0...1.2)) { [weak self] in
-                self?.addChild(animal)
-            }
+            animal.physicsBody!.restitution = CGFloat.random(in: 0.1...0.8)
+            animal.name = "animal"
+            
+            let randomPositionX = CGFloat.random(in: animal.size.width/2...size.width-animal.size.width/2)
+            let randomPositionY = CGFloat.random(in: size.height+animal.size.height/2...size.height*2-animal.size.height/2)
+            animal.position = CGPoint(x: randomPositionX, y: randomPositionY)
+            addChild(animal)
         }
     }
     
@@ -71,7 +87,6 @@ class AnimalsScene: SKScene {
         let colors = ConfettiColor.allCases
         for (index,color) in colors.enumerated() {
             let emitterNode = ConfettiEmitterGenerator.createCanonConfettiEmitter(forConfettiColor: color)
-            
             let xOffset = size.width / CGFloat(colors.count) / 2
             let xPosition: CGFloat = size.width * CGFloat(index) / CGFloat(colors.count) + xOffset
             let position = CGPoint(x: xPosition, y: 0)

@@ -60,6 +60,8 @@ class MultiplicationViewController: UIViewController {
         endView.delegate = self
         
         // We create the AnimalsScene and add it to the view.
+        animalsView.isAsynchronous = false
+        animalsView.showsNodeCount = true
         animalsScene = AnimalsScene(size: view.frame.size)
         animalsScene.maximumNumberOfSprites = numberOfQuestions * numberOfAnswers
         animalsView.presentScene(animalsScene)
@@ -79,48 +81,59 @@ class MultiplicationViewController: UIViewController {
     /// If the answer is correct, it also takes care of updating the multiplication.
     /// - Parameter button: The `AnswerButton` the user pressed.
     @objc func buttonPressed(button: AnswerButton) {
-        #warning("Go to victory when answer button is tapped")
-        showEndScreen()
-        return
+        #warning("Cheat: every answer is correct")
         
-        if multiplication.isNumberCorrect(button.numberToDisplay) {
+        //if multiplication.isNumberCorrect(button.numberToDisplay) {
             animalsScene.dropSprites(numberOfAnswers - currentQuestionNumberOfWrongAnswer)
             
             if currentQuestionNumber == numberOfQuestions {
-                showEndScreen()
+                hideInterface()
             } else {
                 currentQuestionNumber += 1
                 currentQuestionNumberOfWrongAnswer = 0
                 updateMultiplication()
             }
-        } else {
+        /*} else {
             currentQuestionNumberOfWrongAnswer += 1
             button.playWrongAnswerAnimation()
-        }
+        }*/
     }
     
-    /// Starts a "GameOver" sequence, hiding the questions and answers, creating confettis, and showing buttons to replay or go back to main menu.
     private func showEndScreen() {
-        hideMultiplicationInterface()
-        endView.isHidden = false
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
-            self?.animalsScene.createRandomConfettis()
+        animalsScene.createRandomConfettis()
+        endView.show()
+    }
+    
+    private func hideInterface() {
+        showMultiplicationInterface(false)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) { [unowned self] in
+            showEndScreen()
         }
     }
     
-    private func hideMultiplicationInterface() {
-        UIView.animate(withDuration: 1, delay: 0, options: []) { [unowned self] in
+    private func showMultiplicationInterface(_ show: Bool = true) {
+        if show {
             multiplicationLabel.alpha = 0
-            questionNumberLabel.alpha = 0
-            for answerButton in collectionView.visibleCells where answerButton.viewWithTag(1) is AnswerButton {
-                answerButton.alpha = 0
-            }
-        } completion: { [unowned self] (finish) in
-            multiplicationLabel.isHidden = true
+            multiplicationLabel.isHidden = false
             questionNumberLabel.isHidden = false
             for answerButton in collectionView.visibleCells where answerButton.viewWithTag(1) is AnswerButton {
-                answerButton.isHidden = true
+                answerButton.isHidden = false
+            }
+        }
+        
+        UIView.animate(withDuration: 1, delay: 0, options: []) { [unowned self] in
+            multiplicationLabel.alpha = show ? 1.0 : 0
+            questionNumberLabel.alpha = show ? 1.0 : 0
+            for answerButton in collectionView.visibleCells where answerButton.viewWithTag(1) is AnswerButton {
+                answerButton.alpha = show ? 1.0 : 0
+            }
+        } completion: { [unowned self] (finish) in
+            if !show {
+                multiplicationLabel.isHidden = true
+                questionNumberLabel.isHidden = true
+                for answerButton in collectionView.visibleCells where answerButton.viewWithTag(1) is AnswerButton {
+                    answerButton.isHidden = true
+                }
             }
         }
 
@@ -220,12 +233,20 @@ extension MultiplicationViewController: UINavigationControllerDelegate {
 
 extension MultiplicationViewController: EndViewDelegate {
     func mainMenuButtonTapped() {
+        animalsScene.resetScene()
         navigationController?.popToRootViewController(animated: true)
     }
     
     func replayButtonTapped() {
-        fatalError("Replaying has not been implemented")
+        endView.show(false)
+        animalsScene.resetScene()
+        
+        currentQuestionNumber = 1
+        currentQuestionNumberOfWrongAnswer = 0
+        updateMultiplication()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) { [unowned self] in
+            showMultiplicationInterface()
+        }
     }
-    
-    
 }

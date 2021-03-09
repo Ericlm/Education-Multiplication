@@ -27,6 +27,7 @@ class MainMenuViewController: UIViewController {
     func addSKView() {
         let scene = CloudScene(size: view.frame.size)
         let skView = SKView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+        skView.isAsynchronous = false
         skView.tag = 1
         skView.presentScene(scene)
         navigationController?.view.insertSubview(skView, at: 0)
