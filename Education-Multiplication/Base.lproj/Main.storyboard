@@ -170,7 +170,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" text="Tables à réviser :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7D-MH-1rd">
-                                <rect key="frame" x="116.33333333333331" y="118" width="142.66666666666669" height="26"/>
+                                <rect key="frame" x="116.33333333333333" y="118" width="142.66666666666669" height="26"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -228,6 +228,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="1cU-u8-hoB"/>
                     <connections>
+                        <outlet property="playButton" destination="zmI-Lv-hBe" id="xXa-iz-7qW"/>
                         <outlet property="tableCollection" destination="ova-OY-P52" id="7cR-WW-O6p"/>
                     </connections>
                 </viewController>
@@ -292,7 +293,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre de réponses :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9g-yQ-CoZ">
-                                <rect key="frame" x="96" y="391.33333333333331" width="183.33333333333337" height="26"/>
+                                <rect key="frame" x="96.000000000000014" y="391.33333333333331" width="183.33333333333337" height="26"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -513,16 +514,16 @@
             <size key="intrinsicContentSize" width="331" height="65"/>
         </designable>
         <designable name="FQq-5N-TXP">
-            <size key="intrinsicContentSize" width="89" height="51"/>
+            <size key="intrinsicContentSize" width="60" height="38"/>
         </designable>
         <designable name="KvP-wn-rbi">
-            <size key="intrinsicContentSize" width="89" height="51"/>
+            <size key="intrinsicContentSize" width="60" height="38"/>
         </designable>
         <designable name="WH7-VK-pcr">
             <size key="intrinsicContentSize" width="188.66666666666666" height="39"/>
         </designable>
         <designable name="Yyh-GX-lDf">
-            <size key="intrinsicContentSize" width="225" height="51"/>
+            <size key="intrinsicContentSize" width="150" height="38"/>
         </designable>
         <designable name="oIB-TD-YpC">
             <size key="intrinsicContentSize" width="266" height="64"/>

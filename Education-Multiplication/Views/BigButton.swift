@@ -37,6 +37,16 @@ class BigButton: UIButton {
         }
     }
     
+    override var isEnabled: Bool {
+        didSet {
+            if !isEnabled {
+                backgroundColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.9)
+            } else {
+                backgroundColor = .systemBlue
+            }
+        }
+    }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()

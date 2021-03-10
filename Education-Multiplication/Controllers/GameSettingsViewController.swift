@@ -10,6 +10,7 @@ import SpriteKit
 
 class GameSettingsViewController: UIViewController {
     @IBOutlet var tableCollection: UICollectionView!
+    @IBOutlet var playButton: BigButton!
     
     private let numberOfCells = 12
     
@@ -23,6 +24,9 @@ class GameSettingsViewController: UIViewController {
         tableCollection.allowsMultipleSelection = true
         
         let selectedTables = Preferences.selectedFactors
+        if selectedTables.count == 0 {
+            playButton.isEnabled = false
+        }
         for index in 0..<numberOfCells where selectedTables.contains(index + 1) {
             let indexPath = IndexPath(item: index, section: 0)
             tableCollection.selectItem(at: indexPath, animated: false, scrollPosition: .top)
@@ -47,6 +51,7 @@ extension GameSettingsViewController: UICollectionViewDelegate {
             selectedNumbers.append(selectedFactor)
         }
         Preferences.selectedFactors = selectedNumbers
+        playButton.isEnabled = true
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -54,6 +59,9 @@ extension GameSettingsViewController: UICollectionViewDelegate {
         var selectedNumbers = Preferences.selectedFactors
         guard let index = selectedNumbers.firstIndex(of: selectedFactor) else { return }
         selectedNumbers.remove(at: index)
+        if selectedNumbers.count == 0 {
+            playButton.isEnabled = false
+        }
         Preferences.selectedFactors = selectedNumbers
     }
 }

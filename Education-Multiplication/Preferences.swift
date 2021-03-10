@@ -17,7 +17,7 @@ class Preferences {
     
     static var selectedFactors: [Int] {
         get {
-            return UserDefaults.standard.array(forKey: selectedFactorsKey) as? [Int] ?? Array(1...12)
+            return UserDefaults.standard.array(forKey: selectedFactorsKey) as? [Int] ?? []
         }
         
         set {
