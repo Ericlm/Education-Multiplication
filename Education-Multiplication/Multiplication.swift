@@ -74,8 +74,18 @@ struct Multiplication {
     
     /// Assign a value to the `hiddenIndex` property. This index is chose randomly inside the `operation` array.
     private mutating func createHiddenIndex() {
-        let range = 0..<operation.count
-        hiddenIndex = Int.random(in: range)
+        if selectedFactors.count == 1 {
+            let factorIndex = operation.firstIndex(of: selectedFactors.first!)
+            let range = 0..<operation.count
+            var randomIndex = Int.random(in: range)
+            while randomIndex == factorIndex {
+                randomIndex = Int.random(in: range)
+            }
+            hiddenIndex = randomIndex
+        } else {
+            let range = 0..<operation.count
+            hiddenIndex = Int.random(in: range)
+        }
     }
     
     /// Generates the `possibleAnswers` array given the current operation.
