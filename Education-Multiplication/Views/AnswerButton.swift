@@ -8,6 +8,16 @@
 import UIKit
 
 class AnswerButton: BigButton {
+    private var _isEnabled = true
+    override var isEnabled: Bool {
+        get {
+            return _isEnabled
+        }
+        set {
+            _isEnabled = newValue
+        }
+    }
+    
     /// The number to be displayed inside the button.
     var numberToDisplay: Int!
     
