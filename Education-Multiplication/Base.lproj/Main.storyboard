@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="b4Z-Gy-hVu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="b4Z-Gy-hVu">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -439,6 +439,25 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="320" id="qRM-hz-0UI"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0eI-Ri-3NW" customClass="SmallButton" customModule="Education_Multiplication" customModuleProvider="target">
+                                <rect key="frame" x="317" y="44" width="40" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="Lnh-4L-oBh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" image="xmark" catalog="system"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" systemColor="systemGray3Color"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="backToMainMenu:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vbQ-Rn-yrb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -446,12 +465,15 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="h7M-xb-Awk" secondAttribute="trailing" id="1Lk-aV-cc8"/>
                             <constraint firstItem="yvd-Nq-RXn" firstAttribute="top" secondItem="BVj-Z7-99L" secondAttribute="bottom" constant="150" id="4xb-8w-eTa"/>
                             <constraint firstItem="h7M-xb-Awk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5OI-3i-NHR"/>
+                            <constraint firstItem="0eI-Ri-3NW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="8T8-tK-34L"/>
                             <constraint firstItem="BVj-Z7-99L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8kn-gd-qXV"/>
                             <constraint firstItem="BVj-Z7-99L" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="J0d-er-GXb"/>
                             <constraint firstItem="h7M-xb-Awk" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="JWu-bx-QW7"/>
+                            <constraint firstItem="0eI-Ri-3NW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WH7-VK-pcr" secondAttribute="trailing" priority="750" constant="20" id="KtS-PV-kPD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yvd-Nq-RXn" secondAttribute="bottom" id="SWd-F2-jHb"/>
                             <constraint firstItem="Si8-fZ-Prv" firstAttribute="height" secondItem="h7M-xb-Awk" secondAttribute="height" multiplier="0.4" priority="750" id="Sp7-KE-pcY"/>
                             <constraint firstItem="WH7-VK-pcr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="StW-Ry-bLZ"/>
+                            <constraint firstItem="0eI-Ri-3NW" firstAttribute="height" secondItem="WH7-VK-pcr" secondAttribute="height" id="VLZ-8q-UnV"/>
                             <constraint firstItem="BVj-Z7-99L" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.5" id="XhP-gQ-x0f"/>
                             <constraint firstItem="Si8-fZ-Prv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bba-6a-vkR"/>
                             <constraint firstItem="yvd-Nq-RXn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cJt-yf-1dF"/>
@@ -462,6 +484,7 @@
                             <constraint firstItem="Si8-fZ-Prv" firstAttribute="width" secondItem="h7M-xb-Awk" secondAttribute="width" multiplier="0.9" id="p8f-mX-bAS"/>
                             <constraint firstAttribute="bottom" secondItem="h7M-xb-Awk" secondAttribute="bottom" id="uMH-8s-VdB"/>
                             <constraint firstItem="Si8-fZ-Prv" firstAttribute="width" secondItem="h7M-xb-Awk" secondAttribute="width" multiplier="0.55" id="uw4-38-fDu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0eI-Ri-3NW" secondAttribute="trailing" constant="18" id="vy3-tj-6Xv"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -480,6 +503,7 @@
                         <outlet property="animalsView" destination="h7M-xb-Awk" id="oFd-vM-Pai"/>
                         <outlet property="collectionView" destination="yvd-Nq-RXn" id="pX7-XB-HfG"/>
                         <outlet property="endView" destination="Si8-fZ-Prv" id="xME-33-m4e"/>
+                        <outlet property="mainMenuButton" destination="0eI-Ri-3NW" id="TFA-oc-30n"/>
                         <outlet property="multiplicationLabel" destination="BVj-Z7-99L" id="Gyi-v3-SQe"/>
                         <outlet property="questionNumberLabel" destination="WH7-VK-pcr" id="Edu-Pm-RRK"/>
                     </connections>
@@ -507,6 +531,9 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="0eI-Ri-3NW">
+            <size key="intrinsicContentSize" width="17.333333333333332" height="26"/>
+        </designable>
         <designable name="9Y9-dn-Iyq">
             <size key="intrinsicContentSize" width="120" height="64"/>
         </designable>
@@ -533,11 +560,15 @@
         </designable>
     </designables>
     <resources>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

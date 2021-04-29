@@ -14,6 +14,7 @@ class MultiplicationViewController: UIViewController {
     @IBOutlet var questionNumberLabel: BackgroundLabel!
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var endView: EndView!
+    @IBOutlet var mainMenuButton: SmallButton!
     
     /// Time for fade-in and fade-out animations for buttons and label.
     private let animationTime = 0.4
@@ -105,6 +106,11 @@ class MultiplicationViewController: UIViewController {
         }
     }
     
+    @IBAction func backToMainMenu(_ sender: Any) {
+        animalsScene.resetScene()
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
     private func showEndScreen() {
         if currentScore == maximumScore {
             animalsScene.createRandomConfettis()
@@ -125,6 +131,7 @@ class MultiplicationViewController: UIViewController {
             multiplicationLabel.alpha = 0
             multiplicationLabel.isHidden = false
             questionNumberLabel.isHidden = false
+            mainMenuButton.isHidden = false
             for answerButton in collectionView.visibleCells where answerButton.viewWithTag(1) is AnswerButton {
                 answerButton.isHidden = false
             }
@@ -133,6 +140,7 @@ class MultiplicationViewController: UIViewController {
         UIView.animate(withDuration: 1, delay: 0, options: []) { [unowned self] in
             multiplicationLabel.alpha = show ? 1.0 : 0
             questionNumberLabel.alpha = show ? 1.0 : 0
+            mainMenuButton.alpha = show ? 1.0 : 0
             for answerButton in collectionView.visibleCells where answerButton.viewWithTag(1) is AnswerButton {
                 answerButton.alpha = show ? 1.0 : 0
             }
@@ -140,6 +148,7 @@ class MultiplicationViewController: UIViewController {
             if !show {
                 multiplicationLabel.isHidden = true
                 questionNumberLabel.isHidden = true
+                mainMenuButton.isHidden = true
                 for answerButton in collectionView.visibleCells where answerButton.viewWithTag(1) is AnswerButton {
                     answerButton.isHidden = true
                 }

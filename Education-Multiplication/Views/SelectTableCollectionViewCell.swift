@@ -30,6 +30,7 @@ class SelectTableCollectionViewCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             contentView.backgroundColor = isSelected ? selectedColor : unselectedColor
+            layer.borderColor = isSelected ? UIColor.white.cgColor : UIColor.clear.cgColor
         }
     }
     
@@ -43,10 +44,16 @@ class SelectTableCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.backgroundColor = unselectedColor
+        
+        layer.borderWidth = 6
+        layer.borderColor = UIColor.clear.cgColor
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         contentView.backgroundColor = unselectedColor
+        
+        layer.borderWidth = 6
+        layer.borderColor = UIColor.clear.cgColor
     }
 }
